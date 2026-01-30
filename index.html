@@ -325,6 +325,9 @@
 <audio id="sndClick" preload="auto" src="sound/click.wav"></audio>
 <audio id="sndBack"  preload="auto" src="sound/click_back.wav"></audio>
 <audio id="sndNews"  preload="auto" src="sound/event_popup_01.wav"></audio>
+<audio id="sndHelicopter" preload="auto" src="sound/sounds/helicopter_start_01.wav"></audio>
+<audio id="sndBells" preload="auto" src="sound/sounds/bells_big_ben_normal_01.wav"></audio>
+
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
@@ -430,6 +433,8 @@ const tickerIconEl = document.getElementById("tickerIcon");
 /* ===================== STATE ===================== */
 // ...
 const sndNews  = document.getElementById("sndNews");
+const sndHelicopter = document.getElementById("sndHelicopter");
+const sndBells = document.getElementById("sndBells");
 
 const clubMarkers = new Map(); // ✅ KEEP this one
 
@@ -564,6 +569,7 @@ function updateTicker(label, title, link){
     const marker = clubMarkers.get(club.id);
     if (marker) {
       map.flyTo(marker.getLatLng(), 13, { duration: 0.6 });
+      sndHelicopter.play().catch(() => {});
 
 
       const iconEl = marker._icon;
@@ -988,6 +994,15 @@ async function init(){
 
 
 init();
+
+// === HOURLY BELLS ===
+function playHourlyBells() {
+  sndBells.play().catch(() => {});
+  setTimeout(playHourlyBells, 60 * 60 * 1000); // play again in 1 hour
+}
+
+setTimeout(playHourlyBells, 60 * 1000); // first play: 1 min after load
+
 </script>
 </body>
 </html>
