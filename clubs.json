@@ -1,0 +1,3889 @@
+[
+  {
+    "id": "arsenal",
+    "name": "Arsenal",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 51.55667,
+    "lon": -0.10611,
+    "ground": "Emirates Stadium",
+    "aliases": [
+      "arsenal"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Arsenal_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Emirates_Stadium",
+    "logo": "club_logos_by_league/PL/arsenal.png"
+  },
+  {
+    "id": "aston_villa",
+    "name": "Aston Villa",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 52.509167,
+    "lon": -1.884722,
+    "ground": "Villa Park",
+    "aliases": [
+      "aston villa"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Aston_Villa_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Villa_Park",
+    "logo": "club_logos_by_league/PL/aston_villa.png"
+  },
+  {
+    "id": "bournemouth",
+    "name": "Bournemouth",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 50.73528,
+    "lon": -1.83833,
+    "ground": "Dean Court",
+    "aliases": [
+      "bournemouth"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/AFC_Bournemouth",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Dean_Court",
+    "logo": "club_logos_by_league/PL/bournemouth.png"
+  },
+  {
+    "id": "brentford",
+    "name": "Brentford",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 51.49083,
+    "lon": -0.28861,
+    "ground": "Brentford Community Stadium",
+    "aliases": [
+      "brentford"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Brentford_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Brentford_Community_Stadium",
+    "logo": "club_logos_by_league/PL/brentford.png"
+  },
+  {
+    "id": "brighton_hove_albion",
+    "name": "Brighton & Hove Albion",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 50.861822,
+    "lon": -0.083278,
+    "ground": "Falmer Stadium",
+    "aliases": [
+      "brighton & hove albion",
+      "brighton and hove albion"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Brighton_%26_Hove_Albion_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Falmer_Stadium",
+    "logo": "club_logos_by_league/PL/brighton_hove_albion.png"
+  },
+  {
+    "id": "chelsea",
+    "name": "Chelsea",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 51.481667,
+    "lon": -0.191111,
+    "ground": "Stamford Bridge",
+    "aliases": [
+      "chelsea"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Chelsea_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Stamford_Bridge_(stadium)",
+    "logo": "club_logos_by_league/PL/chelsea.png"
+  },
+  {
+    "id": "crystal_palace",
+    "name": "Crystal Palace",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 51.39833,
+    "lon": -0.08556,
+    "ground": "Selhurst Park",
+    "aliases": [
+      "crystal palace"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Crystal_Palace_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Selhurst_Park",
+    "logo": "club_logos_by_league/PL/crystal_palace.png"
+  },
+  {
+    "id": "everton",
+    "name": "Everton",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 53.4251,
+    "lon": -3.0028,
+    "ground": "Hill Dickinson Stadium",
+    "aliases": [
+      "everton"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Everton_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Hill_Dickinson_Stadium",
+    "logo": "club_logos_by_league/PL/everton.png"
+  },
+  {
+    "id": "fulham",
+    "name": "Fulham",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 51.475,
+    "lon": -0.221667,
+    "ground": "Craven Cottage",
+    "aliases": [
+      "fulham"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Fulham_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Craven_Cottage",
+    "logo": "club_logos_by_league/PL/fulham.png"
+  },
+  {
+    "id": "ipswich_town",
+    "name": "Ipswich Town",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 52.055,
+    "lon": 1.14528,
+    "ground": "Portman Road",
+    "aliases": [
+      "ipswich town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Ipswich_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Portman_Road",
+    "logo": "club_logos_by_league/PL/ipswich_town.png"
+  },
+  {
+    "id": "leicester_city",
+    "name": "Leicester City",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 52.620278,
+    "lon": -1.142222,
+    "ground": "King Power Stadium",
+    "aliases": [
+      "leicester city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Leicester_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/King_Power_Stadium",
+    "logo": "club_logos_by_league/PL/leicester_city.png"
+  },
+  {
+    "id": "liverpool",
+    "name": "Liverpool",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 53.4308,
+    "lon": -2.9608,
+    "ground": "Anfield",
+    "aliases": [
+      "liverpool"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Liverpool_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Anfield",
+    "logo": "club_logos_by_league/PL/liverpool.png"
+  },
+  {
+    "id": "manchester_city",
+    "name": "Manchester City",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 53.483056,
+    "lon": -2.200278,
+    "ground": "City of Manchester Stadium",
+    "aliases": [
+      "manchester city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Manchester_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/City_of_Manchester_Stadium",
+    "logo": "club_logos_by_league/PL/manchester_city.png"
+  },
+  {
+    "id": "manchester_united",
+    "name": "Manchester United",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 53.463056,
+    "lon": -2.291389,
+    "ground": "Old Trafford",
+    "aliases": [
+      "manchester united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Manchester_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Old_Trafford",
+    "logo": "club_logos_by_league/PL/manchester_united.png"
+  },
+  {
+    "id": "newcastle_united",
+    "name": "Newcastle United",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 54.975556,
+    "lon": -1.621667,
+    "ground": "St James' Park",
+    "aliases": [
+      "newcastle united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Newcastle_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/St_James%27_Park",
+    "logo": "club_logos_by_league/PL/newcastle_united.png"
+  },
+  {
+    "id": "nottingham_forest",
+    "name": "Nottingham Forest",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 52.94,
+    "lon": -1.13278,
+    "ground": "City Ground",
+    "aliases": [
+      "nottingham forest"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Nottingham_Forest_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/City_Ground",
+    "logo": "club_logos_by_league/PL/nottingham_forest.png"
+  },
+  {
+    "id": "southampton",
+    "name": "Southampton",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 50.90583,
+    "lon": -1.39111,
+    "ground": "St Mary's Stadium",
+    "aliases": [
+      "southampton"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Southampton_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/St_Mary%27s_Stadium",
+    "logo": "club_logos_by_league/PL/southampton.png"
+  },
+  {
+    "id": "tottenham_hotspur",
+    "name": "Tottenham Hotspur",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 51.6044,
+    "lon": -0.0664,
+    "ground": "Tottenham Hotspur Stadium",
+    "aliases": [
+      "tottenham hotspur"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_Stadium",
+    "logo": "club_logos_by_league/PL/tottenham_hotspur.png"
+  },
+  {
+    "id": "west_ham_united",
+    "name": "West Ham United",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 51.5386,
+    "lon": -0.0164,
+    "ground": "London Stadium",
+    "aliases": [
+      "west ham united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/West_Ham_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/London_Stadium",
+    "logo": "club_logos_by_league/PL/west_ham_united.png"
+  },
+  {
+    "id": "wolverhampton_wanderers",
+    "name": "Wolverhampton Wanderers",
+    "country": "ENG",
+    "league": "FA Premier League",
+    "tier": 1,
+    "lat": 52.59028,
+    "lon": -2.13028,
+    "ground": "Molineux Stadium",
+    "aliases": [
+      "wolverhampton wanderers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Wolverhampton_Wanderers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Molineux_Stadium",
+    "logo": "club_logos_by_league/PL/wolverhampton_wanderers.png"
+  },
+  {
+    "id": "blackburn_rovers",
+    "name": "Blackburn Rovers",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 53.72861,
+    "lon": -2.48917,
+    "ground": "Ewood Park",
+    "aliases": [
+      "blackburn rovers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Blackburn_Rovers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Ewood_Park",
+    "logo": "club_logos_by_league/CH/blackburn_rovers.png"
+  },
+  {
+    "id": "bristol_city",
+    "name": "Bristol City",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 51.44,
+    "lon": -2.62028,
+    "ground": "Ashton Gate",
+    "aliases": [
+      "bristol city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bristol_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Ashton_Gate_(stadium)",
+    "logo": "club_logos_by_league/CH/bristol_city.png"
+  },
+  {
+    "id": "burnley",
+    "name": "Burnley",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 53.78917,
+    "lon": -2.23028,
+    "ground": "Turf Moor",
+    "aliases": [
+      "burnley"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Burnley_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Turf_Moor",
+    "logo": "club_logos_by_league/CH/burnley.png"
+  },
+  {
+    "id": "cardiff_city",
+    "name": "Cardiff City",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 51.47278,
+    "lon": -3.20306,
+    "ground": "Cardiff City Stadium",
+    "aliases": [
+      "cardiff city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Cardiff_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Cardiff_City_Stadium",
+    "logo": "club_logos_by_league/CH/cardiff_city.png"
+  },
+  {
+    "id": "coventry_city",
+    "name": "Coventry City",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 52.44806,
+    "lon": -1.49556,
+    "ground": "Coventry Building Society Arena",
+    "aliases": [
+      "coventry city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Coventry_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Coventry_Building_Society_Arena",
+    "logo": "club_logos_by_league/CH/coventry_city.png"
+  },
+  {
+    "id": "derby_county",
+    "name": "Derby County",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 52.915,
+    "lon": -1.447222,
+    "ground": "Pride Park Stadium",
+    "aliases": [
+      "derby county"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Derby_County_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Pride_Park_Stadium",
+    "logo": "club_logos_by_league/CH/derby_county.png"
+  },
+  {
+    "id": "hull_city",
+    "name": "Hull City",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 53.74611,
+    "lon": -0.36778,
+    "ground": "MKM Stadium",
+    "aliases": [
+      "hull city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Hull_City_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/MKM_Stadium",
+    "logo": "club_logos_by_league/CH/hull_city.png"
+  },
+  {
+    "id": "leeds_united",
+    "name": "Leeds United",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 53.77778,
+    "lon": -1.57222,
+    "ground": "Elland Road",
+    "aliases": [
+      "leeds united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Leeds_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Elland_Road",
+    "logo": "club_logos_by_league/CH/leeds_united.png"
+  },
+  {
+    "id": "luton_town",
+    "name": "Luton Town",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 51.88417,
+    "lon": -0.43167,
+    "ground": "Kenilworth Road",
+    "aliases": [
+      "luton town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Luton_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Kenilworth_Road",
+    "logo": "club_logos_by_league/CH/luton_town.png"
+  },
+  {
+    "id": "middlesbrough",
+    "name": "Middlesbrough",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 54.57833,
+    "lon": -1.21694,
+    "ground": "Riverside Stadium",
+    "aliases": [
+      "middlesbrough"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Middlesbrough_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Riverside_Stadium",
+    "logo": "club_logos_by_league/CH/middlesbrough.png"
+  },
+  {
+    "id": "millwall",
+    "name": "Millwall",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 51.48583,
+    "lon": -0.05083,
+    "ground": "The Den",
+    "aliases": [
+      "millwall"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Millwall_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Den",
+    "logo": "club_logos_by_league/CH/millwall.png"
+  },
+  {
+    "id": "norwich_city",
+    "name": "Norwich City",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 52.62222,
+    "lon": 1.30917,
+    "ground": "Carrow Road",
+    "aliases": [
+      "norwich city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Norwich_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Carrow_Road",
+    "logo": "club_logos_by_league/CH/norwich_city.png"
+  },
+  {
+    "id": "oxford_united",
+    "name": "Oxford United",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 51.71639,
+    "lon": -1.20806,
+    "ground": "Kassam Stadium",
+    "aliases": [
+      "oxford united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Oxford_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Kassam_Stadium",
+    "logo": "club_logos_by_league/CH/oxford_united.png"
+  },
+  {
+    "id": "plymouth_argyle",
+    "name": "Plymouth Argyle",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 50.38806,
+    "lon": -4.15083,
+    "ground": "Home Park",
+    "aliases": [
+      "plymouth argyle"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Plymouth_Argyle_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Home_Park",
+    "logo": "club_logos_by_league/CH/plymouth_argyle.png"
+  },
+  {
+    "id": "portsmouth",
+    "name": "Portsmouth",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 50.79639,
+    "lon": -1.06389,
+    "ground": "Fratton Park",
+    "aliases": [
+      "portsmouth"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Portsmouth_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Fratton_Park",
+    "logo": "club_logos_by_league/CH/portsmouth.png"
+  },
+  {
+    "id": "preston_north_end",
+    "name": "Preston North End",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 53.77222,
+    "lon": -2.68806,
+    "ground": "Deepdale",
+    "aliases": [
+      "preston north end"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Preston_North_End_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Deepdale",
+    "logo": "club_logos_by_league/CH/preston_north_end.png"
+  },
+  {
+    "id": "queens_park_rangers",
+    "name": "Queens Park Rangers",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 51.50917,
+    "lon": -0.23222,
+    "ground": "Loftus Road Stadium",
+    "aliases": [
+      "queens park rangers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Queens_Park_Rangers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Loftus_Road",
+    "logo": "club_logos_by_league/CH/queens_park_rangers.png"
+  },
+  {
+    "id": "sheffield_united",
+    "name": "Sheffield United",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 53.37028,
+    "lon": -1.47083,
+    "ground": "Bramall Lane",
+    "aliases": [
+      "sheffield united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Sheffield_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Bramall_Lane",
+    "logo": "club_logos_by_league/CH/sheffield_united.png"
+  },
+  {
+    "id": "sheffield_wednesday",
+    "name": "Sheffield Wednesday",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 53.41139,
+    "lon": -1.50056,
+    "ground": "Hillsborough Stadium",
+    "aliases": [
+      "sheffield wednesday"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Sheffield_Wednesday_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Hillsborough_Stadium",
+    "logo": "club_logos_by_league/CH/sheffield_wednesday.png"
+  },
+  {
+    "id": "stoke_city",
+    "name": "Stoke City",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 52.98833,
+    "lon": -2.17556,
+    "ground": "bet365 Stadium",
+    "aliases": [
+      "stoke city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Stoke_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Bet365_Stadium",
+    "logo": "club_logos_by_league/CH/stoke_city.png"
+  },
+  {
+    "id": "sunderland",
+    "name": "Sunderland",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 54.914429,
+    "lon": -1.388173,
+    "ground": "Stadium of Light",
+    "aliases": [
+      "sunderland"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Sunderland_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Stadium_of_Light",
+    "logo": "club_logos_by_league/CH/sunderland.png"
+  },
+  {
+    "id": "swansea_city",
+    "name": "Swansea City",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 51.6422,
+    "lon": -3.9351,
+    "ground": "Swansea.com Stadium",
+    "aliases": [
+      "swansea city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Swansea_City_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Swansea.com_Stadium",
+    "logo": "club_logos_by_league/CH/swansea_city.png"
+  },
+  {
+    "id": "watford",
+    "name": "Watford",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 51.64972,
+    "lon": -0.40139,
+    "ground": "Vicarage Road",
+    "aliases": [
+      "watford"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Watford_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Vicarage_Road",
+    "logo": "club_logos_by_league/CH/watford.png"
+  },
+  {
+    "id": "west_bromwich_albion",
+    "name": "West Bromwich Albion",
+    "country": "ENG",
+    "league": "Division One",
+    "tier": 2,
+    "lat": 52.50917,
+    "lon": -1.96389,
+    "ground": "The Hawthorns",
+    "aliases": [
+      "west bromwich albion"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/West_Bromwich_Albion_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Hawthorns",
+    "logo": "club_logos_by_league/CH/west_bromwich_albion.png"
+  },
+  {
+    "id": "barnsley",
+    "name": "Barnsley",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.55222,
+    "lon": -1.4675,
+    "ground": "Oakwell",
+    "aliases": [
+      "barnsley"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Barnsley_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Oakwell",
+    "logo": "club_logos_by_league/L1/barnsley.png"
+  },
+  {
+    "id": "birmingham_city",
+    "name": "Birmingham City",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 52.47583,
+    "lon": -1.86806,
+    "ground": "St Andrew's",
+    "aliases": [
+      "birmingham city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Birmingham_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/St_Andrew%27s_(stadium)",
+    "logo": "club_logos_by_league/L1/birmingham_city.png"
+  },
+  {
+    "id": "blackpool",
+    "name": "Blackpool",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.80472,
+    "lon": -3.04806,
+    "ground": "Bloomfield Road",
+    "aliases": [
+      "blackpool"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Blackpool_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Bloomfield_Road",
+    "logo": "club_logos_by_league/L1/blackpool.png"
+  },
+  {
+    "id": "bolton_wanderers",
+    "name": "Bolton Wanderers",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.580556,
+    "lon": -2.535556,
+    "ground": "Toughsheet Community Stadium",
+    "aliases": [
+      "bolton wanderers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bolton_Wanderers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Toughsheet_Community_Stadium",
+    "logo": "club_logos_by_league/L1/bolton_wanderers.png"
+  },
+  {
+    "id": "bristol_rovers",
+    "name": "Bristol Rovers",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 51.4862,
+    "lon": -2.5831,
+    "ground": "Memorial Stadium",
+    "aliases": [
+      "bristol rovers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bristol_Rovers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Memorial_Stadium_(Bristol)",
+    "logo": "club_logos_by_league/L1/bristol_rovers.png"
+  },
+  {
+    "id": "burton_albion",
+    "name": "Burton Albion",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 52.82194,
+    "lon": -1.62694,
+    "ground": "Pirelli Stadium",
+    "aliases": [
+      "burton albion"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Burton_Albion_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Pirelli_Stadium",
+    "logo": "club_logos_by_league/L1/burton_albion.png"
+  },
+  {
+    "id": "cambridge_united",
+    "name": "Cambridge United",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 52.2121,
+    "lon": 0.15415,
+    "ground": "Abbey Stadium",
+    "aliases": [
+      "cambridge united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Cambridge_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Abbey_Stadium",
+    "logo": "club_logos_by_league/L1/cambridge_united.png"
+  },
+  {
+    "id": "charlton_athletic",
+    "name": "Charlton Athletic",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 51.48639,
+    "lon": 0.03639,
+    "ground": "The Valley",
+    "aliases": [
+      "charlton athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Charlton_Athletic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Valley_(stadium)",
+    "logo": "club_logos_by_league/L1/charlton_athletic.png"
+  },
+  {
+    "id": "crawley_town",
+    "name": "Crawley Town",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 51.09972,
+    "lon": -0.19472,
+    "ground": "Broadfield Stadium",
+    "aliases": [
+      "crawley town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Crawley_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Broadfield_Stadium",
+    "logo": "club_logos_by_league/L1/crawley_town.png"
+  },
+  {
+    "id": "exeter_city",
+    "name": "Exeter City",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 50.73083,
+    "lon": -3.52111,
+    "ground": "St James Park",
+    "aliases": [
+      "exeter city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Exeter_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/St_James_Park_(Exeter)",
+    "logo": "club_logos_by_league/L1/exeter_city.png"
+  },
+  {
+    "id": "huddersfield_town",
+    "name": "Huddersfield Town",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.654167,
+    "lon": -1.768333,
+    "ground": "Accu Stadium",
+    "aliases": [
+      "huddersfield town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Huddersfield_Town_F.C",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Kirklees_Stadium",
+    "logo": "club_logos_by_league/L1/huddersfield_town.png"
+  },
+  {
+    "id": "leyton_orient",
+    "name": "Leyton Orient",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 51.56028,
+    "lon": -0.01278,
+    "ground": "Brisbane Road",
+    "aliases": [
+      "leyton orient"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Leyton_Orient_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Brisbane_Road",
+    "logo": "club_logos_by_league/L1/leyton_orient.png"
+  },
+  {
+    "id": "lincoln_city",
+    "name": "Lincoln City",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.21833,
+    "lon": -0.54083,
+    "ground": "Sincil Bank",
+    "aliases": [
+      "lincoln city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Lincoln_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Sincil_Bank",
+    "logo": "club_logos_by_league/L1/lincoln_city.png"
+  },
+  {
+    "id": "mansfield_town",
+    "name": "Mansfield Town",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.13806,
+    "lon": -1.20056,
+    "ground": "One Call Stadium",
+    "aliases": [
+      "mansfield town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Mansfield_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/One_Call_Stadium",
+    "logo": "club_logos_by_league/L1/mansfield_town.png"
+  },
+  {
+    "id": "northampton_town",
+    "name": "Northampton Town",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 52.23528,
+    "lon": -0.93333,
+    "ground": "Sixfields Stadium",
+    "aliases": [
+      "northampton town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Northampton_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Sixfields_Stadium",
+    "logo": "club_logos_by_league/L1/northampton_town.png"
+  },
+  {
+    "id": "peterborough_united",
+    "name": "Peterborough United",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 52.56472,
+    "lon": -0.24028,
+    "ground": "London Road",
+    "aliases": [
+      "peterborough united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Peterborough_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/London_Road_Stadium",
+    "logo": "club_logos_by_league/L1/peterborough_united.png"
+  },
+  {
+    "id": "reading",
+    "name": "Reading",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 51.42222,
+    "lon": -0.98278,
+    "ground": "Select Car Leasing Stadium",
+    "aliases": [
+      "reading"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Reading_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Select_Car_Leasing_Stadium",
+    "logo": "club_logos_by_league/L1/reading.png"
+  },
+  {
+    "id": "rotherham_united",
+    "name": "Rotherham United",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.4279,
+    "lon": -1.362,
+    "ground": "New York Stadium",
+    "aliases": [
+      "rotherham united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Rotherham_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/New_York_Stadium",
+    "logo": "club_logos_by_league/L1/rotherham_united.png"
+  },
+  {
+    "id": "shrewsbury_town",
+    "name": "Shrewsbury Town",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 52.6886,
+    "lon": -2.7493,
+    "ground": "New Meadow",
+    "aliases": [
+      "shrewsbury town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Shrewsbury_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/New_Meadow",
+    "logo": "club_logos_by_league/L1/shrewsbury_town.png"
+  },
+  {
+    "id": "stevenage",
+    "name": "Stevenage",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 51.889839,
+    "lon": -0.193608,
+    "ground": "Broadhall Way",
+    "aliases": [
+      "stevenage"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Stevenage_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Broadhall_Way",
+    "logo": "club_logos_by_league/L1/stevenage.png"
+  },
+  {
+    "id": "stockport_county",
+    "name": "Stockport County",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.39972,
+    "lon": -2.16639,
+    "ground": "Edgeley Park",
+    "aliases": [
+      "stockport county"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Stockport_County_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Edgeley_Park",
+    "logo": "club_logos_by_league/L1/stockport_county.png"
+  },
+  {
+    "id": "wigan_athletic",
+    "name": "Wigan Athletic",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.54778,
+    "lon": -2.65389,
+    "ground": "Brick Community Stadium",
+    "aliases": [
+      "wigan athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Wigan_Athletic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Brick_Community_Stadium",
+    "logo": "club_logos_by_league/L1/wigan_athletic.png"
+  },
+  {
+    "id": "wrexham",
+    "name": "Wrexham",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 53.05194,
+    "lon": -3.00361,
+    "ground": "Racecourse Ground",
+    "aliases": [
+      "wrexham"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Wrexham_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Racecourse_Ground",
+    "logo": "club_logos_by_league/L1/wrexham.png"
+  },
+  {
+    "id": "wycombe_wanderers",
+    "name": "Wycombe Wanderers",
+    "country": "ENG",
+    "league": "Division Two",
+    "tier": 3,
+    "lat": 51.63056,
+    "lon": -0.80028,
+    "ground": "Adams Park",
+    "aliases": [
+      "wycombe wanderers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Wycombe_Wanderers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Adams_Park",
+    "logo": "club_logos_by_league/L1/wycombe_wanderers.png"
+  },
+  {
+    "id": "afc_wimbledon",
+    "name": "AFC Wimbledon",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 51.43139,
+    "lon": -0.18667,
+    "ground": "Plough Lane",
+    "aliases": [
+      "afc wimbledon"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/AFC_Wimbledon",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Plough_Lane",
+    "logo": "club_logos_by_league/L2/afc_wimbledon.png"
+  },
+  {
+    "id": "accrington_stanley",
+    "name": "Accrington Stanley",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.76528,
+    "lon": -2.37083,
+    "ground": "Crown Ground",
+    "aliases": [
+      "accrington stanley"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Accrington_Stanley_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Crown_Ground",
+    "logo": "club_logos_by_league/L2/accrington_stanley.png"
+  },
+  {
+    "id": "barrow",
+    "name": "Barrow",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 54.12333,
+    "lon": -3.235,
+    "ground": "Holker Street",
+    "aliases": [
+      "barrow"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Barrow_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Holker_Street",
+    "logo": "club_logos_by_league/L2/barrow.png"
+  },
+  {
+    "id": "bradford_city",
+    "name": "Bradford City",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.80417,
+    "lon": -1.75889,
+    "ground": "Valley Parade",
+    "aliases": [
+      "bradford city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bradford_City_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Valley_Parade",
+    "logo": "club_logos_by_league/L2/bradford_city.png"
+  },
+  {
+    "id": "bromley",
+    "name": "Bromley",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 51.39,
+    "lon": 0.02111,
+    "ground": "Hayes Lane",
+    "aliases": [
+      "bromley"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bromley_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Hayes_Lane",
+    "logo": "club_logos_by_league/L2/bromley.png"
+  },
+  {
+    "id": "carlisle_united",
+    "name": "Carlisle United",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 54.8956,
+    "lon": -2.9137,
+    "ground": "Brunton Park",
+    "aliases": [
+      "carlisle united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Carlisle_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Brunton_Park",
+    "logo": "club_logos_by_league/L2/carlisle_united.png"
+  },
+  {
+    "id": "cheltenham_town",
+    "name": "Cheltenham Town",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 51.90611,
+    "lon": -2.06028,
+    "ground": "Whaddon Road",
+    "aliases": [
+      "cheltenham town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Cheltenham_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Whaddon_Road",
+    "logo": "club_logos_by_league/L2/cheltenham_town.png"
+  },
+  {
+    "id": "chesterfield",
+    "name": "Chesterfield",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.25361,
+    "lon": -1.42583,
+    "ground": "SMH Group Stadium",
+    "aliases": [
+      "chesterfield"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Chesterfield_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/SMH_Group_Stadium",
+    "logo": "club_logos_by_league/L2/chesterfield.png"
+  },
+  {
+    "id": "colchester_united",
+    "name": "Colchester United",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 51.923,
+    "lon": 0.897,
+    "ground": "Colchester Community Stadium",
+    "aliases": [
+      "colchester united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Colchester_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Colchester_Community_Stadium",
+    "logo": "club_logos_by_league/L2/colchester_united.png"
+  },
+  {
+    "id": "crewe_alexandra",
+    "name": "Crewe Alexandra",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.0875,
+    "lon": -2.43583,
+    "ground": "Gresty Road",
+    "aliases": [
+      "crewe alexandra"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Crewe_Alexandra_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Gresty_Road",
+    "logo": "club_logos_by_league/L2/crewe_alexandra.png"
+  },
+  {
+    "id": "doncaster_rovers",
+    "name": "Doncaster Rovers",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.50972,
+    "lon": -1.11389,
+    "ground": "Eco-Power Stadium",
+    "aliases": [
+      "doncaster rovers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Doncaster_Rovers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Eco-Power_Stadium",
+    "logo": "club_logos_by_league/L2/doncaster_rovers.png"
+  },
+  {
+    "id": "fleetwood_town",
+    "name": "Fleetwood Town",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.9165,
+    "lon": -3.0247,
+    "ground": "Highbury Stadium",
+    "aliases": [
+      "fleetwood town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Fleetwood_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Highbury_Stadium_(Fleetwood)",
+    "logo": "club_logos_by_league/L2/fleetwood_town.png"
+  },
+  {
+    "id": "gillingham",
+    "name": "Gillingham",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 51.38417,
+    "lon": 0.56083,
+    "ground": "Priestfield Stadium",
+    "aliases": [
+      "gillingham"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Gillingham_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Priestfield_Stadium",
+    "logo": "club_logos_by_league/L2/gillingham.png"
+  },
+  {
+    "id": "grimsby_town",
+    "name": "Grimsby Town",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.57028,
+    "lon": -0.04639,
+    "ground": "Blundell Park",
+    "aliases": [
+      "grimsby town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Grimsby_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Blundell_Park",
+    "logo": "club_logos_by_league/L2/grimsby_town.png"
+  },
+  {
+    "id": "harrogate_town",
+    "name": "Harrogate Town",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.99167,
+    "lon": -1.51444,
+    "ground": "Wetherby Road",
+    "aliases": [
+      "harrogate town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Harrogate_Town_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Wetherby_Road",
+    "logo": "club_logos_by_league/L2/harrogate_town.png"
+  },
+  {
+    "id": "milton_keynes_dons",
+    "name": "Milton Keynes Dons",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 52.00944,
+    "lon": -0.73333,
+    "ground": "Stadium MK",
+    "aliases": [
+      "milton keynes dons"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Milton_Keynes_Dons_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Stadium_MK",
+    "logo": "club_logos_by_league/L2/milton_keynes_dons.png"
+  },
+  {
+    "id": "morecambe",
+    "name": "Morecambe",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 54.0615,
+    "lon": -2.8672,
+    "ground": "Mazuma Mobile Stadium",
+    "aliases": [
+      "morecambe"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Morecambe_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Mazuma_Mobile_Stadium",
+    "logo": "club_logos_by_league/L2/morecambe.png"
+  },
+  {
+    "id": "newport_county",
+    "name": "Newport County",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 51.58833,
+    "lon": -2.98778,
+    "ground": "Rodney Parade",
+    "aliases": [
+      "newport county"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Newport_County_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Rodney_Parade",
+    "logo": "club_logos_by_league/L2/newport_county.png"
+  },
+  {
+    "id": "notts_county",
+    "name": "Notts County",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 52.9425,
+    "lon": -1.13722,
+    "ground": "Meadow Lane",
+    "aliases": [
+      "notts county"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Notts_County_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Meadow_Lane",
+    "logo": "club_logos_by_league/L2/notts_county.png"
+  },
+  {
+    "id": "port_vale",
+    "name": "Port Vale",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.04972,
+    "lon": -2.1925,
+    "ground": "Vale Park",
+    "aliases": [
+      "port vale"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Port_Vale_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Vale_Park",
+    "logo": "club_logos_by_league/L2/port_vale.png"
+  },
+  {
+    "id": "salford_city",
+    "name": "Salford City",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.51361,
+    "lon": -2.27667,
+    "ground": "Moor Lane",
+    "aliases": [
+      "salford city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Salford_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Moor_Lane",
+    "logo": "club_logos_by_league/L2/salford_city.png"
+  },
+  {
+    "id": "swindon_town",
+    "name": "Swindon Town",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 51.56444,
+    "lon": -1.77056,
+    "ground": "The County Ground",
+    "aliases": [
+      "swindon town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Swindon_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/County_Ground_(Swindon)",
+    "logo": "club_logos_by_league/L2/swindon_town.png"
+  },
+  {
+    "id": "tranmere_rovers",
+    "name": "Tranmere Rovers",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 53.37361,
+    "lon": -3.0325,
+    "ground": "Prenton Park",
+    "aliases": [
+      "tranmere rovers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Tranmere_Rovers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Prenton_Park",
+    "logo": "club_logos_by_league/L2/tranmere_rovers.png"
+  },
+  {
+    "id": "walsall",
+    "name": "Walsall",
+    "country": "ENG",
+    "league": "Division Three",
+    "tier": 4,
+    "lat": 52.5655,
+    "lon": -1.9909,
+    "ground": "Bescot Stadium",
+    "aliases": [
+      "walsall"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Walsall_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Bescot_Stadium",
+    "logo": "club_logos_by_league/L2/walsall.png"
+  },
+  {
+    "id": "afc_fylde",
+    "name": "AFC Fylde",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.7973,
+    "lon": -2.889,
+    "ground": "Mill Farm",
+    "aliases": [
+      "afc fylde"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/AFC_Fylde",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Mill_Farm_Sports_Village",
+    "logo": "club_logos_by_league/NL/afc_fylde.png"
+  },
+  {
+    "id": "aldershot_town",
+    "name": "Aldershot Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.24833,
+    "lon": -0.75472,
+    "ground": "Recreation Ground",
+    "aliases": [
+      "aldershot town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Aldershot_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Recreation_Ground_(Aldershot)",
+    "logo": "club_logos_by_league/NL/aldershot_town.png"
+  },
+  {
+    "id": "alfreton_town",
+    "name": "Alfreton Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.0945,
+    "lon": -1.3813,
+    "ground": "North Street",
+    "aliases": [
+      "alfreton town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Alfreton_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/North_Street_(stadium)",
+    "logo": "club_logos_by_league/NL/alfreton_town.png"
+  },
+  {
+    "id": "altrincham",
+    "name": "Altrincham",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.38333,
+    "lon": -2.33528,
+    "ground": "Moss Lane",
+    "aliases": [
+      "altrincham"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Altrincham_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Moss_Lane",
+    "logo": "club_logos_by_league/NL/altrincham.png"
+  },
+  {
+    "id": "aveley",
+    "name": "Aveley",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.50177,
+    "lon": 0.25339,
+    "ground": "Aveley",
+    "aliases": [
+      "aveley"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Aveley_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Aveley",
+    "logo": "club_logos_by_league/NL/aveley.png"
+  },
+  {
+    "id": "barnet",
+    "name": "Barnet",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.602599,
+    "lon": -0.291785,
+    "ground": "The Hive Stadium",
+    "aliases": [
+      "barnet"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Barnet_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Hive_Stadium",
+    "logo": "club_logos_by_league/NL/barnet.png"
+  },
+  {
+    "id": "bath_city",
+    "name": "Bath City",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.3788,
+    "lon": -2.395,
+    "ground": "Twerton Park",
+    "aliases": [
+      "bath city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bath_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Twerton_Park",
+    "logo": "club_logos_by_league/NL/bath_city.png"
+  },
+  {
+    "id": "boreham_wood",
+    "name": "Boreham Wood",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.6619,
+    "lon": -0.2721,
+    "ground": "Meadow Park",
+    "aliases": [
+      "boreham wood"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Boreham_Wood_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Meadow_Park_(Borehamwood)",
+    "logo": "club_logos_by_league/NL/boreham_wood.png"
+  },
+  {
+    "id": "boston_united",
+    "name": "Boston United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.956301,
+    "lon": -0.028609,
+    "ground": "Boston Community Stadium",
+    "aliases": [
+      "boston united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Boston_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Boston_Community_Stadium",
+    "logo": "club_logos_by_league/NL/boston_united.png"
+  },
+  {
+    "id": "brackley_town",
+    "name": "Brackley Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.032,
+    "lon": -1.147,
+    "ground": "Brackley",
+    "aliases": [
+      "brackley town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Brackley_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Brackley",
+    "logo": "club_logos_by_league/NL/brackley_town.png"
+  },
+  {
+    "id": "braintree_town",
+    "name": "Braintree Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.87528,
+    "lon": 0.57306,
+    "ground": "Cressing Road",
+    "aliases": [
+      "braintree town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Braintree_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Cressing_Road",
+    "logo": "club_logos_by_league/NL/braintree_town.png"
+  },
+  {
+    "id": "buxton",
+    "name": "Buxton",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.259,
+    "lon": -1.911,
+    "ground": "Buxton",
+    "aliases": [
+      "buxton"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Buxton_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Buxton",
+    "logo": "club_logos_by_league/NL/buxton.png"
+  },
+  {
+    "id": "chelmsford_city",
+    "name": "Chelmsford City",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.73,
+    "lon": 0.48,
+    "ground": "Chelmsford",
+    "aliases": [
+      "chelmsford city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Chelmsford_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Chelmsford",
+    "logo": "club_logos_by_league/NL/chelmsford_city.png"
+  },
+  {
+    "id": "chesham_united",
+    "name": "Chesham United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.712,
+    "lon": -0.612,
+    "ground": "Chesham",
+    "aliases": [
+      "chesham united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Chesham_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Chesham",
+    "logo": "club_logos_by_league/NL/chesham_united.png"
+  },
+  {
+    "id": "chester",
+    "name": "Chester",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.1892,
+    "lon": -2.9238,
+    "ground": "Deva Stadium",
+    "aliases": [
+      "chester"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Chester_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Deva_Stadium",
+    "logo": "club_logos_by_league/NL/chester.png"
+  },
+  {
+    "id": "chippenham_town",
+    "name": "Chippenham Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.459,
+    "lon": -2.116,
+    "ground": "Chippenham",
+    "aliases": [
+      "chippenham town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Chippenham_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Chippenham",
+    "logo": "club_logos_by_league/NL/chippenham_town.png"
+  },
+  {
+    "id": "chorley",
+    "name": "Chorley",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.64556,
+    "lon": -2.62917,
+    "ground": "Victory Park",
+    "aliases": [
+      "chorley"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Chorley_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Victory_Park_(Chorley)",
+    "logo": "club_logos_by_league/NL/chorley.png"
+  },
+  {
+    "id": "dagenham_redbridge",
+    "name": "Dagenham & Redbridge",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.54778,
+    "lon": 0.16,
+    "ground": "Victoria Road",
+    "aliases": [
+      "dagenham & redbridge",
+      "dagenham and redbridge"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dagenham_%26_Redbridge_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Victoria_Road,_Dagenham",
+    "logo": "club_logos_by_league/NL/dagenham_redbridge.png"
+  },
+  {
+    "id": "darlington",
+    "name": "Darlington",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 54.5096,
+    "lon": -1.5638,
+    "ground": "Blackwell Meadows",
+    "aliases": [
+      "darlington"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Darlington_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Blackwell_Meadows",
+    "logo": "club_logos_by_league/NL/darlington.png"
+  },
+  {
+    "id": "eastbourne_borough",
+    "name": "Eastbourne Borough",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 50.80417,
+    "lon": 0.32083,
+    "ground": "Priory Lane",
+    "aliases": [
+      "eastbourne borough"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Eastbourne_Borough_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Priory_Lane",
+    "logo": "club_logos_by_league/NL/eastbourne_borough.png"
+  },
+  {
+    "id": "eastleigh",
+    "name": "Eastleigh",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 50.95222,
+    "lon": -1.37167,
+    "ground": "Ten Acres",
+    "aliases": [
+      "eastleigh"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Eastleigh_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Ten_Acres",
+    "logo": "club_logos_by_league/NL/eastleigh.png"
+  },
+  {
+    "id": "ebbsfleet_united",
+    "name": "Ebbsfleet United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.44944,
+    "lon": 0.32222,
+    "ground": "Stonebridge Road",
+    "aliases": [
+      "ebbsfleet united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Ebbsfleet_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Stonebridge_Road",
+    "logo": "club_logos_by_league/NL/ebbsfleet_united.png"
+  },
+  {
+    "id": "enfield_town",
+    "name": "Enfield Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.65917,
+    "lon": -0.06389,
+    "ground": "Queen Elizabeth II Stadium",
+    "aliases": [
+      "enfield town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Enfield_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Queen_Elizabeth_II_Stadium_(Enfield)",
+    "logo": "club_logos_by_league/NL/enfield_town.png"
+  },
+  {
+    "id": "fc_halifax_town",
+    "name": "FC Halifax Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.71611,
+    "lon": -1.85917,
+    "ground": "The Shay",
+    "aliases": [
+      "fc halifax town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/FC_Halifax_Town",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Shay",
+    "logo": "club_logos_by_league/NL/fc_halifax_town.png"
+  },
+  {
+    "id": "farnborough",
+    "name": "Farnborough",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.31056,
+    "lon": -0.76222,
+    "ground": "Cherrywood Road",
+    "aliases": [
+      "farnborough"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Farnborough_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Cherrywood_Road",
+    "logo": "club_logos_by_league/NL/farnborough.png"
+  },
+  {
+    "id": "farsley_celtic",
+    "name": "Farsley Celtic",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.80972,
+    "lon": -1.66417,
+    "ground": "Throstle Nest",
+    "aliases": [
+      "farsley celtic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Farsley_Celtic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Throstle_Nest",
+    "logo": "club_logos_by_league/NL/farsley_celtic.png"
+  },
+  {
+    "id": "forest_green_rovers",
+    "name": "Forest Green Rovers",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.69889,
+    "lon": -2.23778,
+    "ground": "The New Lawn",
+    "aliases": [
+      "forest green rovers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Forest_Green_Rovers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_New_Lawn",
+    "logo": "club_logos_by_league/NL/forest_green_rovers.png"
+  },
+  {
+    "id": "gateshead",
+    "name": "Gateshead",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 54.96111,
+    "lon": -1.57972,
+    "ground": "Gateshead International Stadium",
+    "aliases": [
+      "gateshead"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Gateshead_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Gateshead_International_Stadium",
+    "logo": "club_logos_by_league/NL/gateshead.png"
+  },
+  {
+    "id": "hampton_richmond_borough",
+    "name": "Hampton & Richmond Borough",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.422,
+    "lon": -0.367,
+    "ground": "Hampton, London",
+    "aliases": [
+      "hampton & richmond borough",
+      "hampton and richmond borough"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Hampton_%26_Richmond_Borough_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Hampton,_London",
+    "logo": "club_logos_by_league/NL/hampton_richmond_borough.png"
+  },
+  {
+    "id": "hartlepool_united",
+    "name": "Hartlepool United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 54.68917,
+    "lon": -1.21278,
+    "ground": "Victoria Park",
+    "aliases": [
+      "hartlepool united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Hartlepool_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Victoria_Park_(Hartlepool)",
+    "logo": "club_logos_by_league/NL/hartlepool_united.png"
+  },
+  {
+    "id": "hemel_hempstead_town",
+    "name": "Hemel Hempstead Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.7526,
+    "lon": -0.4692,
+    "ground": "Hemel Hempstead",
+    "aliases": [
+      "hemel hempstead town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Hemel_Hempstead_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Hemel_Hempstead",
+    "logo": "club_logos_by_league/NL/hemel_hempstead_town.png"
+  },
+  {
+    "id": "hereford",
+    "name": "Hereford",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.06083,
+    "lon": -2.71778,
+    "ground": "Edgar Street",
+    "aliases": [
+      "hereford"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Hereford_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Edgar_Street",
+    "logo": "club_logos_by_league/NL/hereford.png"
+  },
+  {
+    "id": "hornchurch",
+    "name": "Hornchurch",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.55667,
+    "lon": 0.23833,
+    "ground": "Hornchurch Stadium",
+    "aliases": [
+      "hornchurch"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Hornchurch_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Hornchurch_Stadium",
+    "logo": "club_logos_by_league/NL/hornchurch.png"
+  },
+  {
+    "id": "kidderminster_harriers",
+    "name": "Kidderminster Harriers",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.38056,
+    "lon": -2.24278,
+    "ground": "Aggborough",
+    "aliases": [
+      "kidderminster harriers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Kidderminster_Harriers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Aggborough_Stadium",
+    "logo": "club_logos_by_league/NL/kidderminster_harriers.png"
+  },
+  {
+    "id": "kings_lynn_town",
+    "name": "King's Lynn Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.754,
+    "lon": 0.398,
+    "ground": "King's Lynn",
+    "aliases": [
+      "king's lynn town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/King%27s_Lynn_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/King%27s_Lynn",
+    "logo": "club_logos_by_league/NL/kings_lynn_town.png"
+  },
+  {
+    "id": "leamington",
+    "name": "Leamington",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.29194,
+    "lon": -1.53583,
+    "ground": "Leamington Spa",
+    "aliases": [
+      "leamington"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Leamington_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Leamington_Spa",
+    "logo": "club_logos_by_league/NL/leamington.png"
+  },
+  {
+    "id": "maidenhead_united",
+    "name": "Maidenhead United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.52,
+    "lon": -0.71806,
+    "ground": "York Road",
+    "aliases": [
+      "maidenhead united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Maidenhead_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/York_Road_(Maidenhead)",
+    "logo": "club_logos_by_league/NL/maidenhead_united.png"
+  },
+  {
+    "id": "maidstone_united",
+    "name": "Maidstone United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.28,
+    "lon": 0.51583,
+    "ground": "Gallagher Stadium",
+    "aliases": [
+      "maidstone united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Maidstone_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Gallagher_Stadium",
+    "logo": "club_logos_by_league/NL/maidstone_united.png"
+  },
+  {
+    "id": "marine",
+    "name": "Marine",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.4852,
+    "lon": -3.0336,
+    "ground": "Rossett Park",
+    "aliases": [
+      "marine"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Marine_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Rossett_Park",
+    "logo": "club_logos_by_league/NL/marine.png"
+  },
+  {
+    "id": "needham_market",
+    "name": "Needham Market",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.152,
+    "lon": 1.053,
+    "ground": "Needham Market",
+    "aliases": [
+      "needham market"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Needham_Market_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Needham_Market",
+    "logo": "club_logos_by_league/NL/needham_market.png"
+  },
+  {
+    "id": "oldham_athletic",
+    "name": "Oldham Athletic",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.55528,
+    "lon": -2.12861,
+    "ground": "Boundary Park",
+    "aliases": [
+      "oldham athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Oldham_Athletic_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Boundary_Park",
+    "logo": "club_logos_by_league/NL/oldham_athletic.png"
+  },
+  {
+    "id": "peterborough_sports",
+    "name": "Peterborough Sports",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.56611,
+    "lon": -0.23639,
+    "ground": "Peterborough",
+    "aliases": [
+      "peterborough sports"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Peterborough_Sports_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Peterborough",
+    "logo": "club_logos_by_league/NL/peterborough_sports.png"
+  },
+  {
+    "id": "radcliffe",
+    "name": "Radcliffe",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.567583,
+    "lon": -2.340706,
+    "ground": "Stainton Park",
+    "aliases": [
+      "radcliffe"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Radcliffe_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Stainton_Park",
+    "logo": "club_logos_by_league/NL/radcliffe.png"
+  },
+  {
+    "id": "rochdale",
+    "name": "Rochdale",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.62083,
+    "lon": -2.18,
+    "ground": "Spotland Stadium",
+    "aliases": [
+      "rochdale"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Rochdale_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Spotland_Stadium",
+    "logo": "club_logos_by_league/NL/rochdale.png"
+  },
+  {
+    "id": "rushall_olympic",
+    "name": "Rushall Olympic",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.60889,
+    "lon": -1.95917,
+    "ground": "Rushall",
+    "aliases": [
+      "rushall olympic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Rushall_Olympic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Rushall,_West_Midlands",
+    "logo": "club_logos_by_league/NL/rushall_olympic.png"
+  },
+  {
+    "id": "salisbury",
+    "name": "Salisbury",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.104339,
+    "lon": -1.785758,
+    "ground": "The Raymond McEnhill Stadium",
+    "aliases": [
+      "salisbury"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Salisbury_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Raymond_McEnhill_Stadium",
+    "logo": "club_logos_by_league/NL/salisbury.png"
+  },
+  {
+    "id": "scarborough_athletic",
+    "name": "Scarborough Athletic",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 54.26972,
+    "lon": -0.41361,
+    "ground": "Flamingo Land Stadium",
+    "aliases": [
+      "scarborough athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Scarborough_Athletic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Flamingo_Land_Stadium",
+    "logo": "club_logos_by_league/NL/scarborough_athletic.png"
+  },
+  {
+    "id": "scunthorpe_united",
+    "name": "Scunthorpe United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.58667,
+    "lon": -0.69528,
+    "ground": "Glanford Park",
+    "aliases": [
+      "scunthorpe united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Scunthorpe_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Glanford_Park",
+    "logo": "club_logos_by_league/NL/scunthorpe_united.png"
+  },
+  {
+    "id": "slough_town",
+    "name": "Slough Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.508392,
+    "lon": -0.588105,
+    "ground": "Slough",
+    "aliases": [
+      "slough town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Slough_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Slough",
+    "logo": "club_logos_by_league/NL/slough_town.png"
+  },
+  {
+    "id": "solihull_moors",
+    "name": "Solihull Moors",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.43889,
+    "lon": -1.75722,
+    "ground": "Damson Park",
+    "aliases": [
+      "solihull moors"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Solihull_Moors_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Damson_Park",
+    "logo": "club_logos_by_league/NL/solihull_moors.png"
+  },
+  {
+    "id": "south_shields",
+    "name": "South Shields",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 54.98139,
+    "lon": -1.49,
+    "ground": "Jarrow",
+    "aliases": [
+      "south shields"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/South_Shields_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Jarrow",
+    "logo": "club_logos_by_league/NL/south_shields.png"
+  },
+  {
+    "id": "southend_united",
+    "name": "Southend United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.54917,
+    "lon": 0.70167,
+    "ground": "Roots Hall",
+    "aliases": [
+      "southend united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Southend_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Roots_Hall",
+    "logo": "club_logos_by_league/NL/southend_united.png"
+  },
+  {
+    "id": "southport",
+    "name": "Southport",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.63806,
+    "lon": -2.97889,
+    "ground": "Haig Avenue",
+    "aliases": [
+      "southport"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Southport_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Haig_Avenue",
+    "logo": "club_logos_by_league/NL/southport.png"
+  },
+  {
+    "id": "spennymoor_town",
+    "name": "Spennymoor Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 54.7,
+    "lon": -1.59,
+    "ground": "Spennymoor",
+    "aliases": [
+      "spennymoor town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Spennymoor_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Spennymoor",
+    "logo": "club_logos_by_league/NL/spennymoor_town.png"
+  },
+  {
+    "id": "st_albans_city",
+    "name": "St Albans City",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.753,
+    "lon": -0.324,
+    "ground": "Clarence Park",
+    "aliases": [
+      "st albans city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/St_Albans_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Clarence_Park,_St_Albans",
+    "logo": "club_logos_by_league/NL/st_albans_city.png"
+  },
+  {
+    "id": "sutton_united",
+    "name": "Sutton United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.3675,
+    "lon": -0.20444,
+    "ground": "Gander Green Lane",
+    "aliases": [
+      "sutton united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Sutton_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Gander_Green_Lane",
+    "logo": "club_logos_by_league/NL/sutton_united.png"
+  },
+  {
+    "id": "tamworth",
+    "name": "Tamworth",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 52.62861,
+    "lon": -1.68889,
+    "ground": "The Lamb Ground",
+    "aliases": [
+      "tamworth"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Tamworth_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Lamb_Ground",
+    "logo": "club_logos_by_league/NL/tamworth.png"
+  },
+  {
+    "id": "tonbridge_angels",
+    "name": "Tonbridge Angels",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.2115,
+    "lon": 0.2691,
+    "ground": "Longmead Stadium",
+    "aliases": [
+      "tonbridge angels"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Tonbridge_Angels_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Longmead_Stadium",
+    "logo": "club_logos_by_league/NL/tonbridge_angels.png"
+  },
+  {
+    "id": "torquay_united",
+    "name": "Torquay United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 50.47639,
+    "lon": -3.52389,
+    "ground": "Plainmoor",
+    "aliases": [
+      "torquay united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Torquay_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Plainmoor",
+    "logo": "club_logos_by_league/NL/torquay_united.png"
+  },
+  {
+    "id": "truro_city",
+    "name": "Truro City",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 50.2634,
+    "lon": -5.1145,
+    "ground": "Threemilestone",
+    "aliases": [
+      "truro city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Truro_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Threemilestone",
+    "logo": "club_logos_by_league/NL/truro_city.png"
+  },
+  {
+    "id": "warrington_town",
+    "name": "Warrington Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.39,
+    "lon": -2.59,
+    "ground": "Warrington",
+    "aliases": [
+      "warrington town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Warrington_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Warrington",
+    "logo": "club_logos_by_league/NL/warrington_town.png"
+  },
+  {
+    "id": "wealdstone",
+    "name": "Wealdstone",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.5694,
+    "lon": -0.4166,
+    "ground": "Grosvenor Vale",
+    "aliases": [
+      "wealdstone"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Wealdstone_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Grosvenor_Vale",
+    "logo": "club_logos_by_league/NL/wealdstone.png"
+  },
+  {
+    "id": "welling_united",
+    "name": "Welling United",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.46028,
+    "lon": 0.11639,
+    "ground": "Park View Road",
+    "aliases": [
+      "welling united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Welling_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Park_View_Road",
+    "logo": "club_logos_by_league/NL/welling_united.png"
+  },
+  {
+    "id": "weymouth",
+    "name": "Weymouth",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 50.62,
+    "lon": -2.48528,
+    "ground": "Bob Lucas Stadium",
+    "aliases": [
+      "weymouth"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Weymouth_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Bob_Lucas_Stadium",
+    "logo": "club_logos_by_league/NL/weymouth.png"
+  },
+  {
+    "id": "woking",
+    "name": "Woking",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 51.306333,
+    "lon": -0.558811,
+    "ground": "Kingfield Stadium",
+    "aliases": [
+      "woking"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Woking_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Kingfield_Stadium",
+    "logo": "club_logos_by_league/NL/woking.png"
+  },
+  {
+    "id": "worthing",
+    "name": "Worthing",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 50.81472,
+    "lon": -0.37139,
+    "ground": "Worthing",
+    "aliases": [
+      "worthing"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Worthing_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Worthing",
+    "logo": "club_logos_by_league/NL/worthing.png"
+  },
+  {
+    "id": "yeovil_town",
+    "name": "Yeovil Town",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 50.95028,
+    "lon": -2.67389,
+    "ground": "Huish Park",
+    "aliases": [
+      "yeovil town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Yeovil_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Huish_Park",
+    "logo": "club_logos_by_league/NL/yeovil_town.png"
+  },
+  {
+    "id": "york_city",
+    "name": "York City",
+    "country": "ENG",
+    "league": "Football Conference",
+    "tier": 5,
+    "lat": 53.98472,
+    "lon": -1.05278,
+    "ground": "York Community Stadium",
+    "aliases": [
+      "york city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/York_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/York_Community_Stadium",
+    "logo": "club_logos_by_league/NL/york_city.png"
+  },
+  {
+    "id": "bohemians",
+    "name": "Bohemians",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 53.36167,
+    "lon": -6.275,
+    "ground": "Dalymount Park",
+    "aliases": [
+      "bohemians"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bohemian_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Dalymount_Park",
+    "logo": "club_logos_by_league/PD/bohemians.png"
+  },
+  {
+    "id": "derry_city",
+    "name": "Derry City",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 54.99056,
+    "lon": -7.33611,
+    "ground": "Brandywell Stadium",
+    "aliases": [
+      "derry city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Derry_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Brandywell_Stadium",
+    "logo": "club_logos_by_league/PD/derry_city.png"
+  },
+  {
+    "id": "drogheda_united",
+    "name": "Drogheda United",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 53.72333,
+    "lon": -6.35722,
+    "ground": "Sullivan & Lambe Park",
+    "aliases": [
+      "drogheda united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Drogheda_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/United_Park",
+    "logo": "club_logos_by_league/PD/drogheda_united.png"
+  },
+  {
+    "id": "dundalk",
+    "name": "Dundalk",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 54.0,
+    "lon": -6.4166,
+    "ground": "Oriel Park",
+    "aliases": [
+      "dundalk"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dundalk_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Oriel_Park",
+    "logo": "club_logos_by_league/PD/dundalk.png"
+  },
+  {
+    "id": "galway_united",
+    "name": "Galway United",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 53.28472,
+    "lon": -9.05639,
+    "ground": "Eamonn Deacy Park",
+    "aliases": [
+      "galway united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Galway_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Eamonn_Deacy_Park",
+    "logo": "club_logos_by_league/PD/galway_united.png"
+  },
+  {
+    "id": "shamrock_rovers",
+    "name": "Shamrock Rovers",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 53.28352,
+    "lon": -6.37371,
+    "ground": "Tallaght Stadium",
+    "aliases": [
+      "shamrock rovers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Shamrock_Rovers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Tallaght_Stadium",
+    "logo": "club_logos_by_league/PD/shamrock_rovers.png"
+  },
+  {
+    "id": "shelbourne",
+    "name": "Shelbourne",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 53.3675,
+    "lon": -6.25194,
+    "ground": "Tolka Park",
+    "aliases": [
+      "shelbourne"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Shelbourne_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Tolka_Park",
+    "logo": "club_logos_by_league/PD/shelbourne.png"
+  },
+  {
+    "id": "sligo_rovers",
+    "name": "Sligo Rovers",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 54.27,
+    "lon": -8.48722,
+    "ground": "The Showgrounds",
+    "aliases": [
+      "sligo rovers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Sligo_Rovers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Showgrounds,_Sligo",
+    "logo": "club_logos_by_league/PD/sligo_rovers.png"
+  },
+  {
+    "id": "st_patricks_athletic",
+    "name": "St Patrick's Athletic",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 53.34083,
+    "lon": -6.31667,
+    "ground": "Richmond Park",
+    "aliases": [
+      "st patrick's athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/St_Patrick%27s_Athletic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Richmond_Park_(football_ground)",
+    "logo": "club_logos_by_league/PD/st_patricks_athletic.png"
+  },
+  {
+    "id": "waterford",
+    "name": "Waterford",
+    "country": "IRL",
+    "league": "Irish Premier Division",
+    "tier": 1,
+    "lat": 52.246185,
+    "lon": -7.124692,
+    "ground": "Waterford RSC",
+    "aliases": [
+      "waterford"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Waterford_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Waterford_RSC",
+    "logo": "club_logos_by_league/PD/waterford.png"
+  },
+  {
+    "id": "athlone_town",
+    "name": "Athlone Town",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 53.4275,
+    "lon": -7.91917,
+    "ground": "Athlone Town Stadium",
+    "aliases": [
+      "athlone town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Athlone_Town_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Athlone_Town_Stadium",
+    "logo": "club_logos_by_league/FD/athlone_town.png"
+  },
+  {
+    "id": "bray_wanderers",
+    "name": "Bray Wanderers",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 53.20583,
+    "lon": -6.10278,
+    "ground": "Carlisle Grounds",
+    "aliases": [
+      "bray wanderers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bray_Wanderers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Carlisle_Grounds",
+    "logo": "club_logos_by_league/FD/bray_wanderers.png"
+  },
+  {
+    "id": "cobh_ramblers",
+    "name": "Cobh Ramblers",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 51.85194,
+    "lon": -8.30139,
+    "ground": "St Colman's Park",
+    "aliases": [
+      "cobh ramblers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Cobh_Ramblers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/St_Colman%27s_Park",
+    "logo": "club_logos_by_league/FD/cobh_ramblers.png"
+  },
+  {
+    "id": "cork_city",
+    "name": "Cork City",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 51.88556,
+    "lon": -8.46778,
+    "ground": "Turners Cross",
+    "aliases": [
+      "cork city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Cork_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Turners_Cross_(stadium)",
+    "logo": "club_logos_by_league/FD/cork_city.png"
+  },
+  {
+    "id": "finn_harps",
+    "name": "Finn Harps",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 54.798,
+    "lon": -7.7785,
+    "ground": "Finn Park",
+    "aliases": [
+      "finn harps"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Finn_Harps_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Finn_Park",
+    "logo": "club_logos_by_league/FD/finn_harps.png"
+  },
+  {
+    "id": "longford_town",
+    "name": "Longford Town",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 53.724,
+    "lon": -7.854,
+    "ground": "Strokestown Road",
+    "aliases": [
+      "longford town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Longford_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Strokestown_Road",
+    "logo": "club_logos_by_league/FD/longford_town.png"
+  },
+  {
+    "id": "treaty_united",
+    "name": "Treaty United",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 52.6603,
+    "lon": -8.6149,
+    "ground": "Markets Field",
+    "aliases": [
+      "treaty united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Treaty_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Markets_Field"
+  },
+  {
+    "id": "ucd",
+    "name": "UCD",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 53.31028,
+    "lon": -6.22806,
+    "ground": "UCD Bowl",
+    "aliases": [],
+    "wikipedia": "https://en.wikipedia.org/wiki/University_College_Dublin_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/UCD_Bowl",
+    "logo": "club_logos_by_league/FD/ucd.png"
+  },
+  {
+    "id": "wexford",
+    "name": "Wexford",
+    "country": "IRL",
+    "league": "Irish First Division",
+    "tier": 2,
+    "lat": 52.36556,
+    "lon": -6.51556,
+    "ground": "Ferrycarrig Park",
+    "aliases": [
+      "wexford"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Wexford_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Ferrycarrig_Park",
+    "logo": "club_logos_by_league/FD/wexford.png"
+  },
+  {
+    "id": "ballymena_united",
+    "name": "Ballymena United",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.8701,
+    "lon": -6.26507,
+    "ground": "Ballymena Showgrounds",
+    "aliases": [
+      "ballymena united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Ballymena_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Ballymena_Showgrounds",
+    "logo": "club_logos_by_league/NIP/ballymena_united.png"
+  },
+  {
+    "id": "carrick_rangers",
+    "name": "Carrick Rangers",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.71972,
+    "lon": -5.80028,
+    "ground": "Taylors Avenue",
+    "aliases": [
+      "carrick rangers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Carrick_Rangers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Taylors_Avenue",
+    "logo": "club_logos_by_league/NIP/carrick_rangers.png"
+  },
+  {
+    "id": "cliftonville",
+    "name": "Cliftonville",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.61944,
+    "lon": -5.94722,
+    "ground": "Solitude",
+    "aliases": [
+      "cliftonville"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Cliftonville_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Solitude_(football_ground)",
+    "logo": "club_logos_by_league/NIP/cliftonville.png"
+  },
+  {
+    "id": "coleraine",
+    "name": "Coleraine",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 55.13278,
+    "lon": -6.66028,
+    "ground": "The Showgrounds",
+    "aliases": [
+      "coleraine"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Coleraine_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Showgrounds_(Coleraine)",
+    "logo": "club_logos_by_league/NIP/coleraine.png"
+  },
+  {
+    "id": "crusaders",
+    "name": "Crusaders",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.62417,
+    "lon": -5.92194,
+    "ground": "Seaview",
+    "aliases": [
+      "crusaders"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Crusaders_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Seaview_(football_ground)",
+    "logo": "club_logos_by_league/NIP/crusaders.png"
+  },
+  {
+    "id": "dungannon_swifts",
+    "name": "Dungannon Swifts",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.4895,
+    "lon": -6.746,
+    "ground": "Stangmore Park",
+    "aliases": [
+      "dungannon swifts"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dungannon_Swifts_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Stangmore_Park",
+    "logo": "club_logos_by_league/NIP/dungannon_swifts.png"
+  },
+  {
+    "id": "glenavon",
+    "name": "Glenavon",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.45389,
+    "lon": -6.33639,
+    "ground": "Mourneview Park",
+    "aliases": [
+      "glenavon"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Glenavon_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Mourneview_Park",
+    "logo": "club_logos_by_league/NIP/glenavon.png"
+  },
+  {
+    "id": "glentoran",
+    "name": "Glentoran",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.602964,
+    "lon": -5.891319,
+    "ground": "The Oval",
+    "aliases": [
+      "glentoran"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Glentoran_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Oval_(Belfast)",
+    "logo": "club_logos_by_league/NIP/glentoran.png"
+  },
+  {
+    "id": "larne",
+    "name": "Larne",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.85,
+    "lon": -5.82694,
+    "ground": "Inver Park",
+    "aliases": [
+      "larne"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Larne_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Inver_Park",
+    "logo": "club_logos_by_league/NIP/larne.png"
+  },
+  {
+    "id": "linfield",
+    "name": "Linfield",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.5825,
+    "lon": -5.95528,
+    "ground": "Windsor Park",
+    "aliases": [
+      "linfield"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Linfield_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Windsor_Park",
+    "logo": "club_logos_by_league/NIP/linfield.png"
+  },
+  {
+    "id": "portadown",
+    "name": "Portadown",
+    "country": "NIR",
+    "league": "Northern Irish Premier Division",
+    "tier": 1,
+    "lat": 54.41306,
+    "lon": -6.45778,
+    "ground": "Shamrock Park",
+    "aliases": [
+      "portadown"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Portadown_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Shamrock_Park",
+    "logo": "club_logos_by_league/NIP/portadown.png"
+  },
+  {
+    "id": "aberdeen",
+    "name": "Aberdeen",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 57.15917,
+    "lon": -2.08889,
+    "ground": "Pittodrie Stadium",
+    "aliases": [
+      "aberdeen"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Aberdeen_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Pittodrie_Stadium",
+    "logo": "club_logos_by_league/SP/aberdeen.png"
+  },
+  {
+    "id": "celtic",
+    "name": "Celtic",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 55.84972,
+    "lon": -4.20556,
+    "ground": "Celtic Park",
+    "aliases": [
+      "celtic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Celtic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Celtic_Park",
+    "logo": "club_logos_by_league/SP/celtic.png"
+  },
+  {
+    "id": "dundee",
+    "name": "Dundee",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 56.47472,
+    "lon": -2.97361,
+    "ground": "Dens Park",
+    "aliases": [
+      "dundee"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dundee_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Dens_Park",
+    "logo": "club_logos_by_league/SP/dundee.png"
+  },
+  {
+    "id": "dundee_united",
+    "name": "Dundee United",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 56.47472,
+    "lon": -2.96889,
+    "ground": "Tannadice Park",
+    "aliases": [
+      "dundee united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dundee_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Tannadice_Park",
+    "logo": "club_logos_by_league/SP/dundee_united.png"
+  },
+  {
+    "id": "heart_of_midlothian",
+    "name": "Heart of Midlothian",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 55.93917,
+    "lon": -3.23222,
+    "ground": "Tynecastle Park",
+    "aliases": [
+      "heart of midlothian"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Heart_of_Midlothian_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Tynecastle_Park",
+    "logo": "club_logos_by_league/SP/heart_of_midlothian.png"
+  },
+  {
+    "id": "hibernian",
+    "name": "Hibernian",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 55.96167,
+    "lon": -3.16556,
+    "ground": "Easter Road",
+    "aliases": [
+      "hibernian"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Hibernian_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Easter_Road",
+    "logo": "club_logos_by_league/SP/hibernian.png"
+  },
+  {
+    "id": "kilmarnock",
+    "name": "Kilmarnock",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 55.60417,
+    "lon": -4.50806,
+    "ground": "Rugby Park",
+    "aliases": [
+      "kilmarnock"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Kilmarnock_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Rugby_Park",
+    "logo": "club_logos_by_league/SP/kilmarnock.png"
+  },
+  {
+    "id": "motherwell",
+    "name": "Motherwell",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 55.78,
+    "lon": -3.98,
+    "ground": "Fir Park",
+    "aliases": [
+      "motherwell"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Motherwell_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Fir_Park",
+    "logo": "club_logos_by_league/SP/motherwell.png"
+  },
+  {
+    "id": "rangers",
+    "name": "Rangers",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 55.85306,
+    "lon": -4.30917,
+    "ground": "Ibrox Stadium",
+    "aliases": [
+      "rangers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Rangers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Ibrox_Stadium",
+    "logo": "club_logos_by_league/SP/rangers.png"
+  },
+  {
+    "id": "ross_county",
+    "name": "Ross County",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 57.59583,
+    "lon": -4.41889,
+    "ground": "Victoria Park",
+    "aliases": [
+      "ross county"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Ross_County_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Victoria_Park,_Dingwall",
+    "logo": "club_logos_by_league/SP/ross_county.png"
+  },
+  {
+    "id": "st_johnstone",
+    "name": "St Johnstone",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 56.40972,
+    "lon": -3.47694,
+    "ground": "McDiarmid Park",
+    "aliases": [
+      "st johnstone"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/St_Johnstone_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/McDiarmid_Park",
+    "logo": "club_logos_by_league/SP/st_johnstone.png"
+  },
+  {
+    "id": "st_mirren",
+    "name": "St Mirren",
+    "country": "SCO",
+    "league": "Scottish Premier Division",
+    "tier": 1,
+    "lat": 55.85056,
+    "lon": -4.44389,
+    "ground": "St Mirren Park",
+    "aliases": [
+      "st mirren"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/St_Mirren_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/St_Mirren_Park",
+    "logo": "club_logos_by_league/SP/st_mirren.png"
+  },
+  {
+    "id": "airdrieonians",
+    "name": "Airdrieonians",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 55.85972,
+    "lon": -3.95972,
+    "ground": "Excelsior Stadium",
+    "aliases": [
+      "airdrieonians"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Airdrieonians_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Excelsior_Stadium",
+    "logo": "club_logos_by_league/SC/airdrieonians.png"
+  },
+  {
+    "id": "ayr_united",
+    "name": "Ayr United",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 55.46944,
+    "lon": -4.62,
+    "ground": "Somerset Park",
+    "aliases": [
+      "ayr united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Ayr_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Somerset_Park",
+    "logo": "club_logos_by_league/SC/ayr_united.png"
+  },
+  {
+    "id": "dunfermline_athletic",
+    "name": "Dunfermline Athletic",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 56.07528,
+    "lon": -3.44194,
+    "ground": "East End Park",
+    "aliases": [
+      "dunfermline athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dunfermline_Athletic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/East_End_Park",
+    "logo": "club_logos_by_league/SC/dunfermline_athletic.png"
+  },
+  {
+    "id": "falkirk",
+    "name": "Falkirk",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 56.00528,
+    "lon": -3.75278,
+    "ground": "Falkirk Stadium",
+    "aliases": [
+      "falkirk"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Falkirk_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Falkirk_Stadium",
+    "logo": "club_logos_by_league/SC/falkirk.png"
+  },
+  {
+    "id": "greenock_morton",
+    "name": "Greenock Morton",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 55.94139,
+    "lon": -4.72694,
+    "ground": "Cappielow Park",
+    "aliases": [
+      "greenock morton"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Greenock_Morton_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Cappielow",
+    "logo": "club_logos_by_league/SC/greenock_morton.png"
+  },
+  {
+    "id": "hamilton_academical",
+    "name": "Hamilton Academical",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 55.944775,
+    "lon": -4.037086,
+    "ground": "Broadwood Stadium",
+    "aliases": [
+      "hamilton academical"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Hamilton_Academical_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Broadwood_Stadium",
+    "logo": "club_logos_by_league/SC/hamilton_academical.png"
+  },
+  {
+    "id": "livingston",
+    "name": "Livingston",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 55.88583,
+    "lon": -3.52194,
+    "ground": "Almondvale Stadium",
+    "aliases": [
+      "livingston"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Livingston_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Almondvale_Stadium",
+    "logo": "club_logos_by_league/SC/livingston.png"
+  },
+  {
+    "id": "partick_thistle",
+    "name": "Partick Thistle",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 55.88139,
+    "lon": -4.26944,
+    "ground": "Firhill Stadium",
+    "aliases": [
+      "partick thistle"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Partick_Thistle_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Firhill_Stadium",
+    "logo": "club_logos_by_league/SC/partick_thistle.png"
+  },
+  {
+    "id": "queens_park",
+    "name": "Queen's Park",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 55.82556,
+    "lon": -4.25556,
+    "ground": "Lesser Hampden",
+    "aliases": [
+      "queen's park"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Queen%27s_Park_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Lesser_Hampden",
+    "logo": "club_logos_by_league/SC/queens_park.png"
+  },
+  {
+    "id": "raith_rovers",
+    "name": "Raith Rovers",
+    "country": "SCO",
+    "league": "Scottish First Division",
+    "tier": 2,
+    "lat": 56.09972,
+    "lon": -3.16833,
+    "ground": "Stark's Park",
+    "aliases": [
+      "raith rovers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Raith_Rovers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Stark%27s_Park",
+    "logo": "club_logos_by_league/SC/raith_rovers.png"
+  },
+  {
+    "id": "alloa_athletic",
+    "name": "Alloa Athletic",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 56.11667,
+    "lon": -3.77861,
+    "ground": "Recreation Park",
+    "aliases": [
+      "alloa athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Alloa_Athletic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Recreation_Park,_Alloa",
+    "logo": "club_logos_by_league/SL1/alloa_athletic.png"
+  },
+  {
+    "id": "annan_athletic",
+    "name": "Annan Athletic",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 54.99389,
+    "lon": -3.26167,
+    "ground": "Galabank",
+    "aliases": [
+      "annan athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Annan_Athletic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Galabank",
+    "logo": "club_logos_by_league/SL1/annan_athletic.png"
+  },
+  {
+    "id": "arbroath",
+    "name": "Arbroath",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 56.55222,
+    "lon": -2.59139,
+    "ground": "Gayfield Park",
+    "aliases": [
+      "arbroath"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Arbroath_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Gayfield_Park",
+    "logo": "club_logos_by_league/SL1/arbroath.png"
+  },
+  {
+    "id": "cove_rangers",
+    "name": "Cove Rangers",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 57.113,
+    "lon": -2.097,
+    "ground": "Balmoral Stadium",
+    "aliases": [
+      "cove rangers"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Cove_Rangers_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Balmoral_Stadium",
+    "logo": "club_logos_by_league/SL1/cove_rangers.png"
+  },
+  {
+    "id": "dumbarton",
+    "name": "Dumbarton",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 55.93833,
+    "lon": -4.56139,
+    "ground": "Dumbarton Football Stadium",
+    "aliases": [
+      "dumbarton"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dumbarton_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Dumbarton_Football_Stadium",
+    "logo": "club_logos_by_league/SL1/dumbarton.png"
+  },
+  {
+    "id": "inverness_caledonian_thistle",
+    "name": "Inverness Caledonian Thistle",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 57.49472,
+    "lon": -4.2175,
+    "ground": "Caledonian Stadium",
+    "aliases": [
+      "inverness caledonian thistle"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Inverness_Caledonian_Thistle_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Caledonian_Stadium",
+    "logo": "club_logos_by_league/SL1/inverness_caledonian_thistle.png"
+  },
+  {
+    "id": "kelty_hearts",
+    "name": "Kelty Hearts",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 56.133,
+    "lon": -3.38,
+    "ground": "Kelty",
+    "aliases": [
+      "kelty hearts"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Kelty_Hearts_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Kelty",
+    "logo": "club_logos_by_league/SL1/kelty_hearts.png"
+  },
+  {
+    "id": "montrose",
+    "name": "Montrose",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 56.71389,
+    "lon": -2.45889,
+    "ground": "Links Park",
+    "aliases": [
+      "montrose"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Montrose_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Links_Park",
+    "logo": "club_logos_by_league/SL1/montrose.png"
+  },
+  {
+    "id": "queen_of_the_south",
+    "name": "Queen of the South",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 55.07028,
+    "lon": -3.62472,
+    "ground": "Palmerston Park",
+    "aliases": [
+      "queen of the south"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Queen_of_the_South_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Palmerston_Park",
+    "logo": "club_logos_by_league/SL1/queen_of_the_south.png"
+  },
+  {
+    "id": "stenhousemuir",
+    "name": "Stenhousemuir",
+    "country": "SCO",
+    "league": "Scottish Second Division",
+    "tier": 3,
+    "lat": 56.02833,
+    "lon": -3.81472,
+    "ground": "Ochilview Park",
+    "aliases": [
+      "stenhousemuir"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Stenhousemuir_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Ochilview_Park",
+    "logo": "club_logos_by_league/SL1/stenhousemuir.png"
+  },
+  {
+    "id": "bonnyrigg_rose",
+    "name": "Bonnyrigg Rose",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 55.8747,
+    "lon": -3.1034,
+    "ground": "New Dundas Park",
+    "aliases": [
+      "bonnyrigg rose"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bonnyrigg_Rose_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/New_Dundas_Park",
+    "logo": "club_logos_by_league/SL2/bonnyrigg_rose.png"
+  },
+  {
+    "id": "clyde",
+    "name": "Clyde",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 55.78222,
+    "lon": -4.05861,
+    "ground": "New Douglas Park",
+    "aliases": [
+      "clyde"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Clyde_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/New_Douglas_Park",
+    "logo": "club_logos_by_league/SL2/clyde.png"
+  },
+  {
+    "id": "east_fife",
+    "name": "East Fife",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 56.18861,
+    "lon": -2.99889,
+    "ground": "Bayview Stadium",
+    "aliases": [
+      "east fife"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/East_Fife_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Bayview_Stadium",
+    "logo": "club_logos_by_league/SL2/east_fife.png"
+  },
+  {
+    "id": "edinburgh_city",
+    "name": "Edinburgh City",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 55.95694,
+    "lon": -3.15861,
+    "ground": "Meadowbank Stadium",
+    "aliases": [
+      "edinburgh city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Edinburgh_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Meadowbank_Stadium",
+    "logo": "club_logos_by_league/SL2/edinburgh_city.png"
+  },
+  {
+    "id": "elgin_city",
+    "name": "Elgin City",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 57.65194,
+    "lon": -3.32083,
+    "ground": "Borough Briggs",
+    "aliases": [
+      "elgin city"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Elgin_City_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Borough_Briggs",
+    "logo": "club_logos_by_league/SL2/elgin_city.png"
+  },
+  {
+    "id": "forfar_athletic",
+    "name": "Forfar Athletic",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 56.65222,
+    "lon": -2.885,
+    "ground": "Station Park",
+    "aliases": [
+      "forfar athletic"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Forfar_Athletic_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Station_Park,_Forfar",
+    "logo": "club_logos_by_league/SL2/forfar_athletic.png"
+  },
+  {
+    "id": "peterhead",
+    "name": "Peterhead",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 57.51167,
+    "lon": -1.79583,
+    "ground": "Balmoor",
+    "aliases": [
+      "peterhead"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Peterhead_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Balmoor_Stadium",
+    "logo": "club_logos_by_league/SL2/peterhead.png"
+  },
+  {
+    "id": "stirling_albion",
+    "name": "Stirling Albion",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 56.11889,
+    "lon": -3.91167,
+    "ground": "Forthbank Stadium",
+    "aliases": [
+      "stirling albion"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Stirling_Albion_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Forthbank_Stadium",
+    "logo": "club_logos_by_league/SL2/stirling_albion.png"
+  },
+  {
+    "id": "stranraer",
+    "name": "Stranraer",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 54.90222,
+    "lon": -5.0125,
+    "ground": "Stair Park",
+    "aliases": [
+      "stranraer"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Stranraer_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Stair_Park",
+    "logo": "club_logos_by_league/SL2/stranraer.png"
+  },
+  {
+    "id": "the_spartans",
+    "name": "The Spartans",
+    "country": "SCO",
+    "league": "Scottish Third Division",
+    "tier": 4,
+    "lat": 55.97167,
+    "lon": -3.23333,
+    "ground": "Ainslie Park",
+    "aliases": [
+      "the spartans"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/The_Spartans_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Ainslie_Park",
+    "logo": "club_logos_by_league/SL2/the_spartans.png"
+  },
+  {
+    "id": "aberystwyth_town",
+    "name": "Aberystwyth Town",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 52.410414,
+    "lon": -4.080744,
+    "ground": "Park Avenue, Aberystwyth",
+    "aliases": [
+      "aberystwyth town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Aberystwyth_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Park_Avenue,_Aberystwyth",
+    "logo": "club_logos_by_league/CP/aberystwyth_town.png"
+  },
+  {
+    "id": "bala_town",
+    "name": "Bala Town",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 52.91222,
+    "lon": -3.60139,
+    "ground": "Maes Tegid",
+    "aliases": [
+      "bala town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Bala_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Maes_Tegid",
+    "logo": "club_logos_by_league/CP/bala_town.png"
+  },
+  {
+    "id": "barry_town_united",
+    "name": "Barry Town United",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 51.41083,
+    "lon": -3.26528,
+    "ground": "Jenner Park",
+    "aliases": [
+      "barry town united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Barry_Town_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Jenner_Park_Stadium",
+    "logo": "club_logos_by_league/CP/barry_town_united.png"
+  },
+  {
+    "id": "briton_ferry_llansawel",
+    "name": "Briton Ferry Llansawel",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 51.637,
+    "lon": -3.821,
+    "ground": "Briton Ferry",
+    "aliases": [
+      "briton ferry llansawel"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Briton_Ferry_Llansawel_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Briton_Ferry"
+  },
+  {
+    "id": "caernarfon_town",
+    "name": "Caernarfon Town",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 53.13472,
+    "lon": -4.2675,
+    "ground": "The Oval",
+    "aliases": [
+      "caernarfon town"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Caernarfon_Town_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/The_Oval_(Caernarfon)",
+    "logo": "club_logos_by_league/CP/caernarfon_town.png"
+  },
+  {
+    "id": "connahs_quay_nomads",
+    "name": "Connah's Quay Nomads",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 53.249167,
+    "lon": -3.125778,
+    "ground": "Essity Stadium",
+    "aliases": [
+      "connah's quay nomads"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Connah%27s_Quay_Nomads_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Cae-y-Castell",
+    "logo": "club_logos_by_league/CP/connahs_quay_nomads.png"
+  },
+  {
+    "id": "flint_town_united",
+    "name": "Flint Town United",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 53.249167,
+    "lon": -3.125778,
+    "ground": "Essity Stadium",
+    "aliases": [
+      "flint town united"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Flint_Town_United_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Cae-y-Castell",
+    "logo": "club_logos_by_league/CP/flint_town_united.png"
+  },
+  {
+    "id": "haverfordwest_county",
+    "name": "Haverfordwest County",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 51.809,
+    "lon": -4.967,
+    "ground": "Bridge Meadow Stadium",
+    "aliases": [
+      "haverfordwest county"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Haverfordwest_County_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Bridge_Meadow_Stadium",
+    "logo": "club_logos_by_league/CP/haverfordwest_county.png"
+  },
+  {
+    "id": "newtown",
+    "name": "Newtown",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 52.51152,
+    "lon": -3.322876,
+    "ground": "Latham Park",
+    "aliases": [
+      "newtown"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Newtown_A.F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Latham_Park",
+    "logo": "club_logos_by_league/CP/newtown.png"
+  },
+  {
+    "id": "penybont",
+    "name": "Penybont",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 51.505,
+    "lon": -3.57722,
+    "ground": "Bridgend",
+    "aliases": [
+      "penybont"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/Penybont_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Bridgend",
+    "logo": "club_logos_by_league/CP/penybont.png"
+  },
+  {
+    "id": "the_new_saints",
+    "name": "The New Saints",
+    "country": "WAL",
+    "league": "League of Wales",
+    "tier": 1,
+    "lat": 52.875869,
+    "lon": -3.026306,
+    "ground": "Park Hall",
+    "aliases": [
+      "the new saints"
+    ],
+    "wikipedia": "https://en.wikipedia.org/wiki/The_New_Saints_F.C.",
+    "ground_wikipedia": "https://en.wikipedia.org/wiki/Park_Hall_(Oswestry)",
+    "logo": "club_logos_by_league/CP/the_new_saints.png"
+  }
+]

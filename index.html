@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UK Football Situation — Live</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<link href="https://fonts.cdnfonts.com/css/teletext" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#000;
+    --green:#00ff00;
+    --yellow:#ffff00;
+    --red:#ff0000;
+    --cyan:#00ffff;
+    --magenta:#ff00ff;
+    --white:#ffffff;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--green);
+    font-family: "Teletext","VT323", monospace;
+    font-size: 18px;
+  }
+
+  h1 {
+    margin: 10px;
+    color: var(--yellow);
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  #container {
+    display: flex;
+    height: calc(100vh - 124px);
+  }
+
+  #map { width: 70%; }
+
+  #sidebar {
+    width: 30%;
+    padding: 10px 12px;
+    border-left: 4px solid var(--green);
+    overflow-y: auto;
+  }
+
+  /* ===== DIRECTORY ===== */
+  .country-header,
+  .league-header {
+    cursor: pointer;
+    color: var(--yellow);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    padding: 4px 0;
+  }
+
+  .country-header .twisty,
+  .league-header .twisty{
+    width: 18px;
+    display:inline-block;
+    color: var(--cyan);
+  }
+
+  .country-header.active,
+  .league-header.active {
+    color: var(--red);
+  }
+
+  .league {
+    padding-left: 14px;
+    margin-bottom: 6px;
+  }
+
+  .club {
+    padding-left: 34px;
+    cursor: pointer;
+    color: var(--green);
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select:none;
+  }
+
+  .club .club-dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    flex: 0 0 auto;
+    opacity: 0.9;
+  }
+
+  .club.active {
+    color: var(--red);
+    animation: blink 1.2s steps(1) infinite;
+  }
+
+  .club.active .club-dot{
+    background: var(--red);
+  }
+
+  .club:hover { color: var(--white); }
+
+  .count {
+    color: var(--cyan);
+    margin-left: 6px;
+  }
+
+  .flag,
+  .league-crest {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    image-rendering: crisp-edges;
+  }
+
+  /* ===== CLUB VIEW ===== */
+  .club-view-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .club-name {
+    font-size: 22px;
+    color: var(--yellow);
+    margin: 0;
+  }
+
+  .back {
+    cursor: pointer;
+    color: var(--cyan);
+    margin-bottom: 10px;
+    user-select:none;
+  }
+  .back:hover{ color: var(--white); }
+
+  /* ===== FEED ITEMS ===== */
+  .rumour {
+    border-bottom: 1px dashed var(--green);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .rumour a {
+    color: var(--yellow);
+    text-decoration: none;
+  }
+
+  .rumour a:hover {
+    color: var(--red);
+    text-decoration: underline;
+  }
+
+  .time {
+    color: var(--cyan);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .source {
+    color: var(--magenta);
+  }
+
+  /* ===== TICKER ===== */
+  #ticker {
+    height: 88px;
+    border-top: 4px solid var(--green);
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    background: #000;
+  }
+
+  #ticker .scroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding-left: 100%;
+    animation: scroll 16s linear infinite;
+  }
+
+  #ticker a {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--yellow);
+    text-decoration: none;
+    font-size: 40px;        /* BIG ticker text */
+    letter-spacing: 2px;
+  }
+
+  #ticker a:hover { color: var(--red); }
+
+  .ticker-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    image-rendering: crisp-edges;
+    flex: 0 0 auto;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+  }
+
+  @keyframes blink {
+    50% { opacity: 0.35; }
+  }
+
+  .club-logo img{ image-rendering: crisp-edges; }
+
+  .hint{
+    color: var(--cyan);
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: 6px;
+  }
+</style>
+</head>
+
+<body>
+<h1>UK FOOTBALL TRANSFER SITUATION — LIVE</h1>
+
+<div id="container">
+  <div id="map"></div>
+  <div id="sidebar"></div>
+</div>
+
+<div id="ticker">
+  <div class="scroll" id="tickerScroll">
+    <a id="tickerLink" href="#" target="_blank" rel="noopener">
+      <img id="tickerIcon" class="ticker-icon" src="" alt="" style="display:none;">
+      <span id="tickerText">INITIALISING FOOTBALL DESK…</span>
+    </a>
+  </div>
+</div>
+
+<!-- Audio -->
+<audio id="sndClick" preload="auto" src="sound/click.wav"></audio>
+<audio id="sndBack"  preload="auto" src="sound/click_back.wav"></audio>
+<audio id="sndNews"  preload="auto" src="sound/event_popup_01.wav"></audio>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<script>
+/* ===================== CONFIG ===================== */
+const COUNTRY_NAMES = {
+  ENG: "England",
+  SCO: "Scotland",
+  WAL: "Wales",
+  NIR: "Northern Ireland",
+  IRL: "Republic of Ireland"
+};
+
+const LEAGUE_ORDER = {
+  "England": [
+    "FA Premier League",
+    "Football League First Division",
+    "Football League Second Division",
+    "Football League Third Division",
+    "Football Conference"
+  ],
+  "Scotland": [
+    "Scottish Premier Division",
+    "Scottish First Division",
+    "Scottish Second Division",
+    "Scottish Third Division"
+  ],
+  "Wales": [
+    "League of Wales"
+  ],
+  "Northern Ireland": [
+    "Irish League Premier Division"
+  ],
+  "Republic of Ireland": [
+    "League of Ireland Premier Division",
+    "League of Ireland First Division"
+  ]
+};
+
+const FEED_ICONS = {
+  "BBC": "ticker_icons/BBC.png",
+  "Sky": "ticker_icons/Sky.png",
+  "Guardian": "ticker_icons/Guardian.png",
+  "Football365": "ticker_icons/Football365.png",
+  "Goal": "ticker_icons/Goal.png",
+  "Romano": "ticker_icons/Romano.jpg"
+};
+
+/**
+ * Feeds:
+ * - Your originals
+ * - Romano (rss.app)
+ * - “FeedSpot noise pack” (starter set)
+ *
+ * If you want to go fully insane with sources:
+ * just keep adding ["Label","RSS_URL"] here.
+ */
+const FEEDS = [
+  ["BBC", "https://feeds.bbci.co.uk/sport/football/rss.xml"],
+  ["Sky", "https://www.skysports.com/rss/12040"],
+  ["Guardian", "https://www.theguardian.com/football/rss"],
+  ["Football365", "https://www.football365.com/rss"],
+  ["Goal", "https://www.goal.com/en/feeds/news?fmt=rss"],
+  ["Romano", "https://rss.app/feeds/Rbu1YfkhckMTuUZW.xml"],
+
+  // Noise pack
+  ["CaughtOffside", "https://caughtoffside.com/feed/"],
+  ["TEAMtalk", "https://www.teamtalk.com/feed"],
+  ["SportsLens", "https://sportslens.com/feed/"],
+  ["101GreatGoals", "https://www.101greatgoals.com/feed/"],
+  ["90min", "https://www.90min.com/posts.rss"],
+  ["SoccerNews", "https://www.soccernews.com/feed/"],
+  ["FootballFanCast", "https://www.footballfancast.com/feed/"],
+  ["FourFourTwo", "https://www.fourfourtwo.com/rss"],
+  ["The72", "https://the72.co.uk/feed/"],
+  ["HITC", "https://www.hitc.com/en-gb/category/football/feed/"],
+  ["FootballTalk", "https://football-talk.co.uk/feed/"],
+  ["MetroFootball", "https://metro.co.uk/tag/football/feed/"],
+  ["EveningStandardFootball", "https://www.standard.co.uk/sport/football/rss"],
+  ["IndependentFootball", "https://www.independent.co.uk/sport/football/rss"],
+  ["iNewsFootball", "https://inews.co.uk/sport/football/feed"],
+  ["DailyMailFootball", "https://www.dailymail.co.uk/sport/football/index.rss"],
+  ["MirrorFootball", "https://www.mirror.co.uk/sport/football/rss.xml"],
+  ["ThisIsAnfield", "https://www.thisisanfield.com/feed/"],
+  ["RedditSoccer", "https://www.reddit.com/r/soccer/.rss"]
+];
+
+const POLL_EVERY_MS = 25000;
+const FEEDS_PER_TICK = 8;          // rotate through feeds to avoid rate limits
+const MAX_ITEMS_PER_FEED = 10;
+const MAX_RUMOURS_PER_CLUB = 25;
+const AUTO_BACK_TIMEOUT_MS = 30000;
+
+const CLUB_ICON_SIZE = 84;
+
+/* ===================== STATE ===================== */
+const sidebar = document.getElementById("sidebar");
+const tickerTextEl = document.getElementById("tickerText");
+const tickerLinkEl = document.getElementById("tickerLink");
+const tickerIconEl = document.getElementById("tickerIcon");
+
+const sndClick = document.getElementById("sndClick");
+const sndBack  = document.getElementById("sndBack");
+const sndNews  = document.getElementById("sndNews");
+
+let clubs = [];
+let rumoursByClub = new Map();
+let seenKeys = new Set();
+let unreadCounts = {};
+
+let openCountries = new Set();
+let openLeagues = new Set();
+let userClosedCountries = new Set();
+let userClosedLeagues = new Set();
+
+let viewClubId = null;
+let viewTimeout = null;
+
+let feedIndex = 0;
+
+/* ===================== MAP ===================== */
+const map = L.map("map").setView([53, -2.5], 6);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "© OpenStreetMap"
+}).addTo(map);
+
+const cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 45 });
+
+function clubIcon(club){
+  if(!club.logo) return null;
+  return L.icon({
+    iconUrl: club.logo,
+    iconSize: [CLUB_ICON_SIZE, CLUB_ICON_SIZE],
+    iconAnchor: [CLUB_ICON_SIZE/2, CLUB_ICON_SIZE/2],
+    className: "club-logo"
+  });
+}
+
+function drawMap(){
+  cluster.clearLayers();
+  clubs.forEach(c => {
+    const icon = clubIcon(c);
+    const marker = icon
+      ? L.marker([c.lat, c.lon], { icon })
+      : L.circleMarker([c.lat, c.lon], { radius: 5, color: "#00ff00", fillColor:"#00ff00", fillOpacity:0.8 });
+
+    marker.on("click", () => showClub(c, true));
+    cluster.addLayer(marker);
+  });
+  map.addLayer(cluster);
+}
+
+/* ===================== UTIL ===================== */
+function safePlay(audioEl){
+  if(!audioEl) return;
+  try{
+    audioEl.currentTime = 0;
+    audioEl.play().catch(()=>{});
+  }catch{}
+}
+
+function decodeHTMLEntities(text){
+  const txt = document.createElement("textarea");
+  txt.innerHTML = text || "";
+  return txt.value;
+}
+
+function escapeRegex(s){
+  return (s || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function normaliseKey(str){
+  return (str || "").trim().toLowerCase();
+}
+
+function makeSeenKey(source, title, link){
+  return `${source}||${normaliseKey(title)}||${normaliseKey(link)}`;
+}
+
+function leagueKey(countryName, leagueName){
+  return `${countryName}|||${leagueName}`;
+}
+
+/* ===================== MATCHING ===================== */
+/* Title-only matching (prevents cookie banner garbage). */
+function matchClubByTitle(title){
+  const t = (title || "").toLowerCase();
+  return clubs.find(c =>
+    (c.aliases || []).some(a => {
+      const k = (a || "").toLowerCase();
+      if(!k) return false;
+      if(k.length <= 2) return new RegExp(`\\b${escapeRegex(k)}\\b`, "i").test(t);
+      return t.includes(k);
+    })
+  );
+}
+
+/* ===================== TICKER ===================== */
+function updateTicker(label, title, link){
+  const cleanTitle = decodeHTMLEntities(title);
+  tickerTextEl.textContent = `${label.toUpperCase()}: ${cleanTitle}`;
+
+  // clickable to link (Option A)
+  tickerLinkEl.href = link || "#";
+
+  const icon = FEED_ICONS[label];
+  if(icon){
+    tickerIconEl.src = icon;
+    tickerIconEl.style.display = "";
+    tickerIconEl.onerror = () => { tickerIconEl.style.display = "none"; };
+  }else{
+    tickerIconEl.style.display = "none";
+  }
+}
+
+/* ===================== SIDEBAR RENDER ===================== */
+function buildTree(){
+  const tree = {};
+  clubs.forEach(c => {
+    const country = COUNTRY_NAMES[c.country] || c.country || "UNKNOWN";
+    const league = c.league || "UNKNOWN";
+    if(!tree[country]) tree[country] = {};
+    if(!tree[country][league]) tree[country][league] = [];
+    tree[country][league].push(c);
+  });
+
+  for(const country of Object.keys(tree)){
+    for(const league of Object.keys(tree[country])){
+      tree[country][league].sort((a,b)=>a.name.localeCompare(b.name));
+    }
+  }
+  return tree;
+}
+
+function renderDirectory(){
+  viewClubId = null;
+  clearTimeout(viewTimeout);
+
+  const tree = buildTree();
+  sidebar.innerHTML = "";
+
+  const preferredCountries = ["England","Scotland","Wales","Northern Ireland","Republic of Ireland"];
+  const countries = [
+    ...preferredCountries.filter(c => tree[c]),
+    ...Object.keys(tree).filter(c => !preferredCountries.includes(c)).sort()
+  ];
+
+  countries.forEach(country => {
+    const countryBlock = document.createElement("div");
+
+    const cHeader = document.createElement("div");
+    cHeader.className = "country-header";
+    const cOpen = openCountries.has(country);
+    cHeader.innerHTML = `
+      <img class="flag" src="flags/${country.slice(0,3).toUpperCase()}.png" onerror="this.style.display='none'">
+      <span class="twisty">${cOpen ? "▼" : "▶"}</span>
+      <span>${country}</span>
+    `;
+
+    const leaguesDiv = document.createElement("div");
+    leaguesDiv.style.display = cOpen ? "block" : "none";
+
+    cHeader.addEventListener("click", () => {
+      if(openCountries.has(country)){
+        openCountries.delete(country);
+        userClosedCountries.add(country);
+      } else {
+        openCountries.add(country);
+        userClosedCountries.delete(country);
+      }
+      renderDirectory();
+      safePlay(sndClick);
+    });
+
+    const order = LEAGUE_ORDER[country] || Object.keys(tree[country]).sort();
+    order.forEach(league => {
+      if(!tree[country][league]) return;
+
+      const lKey = leagueKey(country, league);
+      const lOpen = openLeagues.has(lKey);
+
+      const lBlock = document.createElement("div");
+      lBlock.className = "league";
+
+      const lHeader = document.createElement("div");
+      lHeader.className = "league-header";
+      lHeader.innerHTML = `
+        <img class="league-crest" src="league_crests/${league.replace(/\s+/g,"_")}.png" onerror="this.style.display='none'">
+        <span class="twisty">${lOpen ? "▼" : "▶"}</span>
+        <span>${league}</span>
+      `;
+
+      const clubsDiv = document.createElement("div");
+      clubsDiv.style.display = lOpen ? "block" : "none";
+
+      lHeader.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if(openLeagues.has(lKey)){
+          openLeagues.delete(lKey);
+          userClosedLeagues.add(lKey);
+        } else {
+          openLeagues.add(lKey);
+          userClosedLeagues.delete(lKey);
+        }
+        renderDirectory();
+        safePlay(sndClick);
+      });
+
+      let leagueHasUnread = false;
+
+      tree[country][league].forEach(club => {
+        const row = document.createElement("div");
+        row.className = "club";
+        row.id = `club-${club.id}`;
+
+        const dot = document.createElement("span");
+        dot.className = "club-dot";
+
+        const label = document.createElement("span");
+        label.textContent = club.name;
+
+        row.appendChild(dot);
+        row.appendChild(label);
+
+        const u = unreadCounts[club.id] || 0;
+        if(u > 0){
+          leagueHasUnread = true;
+          row.classList.add("active");
+          const count = document.createElement("span");
+          count.className = "count";
+          count.textContent = `(${u})`;
+          row.appendChild(count);
+        }
+
+        row.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showClub(club, true);
+        });
+
+        clubsDiv.appendChild(row);
+      });
+
+      if(leagueHasUnread){
+        lHeader.classList.add("active");
+        cHeader.classList.add("active");
+      }
+
+      lBlock.appendChild(lHeader);
+      lBlock.appendChild(clubsDiv);
+      leaguesDiv.appendChild(lBlock);
+    });
+
+    countryBlock.appendChild(cHeader);
+    countryBlock.appendChild(leaguesDiv);
+    sidebar.appendChild(countryBlock);
+  });
+
+  sidebar.insertAdjacentHTML("beforeend", `<div class="hint">TIP: Click a club to view latest items. Unread clubs blink red.</div>`);
+}
+
+function showClub(club, playSound){
+  viewClubId = club.id;
+  clearTimeout(viewTimeout);
+
+  if(playSound) safePlay(sndClick);
+  unreadCounts[club.id] = 0;
+
+  sidebar.innerHTML = "";
+
+  const back = document.createElement("div");
+  back.className = "back";
+  back.textContent = "◀ BACK";
+  back.addEventListener("click", () => {
+    safePlay(sndBack);
+    renderDirectory();
+  });
+
+  const titleWrap = document.createElement("div");
+  titleWrap.className = "club-view-header";
+
+  const name = document.createElement("div");
+  name.className = "club-name";
+  name.textContent = club.name;
+
+  titleWrap.appendChild(name);
+
+  sidebar.appendChild(back);
+  sidebar.appendChild(titleWrap);
+
+  const items = (rumoursByClub.get(club.id) || []).slice(0, 20);
+  if(items.length === 0){
+    sidebar.insertAdjacentText("beforeend", "NO ACTIVE STORIES");
+  } else {
+    for(const r of items){
+      const card = document.createElement("div");
+      card.className = "rumour";
+
+      const a = document.createElement("a");
+      a.href = r.link;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = r.title;
+
+      const meta = document.createElement("div");
+      meta.className = "time";
+      meta.innerHTML = `${r.time} — <span class="source">${r.source}</span>`;
+
+      card.appendChild(a);
+      card.appendChild(meta);
+      sidebar.appendChild(card);
+    }
+  }
+
+  viewTimeout = setTimeout(() => {
+    if(viewClubId === club.id) renderDirectory();
+  }, AUTO_BACK_TIMEOUT_MS);
+}
+
+/* ===================== NEWS INGEST ===================== */
+function addRumour(clubId, rumour){
+  const arr = rumoursByClub.get(clubId) || [];
+  arr.unshift(rumour);
+  if(arr.length > MAX_RUMOURS_PER_CLUB) arr.length = MAX_RUMOURS_PER_CLUB;
+  rumoursByClub.set(clubId, arr);
+}
+
+function autoOpenPathForClub(club){
+  const country = COUNTRY_NAMES[club.country] || club.country || "UNKNOWN";
+  const league = club.league || "UNKNOWN";
+  const lk = leagueKey(country, league);
+
+  if(!userClosedCountries.has(country)) openCountries.add(country);
+  if(!userClosedLeagues.has(lk)) openLeagues.add(lk);
+}
+
+/* ===================== POLLING ===================== */
+async function fetchFeed(label, url){
+  const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`;
+  const res = await fetch(api);
+  if(!res.ok) return null;
+  const data = await res.json();
+  return data && data.items ? data.items : [];
+}
+
+async function pollTick(){
+  if(FEEDS.length === 0) return;
+
+  const batch = [];
+  for(let i=0; i<FEEDS_PER_TICK; i++){
+    const idx = (feedIndex + i) % FEEDS.length;
+    batch.push(FEEDS[idx]);
+  }
+  feedIndex = (feedIndex + FEEDS_PER_TICK) % FEEDS.length;
+
+  let anyNew = false;
+
+  for(const [label, url] of batch){
+    try{
+      const items = await fetchFeed(label, url);
+      const sliced = items.slice(0, MAX_ITEMS_PER_FEED);
+
+      for(const item of sliced){
+        const rawTitle = item.title || "";
+        const link = item.link || "";
+        const key = makeSeenKey(label, rawTitle, link);
+        if(seenKeys.has(key)) continue;
+
+        // Mark seen early to reduce repeats
+        seenKeys.add(key);
+
+        // MATCH club on TITLE ONLY
+        const club = matchClubByTitle(decodeHTMLEntities(rawTitle));
+        if(!club) continue;
+
+        const cleanTitle = decodeHTMLEntities(rawTitle);
+
+        // Store rumour
+        addRumour(club.id, {
+          title: cleanTitle,
+          link: link,
+          time: item.pubDate || "RSS",
+          source: label
+        });
+
+        unreadCounts[club.id] = (unreadCounts[club.id] || 0) + 1;
+
+        // auto-open that country/league unless user explicitly closed
+        autoOpenPathForClub(club);
+
+        // update ticker (clickable)
+        updateTicker(label, cleanTitle, link);
+
+        anyNew = true;
+
+        // if in directory view, rerender to update counters consistently
+        if(!viewClubId){
+          renderDirectory();
+        }
+      }
+    } catch(e){
+      // ignore feed failures (lots of sources)
+    }
+  }
+
+  if(anyNew){
+    safePlay(sndNews);
+  }
+}
+
+/* ===================== INIT ===================== */
+async function init(){
+  clubs = await fetch("clubs.json").then(r => r.json());
+
+  // initial open: keep tidy (closed). You can open by clicking.
+  openCountries = new Set();
+  openLeagues = new Set();
+  userClosedCountries = new Set();
+  userClosedLeagues = new Set();
+
+  // seed structures
+  for(const c of clubs){
+    rumoursByClub.set(c.id, []);
+    unreadCounts[c.id] = 0;
+  }
+
+  renderDirectory();
+  drawMap();
+
+  // start
+  await pollTick();
+  setInterval(pollTick, POLL_EVERY_MS);
+}
+
+init();
+</script>
+</body>
+</html>
