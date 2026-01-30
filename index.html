@@ -569,7 +569,9 @@ function updateTicker(label, title, link){
     const marker = clubMarkers.get(club.id);
     if (marker) {
       map.flyTo(marker.getLatLng(), 13, { duration: 0.6 });
-      sndHelicopter.play().catch(() => {});
+      sndHeli.volume = 0.4; // 40% volume
+  sndHeli.play().catch(() => {});
+
 
 
       const iconEl = marker._icon;
@@ -996,12 +998,22 @@ async function init(){
 init();
 
 // === HOURLY BELLS ===
-function playHourlyBells() {
-  sndBells.play().catch(() => {});
-  setTimeout(playHourlyBells, 60 * 60 * 1000); // play again in 1 hour
+function scheduleBigBenHourly() {
+  const now = new Date();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+  const millisecondsUntilNextHour = ((59 - minutes) * 60 + (60 - seconds)) * 1000;
+
+  setTimeout(() => {
+    sndBells.play().catch(() => {});
+    setInterval(() => {
+      sndBells.play().catch(() => {});
+    }, 60 * 60 * 1000); // every hour
+  }, millisecondsUntilNextHour);
 }
 
-setTimeout(playHourlyBells, 60 * 1000); // first play: 1 min after load
+scheduleBigBenHourly();
+
 
 </script>
 </body>
