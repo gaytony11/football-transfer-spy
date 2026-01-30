@@ -199,7 +199,7 @@
     gap: 16px;
     color: var(--yellow);
     text-decoration: none;
-    font-size: 40px;        /* BIG ticker text */
+    font-size: 40px;
     letter-spacing: 2px;
   }
 
@@ -230,7 +230,49 @@
     opacity: 0.9;
     margin-top: 6px;
   }
+
+  /* ===== MOBILE ADAPTATION ===== */
+  @media (max-width: 768px) {
+    #container {
+      flex-direction: column;
+      height: auto;
+    }
+
+    #map,
+    #sidebar {
+      width: 100%;
+      height: auto;
+      border-left: none;
+    }
+
+    #sidebar {
+      border-top: 4px solid var(--green);
+    }
+
+    h1 {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .club-name {
+      font-size: 20px;
+    }
+
+    #ticker {
+      height: 64px;
+    }
+
+    #ticker a {
+      font-size: 28px;
+    }
+
+    .ticker-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
 </style>
+
 </head>
 
 <body>
