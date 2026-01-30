@@ -444,8 +444,6 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "© OpenStreetMap"
 }).addTo(map);
 
-const cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 45 });
-
 function clubIcon(club){
   if(!club.logo) return null;
   return L.icon({
@@ -455,26 +453,35 @@ function clubIcon(club){
     className: "club-logo"
   });
 }
-function drawMap(){
-  cluster.clearLayers();
+function drawMap() {
+  // Clear any existing markers
+  for (const marker of clubMarkers.values()) {
+    map.removeLayer(marker);
+  }
+  clubMarkers.clear();
+
   clubs.forEach(c => {
     const icon = clubIcon(c);
     const marker = icon
       ? L.marker([c.lat, c.lon], { icon })
-      : L.circleMarker([c.lat, c.lon], { radius: 5, color: "#00ff00", fillColor:"#00ff00", fillOpacity:0.8 });
+      : L.circleMarker([c.lat, c.lon], {
+          radius: 5,
+          color: "#00ff00",
+          fillColor: "#00ff00",
+          fillOpacity: 0.8
+        });
 
-    // ✅ Add this line here:
     clubMarkers.set(c.id, marker);
 
     marker.on("click", () => {
-      map.flyTo([c.lat, c.lon], map.getZoom(), { duration: 0.6 });
+      map.flyTo([c.lat, c.lon], 9, { duration: 0.6 });
       showClub(c, true);
     });
 
-    cluster.addLayer(marker);
+    marker.addTo(map); // ← add marker directly to map
   });
-  map.addLayer(cluster);
 }
+
 
 
 /* ===================== UTIL ===================== */
@@ -547,10 +554,11 @@ function updateTicker(label, title, link){
       map.flyTo(marker.getLatLng(), 9, { duration: 0.6 });
 
       const iconEl = marker._icon;
-      if (iconEl) {
-        iconEl.classList.add("pulse");
-        setTimeout(() => iconEl.classList.remove("pulse"), 1600);
-      }
+if (iconEl) {
+  iconEl.classList.add("bounce-highlight");
+  setTimeout(() => iconEl.classList.remove("bounce-highlight"), 2000);
+}
+
     }
 
     // Highlight club row in sidebar
