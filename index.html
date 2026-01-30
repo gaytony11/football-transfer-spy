@@ -432,6 +432,57 @@
     badgeAlertPulse 0.90s ease-in-out infinite;
 }
 
+/* ===== STADIUM RENDER MARKERS (Optional Overlay) ===== */
+.leaflet-marker-icon.stadium-render{
+  background: transparent;
+  border: none;
+}
+
+.leaflet-marker-icon.stadium-render .stadium-inner{
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  transform-origin: 50% 50%;
+}
+
+.leaflet-marker-icon.stadium-render .stadium-img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.leaflet-marker-icon.stadium-render.badge-selected .stadium-inner{
+  filter:
+    drop-shadow(0 0 10px rgba(255,0,0,0.95))
+    drop-shadow(0 0 22px rgba(255,0,0,0.70));
+  animation: badgeSelectedPulse 1.35s ease-in-out infinite;
+}
+
+.leaflet-marker-icon.stadium-render.badge-alert .stadium-inner{
+  animation:
+    badgeAlertScale 0.90s ease-in-out infinite,
+    badgeAlertPulse 0.90s ease-in-out infinite;
+}
+
+.leaflet-marker-icon.stadium-render.badge-selected.badge-alert .stadium-inner{
+  animation:
+    badgeSelectedPulseAlert 1.10s ease-in-out infinite,
+    badgeAlertPulse 0.90s ease-in-out infinite;
+}
+
+/* ===== 3D STADIUM CANVAS OVERLAY (Option C) ===== */
+.three-stadium-canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 600; /* above tiles/markers; selected badges still use z-index offsets */
+}
+
 @media (prefers-reduced-motion: reduce) {
   .leaflet-marker-icon.badge-selected,
   .leaflet-marker-icon.badge-alert,
@@ -479,6 +530,10 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<!-- 3D Stadium Overlay (Three.js) -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
 
 <script>
 /* ===================== CONFIG ===================== */
@@ -570,6 +625,12 @@ const MAX_ITEMS_PER_FEED = 10;
 const MAX_RUMOURS_PER_CLUB = 25;
 const AUTO_BACK_TIMEOUT_MS = 30000;
 
+const STADIUM_MIN_ZOOM = 10;
+const STADIUM_ICON_SIZE = 140;
+
+const STADIUM3D_MIN_ZOOM = 12;
+const STADIUM3D_DEFAULT_SCALE = 18;
+
 const CLUB_ICON_SIZE = 84;
 
 /* ===================== STATE ===================== */
@@ -585,9 +646,19 @@ const sndHelicopter = document.getElementById("sndHelicopter");
 const sndBells = document.getElementById("sndBells");
 
 const clubMarkers = new Map(); // ✅ KEEP this one
+const stadiumMarkers = new Map();
+const stadiumLayer = L.layerGroup();
+
+let stadiums3dByClubId = {};
+let showStadiums3d = (localStorage.getItem("showStadiums3d") || "off") === "on";
+let stadium3dLayer = null;
 
 let selectedClubId = null;
 const markerAlertTimeouts = new Map();
+
+let stadiumsByClubId = {};
+let showStadiums = (localStorage.getItem("showStadiums") || "off") === "on";
+let customStadiumsByClubId = {};
 
 let clubs = [];
 // ...
@@ -642,21 +713,255 @@ function clubIcon(club){
   });
 }
 
+function stadiumIcon(imgPath){
+  const safePath = (imgPath || "").replace(/"/g, "&quot;");
+  return L.divIcon({
+    html: `<div class="stadium-inner"><img class="stadium-img" src="${safePath}" alt=""></div>`,
+    className: "leaflet-div-icon stadium-render",
+    iconSize: [STADIUM_ICON_SIZE, STADIUM_ICON_SIZE],
+    iconAnchor: [STADIUM_ICON_SIZE/2, STADIUM_ICON_SIZE/2]
+  });
+}
+
+function loadCustomStadiums(){
+  try{
+    const raw = localStorage.getItem("customStadiums");
+    customStadiumsByClubId = raw ? JSON.parse(raw) : {};
+  } catch {
+    customStadiumsByClubId = {};
+  }
+}
+
+function saveCustomStadium(clubId, dataUrl){
+  if(!clubId) return;
+  customStadiumsByClubId[String(clubId)] = dataUrl;
+  try{
+    localStorage.setItem("customStadiums", JSON.stringify(customStadiumsByClubId));
+  } catch {
+    // ignore quota errors
+  }
+}
+
+/* ===================== 3D STADIUM OVERLAY (Option C) ===================== */
+function ensureThreeAvailable(){
+  return typeof THREE !== "undefined" && THREE && typeof THREE.Scene === "function";
+}
+
+function parseVec3Degrees(arr){
+  if(!Array.isArray(arr) || arr.length < 3) return null;
+  return {
+    x: (arr[0] || 0) * Math.PI / 180,
+    y: (arr[1] || 0) * Math.PI / 180,
+    z: (arr[2] || 0) * Math.PI / 180
+  };
+}
+
+class ThreeStadiumLayer extends L.Layer {
+  constructor(){
+    super();
+    this._canvas = null;
+    this._renderer = null;
+    this._scene = null;
+    this._camera = null;
+    this._loader = null;
+    this._clubsById = new Map();
+    this._modelsByClubId = new Map();
+    this._pendingLoads = new Map();
+    this._raf = null;
+  }
+
+  onAdd(map){
+    this._map = map;
+    const size = map.getSize();
+
+    this._canvas = L.DomUtil.create("canvas", "three-stadium-canvas");
+    const pane = map.getPanes().overlayPane;
+    pane.appendChild(this._canvas);
+
+    this._renderer = new THREE.WebGLRenderer({ canvas: this._canvas, alpha: true, antialias: true, preserveDrawingBuffer: false });
+    this._renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    this._renderer.setSize(size.x, size.y, false);
+
+    this._scene = new THREE.Scene();
+    this._camera = new THREE.OrthographicCamera(0, size.x, 0, -size.y, -2000, 2000);
+    this._camera.position.set(0, 0, 1000);
+    this._camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+    const amb = new THREE.AmbientLight(0xffffff, 0.85);
+    this._scene.add(amb);
+    const dir = new THREE.DirectionalLight(0xffffff, 0.75);
+    dir.position.set(300, -200, 600);
+    this._scene.add(dir);
+
+    this._loader = new THREE.GLTFLoader();
+
+    this._onMove = () => this._requestRender();
+    map.on("move", this._onMove);
+    map.on("zoom", this._onMove);
+    map.on("resize", this._onResize.bind(this));
+
+    this._requestRender();
+  }
+
+  onRemove(map){
+    map.off("move", this._onMove);
+    map.off("zoom", this._onMove);
+    map.off("resize", this._onResize.bind(this));
+
+    if(this._raf) cancelAnimationFrame(this._raf);
+    this._raf = null;
+
+    if(this._canvas && this._canvas.parentNode) this._canvas.parentNode.removeChild(this._canvas);
+    this._canvas = null;
+
+    if(this._renderer){
+      try{ this._renderer.dispose(); } catch {}
+    }
+    this._renderer = null;
+    this._scene = null;
+    this._camera = null;
+    this._loader = null;
+    this._modelsByClubId.clear();
+    this._pendingLoads.clear();
+    this._clubsById.clear();
+  }
+
+  _onResize(){
+    if(!this._map || !this._renderer || !this._camera) return;
+    const size = this._map.getSize();
+    this._renderer.setSize(size.x, size.y, false);
+    this._camera.right = size.x;
+    this._camera.bottom = -size.y;
+    this._camera.updateProjectionMatrix();
+    this._requestRender();
+  }
+
+  setData(clubs, mapping){
+    this._clubsById.clear();
+    (clubs || []).forEach(c => this._clubsById.set(String(c.id), c));
+    this._mapping = mapping || {};
+    this._requestLoadAll();
+    this._requestRender();
+  }
+
+  setClubState(clubId, state){
+    const id = String(clubId);
+    const obj = this._modelsByClubId.get(id);
+    if(!obj) return;
+
+    const selected = !!(state && state.selected);
+    const alert = !!(state && state.alert);
+
+    const base = obj.userData.baseScale || STADIUM3D_DEFAULT_SCALE;
+    let mult = 1;
+    if(selected && alert) mult = 1.35;
+    else if(alert) mult = 1.45;
+    else if(selected) mult = 1.18;
+
+    obj.scale.setScalar(base * mult);
+    obj.renderOrder = (selected && alert) ? 12000 : alert ? 10000 : selected ? 8000 : 0;
+    this._requestRender();
+  }
+
+  _requestLoadAll(){
+    if(!this._loader || !this._scene) return;
+    const mapping = this._mapping || {};
+    for(const clubId of Object.keys(mapping)){
+      this._ensureModelLoaded(String(clubId), mapping[clubId]);
+    }
+  }
+
+  _ensureModelLoaded(clubId, cfg){
+    if(this._modelsByClubId.has(clubId)) return;
+    if(this._pendingLoads.has(clubId)) return;
+
+    const url = (cfg && cfg.url) ? String(cfg.url) : null;
+    if(!url) return;
+
+    const loadPromise = new Promise((resolve) => {
+      this._loader.load(
+        url,
+        (gltf) => {
+          const root = gltf.scene || gltf.scenes && gltf.scenes[0];
+          if(!root){ resolve(null); return; }
+
+          root.traverse((n) => {
+            if(n && n.isMesh){
+              n.frustumCulled = false;
+            }
+          });
+
+          const baseScale = (cfg && typeof cfg.scale === "number") ? cfg.scale : STADIUM3D_DEFAULT_SCALE;
+          root.userData.baseScale = baseScale;
+          root.scale.setScalar(baseScale);
+
+          const rot = parseVec3Degrees(cfg && cfg.rotationDeg);
+          if(rot){ root.rotation.set(rot.x, rot.y, rot.z); }
+          else {
+            // default: a slightly isometric tilt
+            root.rotation.set(-0.85, 0.75, 0);
+          }
+
+          root.userData.yOffsetPx = (cfg && typeof cfg.yOffsetPx === "number") ? cfg.yOffsetPx : 0;
+          root.userData.anchor = (cfg && cfg.anchor) ? cfg.anchor : "center";
+
+          this._scene.add(root);
+          this._modelsByClubId.set(clubId, root);
+          this._pendingLoads.delete(clubId);
+          this._requestRender();
+          resolve(root);
+        },
+        undefined,
+        () => {
+          this._pendingLoads.delete(clubId);
+          resolve(null);
+        }
+      );
+    });
+
+    this._pendingLoads.set(clubId, loadPromise);
+  }
+
+  _requestRender(){
+    if(this._raf) return;
+    this._raf = requestAnimationFrame(() => {
+      this._raf = null;
+      this._render();
+    });
+  }
+
+  _render(){
+    if(!this._map || !this._renderer || !this._scene || !this._camera) return;
+
+    // show/hide based on zoom + toggle
+    const visible = showStadiums3d && this._map.getZoom() >= STADIUM3D_MIN_ZOOM;
+    if(this._canvas) this._canvas.style.display = visible ? "" : "none";
+    if(!visible) return;
+
+    for(const [clubId, obj] of this._modelsByClubId.entries()){
+      const club = this._clubsById.get(clubId);
+      if(!club) continue;
+      const pt = this._map.latLngToContainerPoint([club.lat, club.lon]);
+      const yOffset = obj.userData.yOffsetPx || 0;
+      obj.position.set(pt.x, -pt.y - yOffset, 0);
+    }
+
+    this._renderer.render(this._scene, this._camera);
+  }
+}
+
 function getMarkerIconEl(marker){
   if(!marker) return null;
   if(typeof marker.getElement === "function") return marker.getElement();
   return marker._icon || marker._path || null;
 }
 
-function syncClubMarkerFrontState(clubId){
-  const marker = clubMarkers.get(clubId);
+function syncMarkerFrontState(marker){
   if(!marker) return;
-
   const el = getMarkerIconEl(marker);
   const isSelected = !!el && el.classList.contains("badge-selected");
   const isAlert = !!el && el.classList.contains("badge-alert");
 
-  // Markers: use zIndexOffset. CircleMarkers/Paths: use bringToFront when active.
   if(typeof marker.setZIndexOffset === "function"){
     let offset = 0;
     if(isSelected && isAlert) offset = 12000;
@@ -670,6 +975,18 @@ function syncClubMarkerFrontState(clubId){
   }
 }
 
+function syncClubMarkerFrontState(clubId){
+  const marker = clubMarkers.get(clubId);
+  if(!marker) return;
+  syncMarkerFrontState(marker);
+}
+
+function syncStadiumMarkerFrontState(clubId){
+  const marker = stadiumMarkers.get(clubId);
+  if(!marker) return;
+  syncMarkerFrontState(marker);
+}
+
 function setSelectedClubOnMap(clubId){
   if(selectedClubId === clubId) return;
 
@@ -680,6 +997,17 @@ function setSelectedClubOnMap(clubId){
       prevEl.classList.remove("badge-selected");
     }
     syncClubMarkerFrontState(selectedClubId);
+
+    const prevStadium = stadiumMarkers.get(selectedClubId);
+    const prevStadiumEl = getMarkerIconEl(prevStadium);
+    if(prevStadiumEl){
+      prevStadiumEl.classList.remove("badge-selected");
+    }
+    syncStadiumMarkerFrontState(selectedClubId);
+
+    if(stadium3dLayer && typeof stadium3dLayer.setClubState === "function"){
+      stadium3dLayer.setClubState(selectedClubId, { selected: false, alert: false });
+    }
   }
 
   selectedClubId = clubId;
@@ -691,15 +1019,39 @@ function setSelectedClubOnMap(clubId){
   }
 
   syncClubMarkerFrontState(clubId);
+
+  const stadiumMarker = stadiumMarkers.get(clubId);
+  const stadiumEl = getMarkerIconEl(stadiumMarker);
+  if(stadiumEl){
+    stadiumEl.classList.add("badge-selected");
+  }
+  syncStadiumMarkerFrontState(clubId);
+
+  if(stadium3dLayer && typeof stadium3dLayer.setClubState === "function"){
+    const isAlert = markerAlertTimeouts.has(clubId);
+    stadium3dLayer.setClubState(clubId, { selected: true, alert: isAlert });
+  }
 }
 
 function triggerClubNewsAlertOnMap(clubId, durationMs = 6500){
   const marker = clubMarkers.get(clubId);
   const el = getMarkerIconEl(marker);
-  if(!el) return;
+  if(el){
+    el.classList.add("badge-alert");
+    syncClubMarkerFrontState(clubId);
+  }
 
-  el.classList.add("badge-alert");
-  syncClubMarkerFrontState(clubId);
+  const stadiumMarker = stadiumMarkers.get(clubId);
+  const stadiumEl = getMarkerIconEl(stadiumMarker);
+  if(stadiumEl){
+    stadiumEl.classList.add("badge-alert");
+    syncStadiumMarkerFrontState(clubId);
+  }
+
+  if(stadium3dLayer && typeof stadium3dLayer.setClubState === "function"){
+    const selected = String(selectedClubId) === String(clubId);
+    stadium3dLayer.setClubState(clubId, { selected, alert: true });
+  }
 
   const existing = markerAlertTimeouts.get(clubId);
   if(existing) clearTimeout(existing);
@@ -711,6 +1063,18 @@ function triggerClubNewsAlertOnMap(clubId, durationMs = 6500){
       iconEl.classList.remove("badge-alert");
     }
     syncClubMarkerFrontState(clubId);
+
+    const sm = stadiumMarkers.get(clubId);
+    const stadiumIconEl = getMarkerIconEl(sm);
+    if(stadiumIconEl){
+      stadiumIconEl.classList.remove("badge-alert");
+    }
+    syncStadiumMarkerFrontState(clubId);
+
+    if(stadium3dLayer && typeof stadium3dLayer.setClubState === "function"){
+      const selected = String(selectedClubId) === String(clubId);
+      stadium3dLayer.setClubState(clubId, { selected, alert: false });
+    }
     markerAlertTimeouts.delete(clubId);
   }, durationMs);
 
@@ -753,6 +1117,155 @@ function drawMap() {
   });
 }
 
+function drawStadiums(){
+  stadiumMarkers.clear();
+  stadiumLayer.clearLayers();
+
+  for(const c of clubs){
+    const imgPath = (customStadiumsByClubId && customStadiumsByClubId[String(c.id)])
+      || (stadiumsByClubId && stadiumsByClubId[c.id]);
+    if(!imgPath) continue;
+
+    const marker = L.marker([c.lat, c.lon], {
+      icon: stadiumIcon(imgPath),
+      interactive: false,
+      keyboard: false
+    });
+
+    stadiumMarkers.set(c.id, marker);
+    stadiumLayer.addLayer(marker);
+  }
+
+  updateStadiumVisibility();
+}
+
+function updateStadiumVisibility(){
+  const shouldShow = showStadiums && map.getZoom() >= STADIUM_MIN_ZOOM;
+  if(shouldShow){
+    if(!map.hasLayer(stadiumLayer)) stadiumLayer.addTo(map);
+  } else {
+    if(map.hasLayer(stadiumLayer)) map.removeLayer(stadiumLayer);
+  }
+}
+
+function addStadiumToggleControl(){
+  const ctrl = L.control({ position: "topright" });
+  ctrl.onAdd = () => {
+    const div = L.DomUtil.create("div", "leaflet-bar");
+    div.style.background = "rgba(0,0,0,0.80)";
+    div.style.color = "var(--yellow)";
+    div.style.border = "1px solid var(--green)";
+    div.style.padding = "8px 10px";
+    div.style.fontFamily = "Teletext, monospace";
+    div.style.fontSize = "14px";
+    div.style.lineHeight = "1.1";
+
+    div.innerHTML = `
+      <label style="display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none;">
+        <input id="stadiumToggle" type="checkbox" style="margin:0" ${showStadiums ? "checked" : ""}>
+        STADIUMS (2D)
+      </label>
+      <div style="color:var(--cyan); margin-top:6px; font-size:12px;">Zoom ${STADIUM_MIN_ZOOM}+ to show</div>
+
+      <label style="display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none; margin-top:10px;">
+        <input id="stadium3dToggle" type="checkbox" style="margin:0" ${showStadiums3d ? "checked" : ""}>
+        STADIUMS (3D)
+      </label>
+      <div style="color:var(--cyan); margin-top:6px; font-size:12px;">Zoom ${STADIUM3D_MIN_ZOOM}+ to show</div>
+
+      <div style="margin-top:8px; border-top:1px solid rgba(0,255,0,0.35); padding-top:8px;">
+        <div style="color:var(--yellow); font-size:12px; margin-bottom:6px;">Quick preview (selected club)</div>
+        <input id="stadiumFile" type="file" accept="image/*" style="width: 170px; color: var(--cyan); font-size:12px;" />
+        <button id="stadiumApply" style="margin-top:6px; width:100%; background:#000; color:var(--yellow); border:1px solid var(--green); padding:6px 8px; cursor:pointer; font-family:Teletext, monospace;">
+          APPLY 2D TO SELECTED
+        </button>
+        <div id="stadiumHint" style="color:var(--cyan); margin-top:6px; font-size:11px; max-width:180px;">Select a club, choose an image, then apply.</div>
+      </div>
+    `;
+
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
+
+    setTimeout(() => {
+      const cb = div.querySelector("#stadiumToggle");
+      if(cb){
+        cb.addEventListener("change", () => {
+          showStadiums = cb.checked;
+          localStorage.setItem("showStadiums", showStadiums ? "on" : "off");
+          updateStadiumVisibility();
+        });
+      }
+
+      const cb3d = div.querySelector("#stadium3dToggle");
+      if(cb3d){
+        cb3d.addEventListener("change", () => {
+          showStadiums3d = cb3d.checked;
+          localStorage.setItem("showStadiums3d", showStadiums3d ? "on" : "off");
+          if(stadium3dLayer) stadium3dLayer._requestRender?.();
+        });
+      }
+
+      const fileInput = div.querySelector("#stadiumFile");
+      const applyBtn = div.querySelector("#stadiumApply");
+      const hint = div.querySelector("#stadiumHint");
+      let pendingDataUrl = null;
+
+      if(fileInput){
+        fileInput.addEventListener("change", () => {
+          const f = fileInput.files && fileInput.files[0];
+          if(!f){ pendingDataUrl = null; return; }
+
+          const reader = new FileReader();
+          reader.onload = () => {
+            pendingDataUrl = String(reader.result || "");
+            if(hint) hint.textContent = "Image loaded. Click APPLY.";
+          };
+          reader.onerror = () => {
+            pendingDataUrl = null;
+            if(hint) hint.textContent = "Could not read file.";
+          };
+          reader.readAsDataURL(f);
+        });
+      }
+
+      if(applyBtn){
+        applyBtn.addEventListener("click", () => {
+          if(!selectedClubId){
+            if(hint) hint.textContent = "Select a club first (sidebar or badge).";
+            return;
+          }
+          if(!pendingDataUrl){
+            if(hint) hint.textContent = "Choose an image first.";
+            return;
+          }
+
+          saveCustomStadium(selectedClubId, pendingDataUrl);
+          drawStadiums();
+
+          // auto-enable stadium overlay and zoom if needed
+          showStadiums = true;
+          localStorage.setItem("showStadiums", "on");
+          const toggle = div.querySelector("#stadiumToggle");
+          if(toggle) toggle.checked = true;
+
+          if(map.getZoom() < STADIUM_MIN_ZOOM){
+            const club = clubs.find(c => String(c.id) === String(selectedClubId));
+            if(club) map.flyTo([club.lat, club.lon], STADIUM_MIN_ZOOM, { duration: 0.6 });
+            else map.setZoom(STADIUM_MIN_ZOOM);
+          } else {
+            updateStadiumVisibility();
+          }
+
+          if(hint) hint.textContent = "Applied. Zoom in to see it.";
+        });
+      }
+    }, 0);
+
+    return div;
+  };
+  ctrl.addTo(map);
+}
+
 
 
 /* ===================== UTIL ===================== */
@@ -792,9 +1305,17 @@ function showToast(club, title, link) {
 
 
 function decodeHTMLEntities(text){
-  const txt = document.createElement("textarea");
-  txt.innerHTML = text || "";
-  return txt.value;
+  // Some feeds arrive double-encoded (e.g. "&amp;#8216;" -> "&#8216;" -> "‘").
+  // Decode a few times until stable.
+  let out = String(text ?? "");
+  for(let i = 0; i < 4; i++){
+    const txt = document.createElement("textarea");
+    txt.innerHTML = out;
+    const next = txt.value;
+    if(next === out) break;
+    out = next;
+  }
+  return out;
 }
 
 function escapeRegex(s){
@@ -1325,6 +1846,18 @@ if (autoRefresh && autoRefresh !== "on") return;
 async function init(){
   clubs = await fetch("clubs.json").then(r => r.json());
 
+  // Optional: stadium renders overlay (clubId -> relative image path)
+  stadiumsByClubId = await fetch("stadiums.json")
+    .then(r => r.ok ? r.json() : {})
+    .catch(() => ({}));
+
+  loadCustomStadiums();
+
+  // Optional: 3D stadium overlay mapping (clubId -> { url, scale, rotationDeg, yOffsetPx })
+  stadiums3dByClubId = await fetch("stadiums3d.json")
+    .then(r => r.ok ? r.json() : {})
+    .catch(() => ({}));
+
   // Restore saved open/closed state
   const savedCountries = localStorage.getItem("openCountries");
   const savedLeagues = localStorage.getItem("openLeagues");
@@ -1344,6 +1877,17 @@ async function init(){
 
   renderDirectory();
   drawMap();
+  drawStadiums();
+
+  if(ensureThreeAvailable()){
+    stadium3dLayer = new ThreeStadiumLayer();
+    stadium3dLayer.addTo(map);
+    stadium3dLayer.setData(clubs, stadiums3dByClubId);
+    map.on("zoomend", () => stadium3dLayer && stadium3dLayer._requestRender && stadium3dLayer._requestRender());
+  }
+
+  addStadiumToggleControl();
+  map.on("zoomend", updateStadiumVisibility);
   await pollTick();
   setInterval(pollTick, POLL_EVERY_MS);
 }
