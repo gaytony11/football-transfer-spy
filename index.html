@@ -447,7 +447,11 @@ function drawMap(){
       ? L.marker([c.lat, c.lon], { icon })
       : L.circleMarker([c.lat, c.lon], { radius: 5, color: "#00ff00", fillColor:"#00ff00", fillOpacity:0.8 });
 
-    marker.on("click", () => showClub(c, true));
+    marker.on("click", () => {
+  map.flyTo([c.lat, c.lon], 9, { duration: 0.6 });
+  showClub(c, true);
+});
+
     cluster.addLayer(marker);
   });
   map.addLayer(cluster);
