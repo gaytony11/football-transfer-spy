@@ -522,10 +522,17 @@ function drawMap() {
 
     clubMarkers.set(c.id, marker);
 
-    marker.on("click", () => {
-      map.flyTo([c.lat, c.lon], 9, { duration: 0.6 });
-      showClub(c, true);
-    });
+  marker.on("click", () => {
+    map.flyTo([c.lat, c.lon], 9, { duration: 0.6 });
+    showClub(c, true);
+
+    const row = document.getElementById(`club-${c.id}`);
+    if (row) {
+      row.classList.add("pulse");
+      setTimeout(() => row.classList.remove("pulse"), 1600);
+    }
+  });
+
 
     marker.addTo(map); // ← add marker directly to map
   });
@@ -534,13 +541,15 @@ function drawMap() {
 
 
 /* ===================== UTIL ===================== */
-function safePlay(audioEl){
-  if(!audioEl) return;
-  try{
+function safePlay(audioEl) {
+  if (!audioEl) return;
+  if (localStorage.getItem("soundEnabled") === "off") return;
+  try {
     audioEl.currentTime = 0;
-    audioEl.play().catch(()=>{});
-  }catch{}
+    audioEl.play().catch(() => {});
+  } catch {}
 }
+
 
 function decodeHTMLEntities(text){
   const txt = document.createElement("textarea");
@@ -705,6 +714,26 @@ checkbox.addEventListener("change", () => {
 });
 
 sidebar.appendChild(refreshToggle);
+// Sound toggle
+const soundToggle = document.createElement("label");
+soundToggle.style.display = "block";
+soundToggle.style.marginBottom = "12px";
+soundToggle.style.fontSize = "14px";
+soundToggle.style.color = "var(--magenta)";
+soundToggle.style.userSelect = "none";
+
+const soundCheckbox = document.createElement("input");
+soundCheckbox.type = "checkbox";
+soundCheckbox.checked = localStorage.getItem("soundEnabled") !== "off";
+soundCheckbox.style.marginRight = "6px";
+
+soundToggle.appendChild(soundCheckbox);
+soundToggle.appendChild(document.createTextNode("Enable sound"));
+sidebar.appendChild(soundToggle);
+
+soundCheckbox.addEventListener("change", () => {
+  localStorage.setItem("soundEnabled", soundCheckbox.checked ? "on" : "off");
+});
 
   sidebar.scrollTop = 0;
 
