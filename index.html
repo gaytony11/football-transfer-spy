@@ -274,10 +274,14 @@
     height: 40px;
   }
 }
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.6; }
-  100% { transform: scale(1); opacity: 1; }
+.pulse {
+  animation: pulse-glow 1.5s ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%   { background-color: rgba(255,255,0,0.1); }
+  50%  { background-color: rgba(255,255,0,0.4); }
+  100% { background-color: rgba(255,255,0,0.1); }
 }
 
 .leaflet-marker-icon.pulse {
@@ -523,7 +527,7 @@ function updateTicker(label, title, link){
   const cleanTitle = decodeHTMLEntities(title);
   tickerTextEl.textContent = `${label.toUpperCase()}: ${cleanTitle}`;
 
-  // clickable to link (Option A)
+  // clickable to link
   tickerLinkEl.href = link || "#";
 
   const icon = FEED_ICONS[label];
@@ -531,7 +535,7 @@ function updateTicker(label, title, link){
     tickerIconEl.src = icon;
     tickerIconEl.style.display = "";
     tickerIconEl.onerror = () => { tickerIconEl.style.display = "none"; };
-  }else{
+  } else {
     tickerIconEl.style.display = "none";
   }
 
@@ -548,6 +552,32 @@ function updateTicker(label, title, link){
         setTimeout(() => iconEl.classList.remove("pulse"), 1600);
       }
     }
+
+    // Highlight club row in sidebar
+    const row = document.getElementById(`club-${club.id}`);
+    if (row) {
+      row.classList.add("pulse");
+      setTimeout(() => row.classList.remove("pulse"), 1600);
+    }
+
+    // Show temporary overlay
+    const overlay = document.createElement("div");
+    overlay.textContent = club.name;
+    overlay.style.position = "absolute";
+    overlay.style.top = "10px";
+    overlay.style.left = "50%";
+    overlay.style.transform = "translateX(-50%)";
+    overlay.style.background = "black";
+    overlay.style.color = "var(--yellow)";
+    overlay.style.padding = "6px 12px";
+    overlay.style.border = "2px solid var(--yellow)";
+    overlay.style.fontFamily = "Teletext, monospace";
+    overlay.style.zIndex = 9999;
+    overlay.style.pointerEvents = "none";
+    overlay.style.fontSize = "18px";
+
+    document.body.appendChild(overlay);
+    setTimeout(() => overlay.remove(), 2000);
   }
 }
 
