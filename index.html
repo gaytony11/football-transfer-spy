@@ -775,6 +775,7 @@ async function pollTick(){
         const link = item.link || "";
         const key = makeSeenKey(label, rawTitle, link);
         if(seenKeys.has(key)) continue;
+        if (tickerTextEl.textContent.includes(rawTitle)) continue;
 
         // Mark seen early to reduce repeats
         seenKeys.add(key);
