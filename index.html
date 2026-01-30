@@ -653,6 +653,31 @@ if (club) {
     setTimeout(() => overlay.remove(), 2000);
   }
 }
+function showToast(club, title, link) {
+  const toast = document.createElement("div");
+  toast.style.padding = "10px 14px";
+  toast.style.background = "#111";
+  toast.style.color = "var(--yellow)";
+  toast.style.border = "1px solid var(--green)";
+  toast.style.fontSize = "15px";
+  toast.style.cursor = "pointer";
+  toast.style.maxWidth = "300px";
+  toast.style.boxShadow = "0 0 6px rgba(0,255,0,0.4)";
+  toast.textContent = `${club.name}: ${title}`;
+  toast.onclick = () => {
+    showClub(club, true);
+    map.flyTo([club.lat, club.lon], 13, { duration: 0.6 });
+  };
+
+  const container = document.getElementById("toast-container");
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.transition = "opacity 0.5s";
+    toast.style.opacity = "0";
+    setTimeout(() => toast.remove(), 500);
+  }, 4000);
+}
 
 
 /* ===================== SIDEBAR RENDER ===================== */
@@ -700,6 +725,7 @@ refreshToggle.style.marginBottom = "12px";
 refreshToggle.style.fontSize = "14px";
 refreshToggle.style.color = "var(--cyan)";
 refreshToggle.style.userSelect = "none";
+sidebar.appendChild(refreshToggle);
 
 const checkbox = document.createElement("input");
 checkbox.type = "checkbox";
@@ -1077,6 +1103,15 @@ function scheduleBigBenHourly() {
 }
 
 scheduleBigBenHourly();
+<div id="toast-container" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+"></div>
 
 
 </script>
