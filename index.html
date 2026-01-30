@@ -469,10 +469,29 @@ let viewTimeout = null;
 let feedIndex = 0;
 
 /* ===================== MAP ===================== */
-const map = L.map("map").setView([53, -2.5], 6);
+const map = L.map("map");
+
+// Restore saved zoom and center if available
+const savedCenter = localStorage.getItem("mapCenter");
+const savedZoom = localStorage.getItem("mapZoom");
+
+if (savedCenter && savedZoom) {
+  const [lat, lng] = JSON.parse(savedCenter);
+  map.setView([lat, lng], parseInt(savedZoom));
+} else {
+  map.setView([53, -2.5], 6); // fallback to default UK view
+}
+
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "© OpenStreetMap"
 }).addTo(map);
+// Save zoom and position when the map is moved or zoomed
+map.on("moveend", () => {
+  const center = map.getCenter();
+  const zoom = map.getZoom();
+  localStorage.setItem("mapCenter", JSON.stringify([center.lat, center.lng]));
+  localStorage.setItem("mapZoom", zoom);
+});
 
 function clubIcon(club){
   if(!club.logo) return null;
