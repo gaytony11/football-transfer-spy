@@ -483,6 +483,306 @@
   z-index: 600; /* above tiles/markers; selected badges still use z-index offsets */
 }
 
+/* ===== FIXTURE TRAVEL (Away -> Home) ===== */
+.fixture-trail{
+  filter: drop-shadow(0 0 4px rgba(255,0,255,0.75));
+}
+
+.fixture-trail-return{
+  filter: drop-shadow(0 0 4px rgba(0,255,255,0.75));
+}
+
+/* ===== FIXTURE INFO (mini scoreboard overlay) ===== */
+.fixture-info-icon .fixture-info-box{
+  cursor: pointer;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    filter 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.fixture-info-icon.fixture-faded .fixture-info-box{
+  opacity: 0.16;
+  transform: translateY(2px) scale(0.985);
+  filter: saturate(0.80) brightness(0.90);
+}
+
+.fixture-info-icon.fixture-faded:hover .fixture-info-box{
+  opacity: 1;
+  transform: translateY(0) scale(1.0);
+  filter: none;
+}
+
+.fixture-info-icon.fixture-active .fixture-info-box{
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.fixture-info-box{
+  background: linear-gradient(180deg, rgba(0,0,0,0.86), rgba(0,0,0,0.66));
+  border: 1px solid rgba(0,255,0,0.32);
+  box-shadow: 0 0 22px rgba(0,255,0,0.10);
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--white);
+  font-family: Teletext, monospace;
+  line-height: 1.15;
+  max-width: 260px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.fixture-info-box:hover{
+  border-color: rgba(0,255,0,0.55);
+  box-shadow: 0 0 26px rgba(0,255,0,0.16);
+}
+
+.fx-mini-main{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.fx-mini-team{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.fx-mini-team.right{ justify-content: flex-end; }
+
+.fx-mini-crest{
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.55));
+}
+
+.fx-mini-name{
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fx-mini-score{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fx-mini-score-num{
+  color: var(--yellow);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.fx-mini-score-sep{
+  width: 2px;
+  height: 26px;
+  background: rgba(0,255,0,0.35);
+}
+
+.fx-mini-meta{
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--cyan);
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.fx-mini-status{
+  color: var(--green);
+  white-space: nowrap;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,255,0,0.28);
+  background: rgba(0,0,0,0.35);
+}
+
+/* ===== MATCH SCOREBOARD (top overlay) ===== */
+.match-scoreboard{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(980px, calc(100% - 24px));
+  top: 12px;
+  z-index: 12000;
+  pointer-events: none;
+}
+
+.match-scoreboard-inner{
+  pointer-events: auto;
+  max-width: 760px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(0,0,0,0.88), rgba(0,0,0,0.70));
+  border: 1px solid rgba(0,255,0,0.35);
+  box-shadow: 0 0 22px rgba(0,255,0,0.12);
+  border-radius: 12px;
+  padding: 10px 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.match-scoreboard-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.match-scoreboard-meta{
+  color: var(--cyan);
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.match-scoreboard-close{
+  background: transparent;
+  color: var(--cyan);
+  border: 1px solid rgba(0,255,0,0.35);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: Teletext, monospace;
+  font-size: 12px;
+}
+.match-scoreboard-close:hover{ color: var(--white); }
+
+.match-scoreboard-main{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.ms-team{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ms-team.right{ justify-content: flex-end; }
+
+.ms-crest{
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.55));
+}
+
+.ms-name{
+  color: var(--white);
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ms-score{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ms-score-num{
+  color: var(--yellow);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.ms-score-sep{
+  width: 2px;
+  height: 34px;
+  background: rgba(0,255,0,0.35);
+}
+
+.ms-status{
+  margin-top: 6px;
+  text-align: center;
+  color: var(--green);
+  font-size: 14px;
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,255,0,0.28);
+  background: rgba(0,0,0,0.35);
+}
+
+.ms-sub{
+  margin-top: 6px;
+  color: var(--cyan);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .match-scoreboard{
+    top: 8px;
+    width: calc(100% - 16px);
+  }
+  .match-scoreboard-inner{
+    padding: 10px 10px;
+  }
+  .ms-crest{
+    width: 34px;
+    height: 34px;
+  }
+  .ms-name{
+    font-size: 16px;
+  }
+  .ms-score-num{
+    font-size: 34px;
+  }
+  .ms-score-sep{
+    height: 34px;
+  }
+}
+
+/* Compact overlay mode (top scoreboard + fixture boxes) */
+.compact-overlays .match-scoreboard-inner{ max-width: 640px; padding: 8px 10px; }
+.compact-overlays .ms-crest{ width: 30px; height: 30px; }
+.compact-overlays .ms-name{ font-size: 14px; }
+.compact-overlays .ms-score-num{ font-size: 30px; }
+.compact-overlays .ms-score-sep{ height: 30px; }
+.compact-overlays .ms-status{ font-size: 12px; margin-top: 4px; }
+.compact-overlays .ms-sub{ display: none; }
+
+.compact-overlays .fixture-info-box{ padding: 8px 10px; max-width: 240px; }
+.compact-overlays .fx-mini-crest{ width: 26px; height: 26px; }
+.compact-overlays .fx-mini-name{ font-size: 13px; }
+.compact-overlays .fx-mini-score-num{ font-size: 24px; }
+.compact-overlays .fx-mini-score-sep{ height: 24px; }
+.compact-overlays .fx-mini-meta{ font-size: 11px; }
+
+@media (max-width: 768px){
+  .ms-name{ font-size: 16px; }
+  .ms-score-num{ font-size: 34px; }
+  .ms-crest{ width: 36px; height: 36px; }
+}
+
+/* Keep fixture info above most map content */
+.leaflet-fixtureInfoPane-pane{
+  z-index: 650;
+}
+
+.fixture-info-icon{
+  background: transparent;
+  border: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .leaflet-marker-icon.badge-selected,
   .leaflet-marker-icon.badge-alert,
@@ -532,10 +832,137 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <!-- 3D Stadium Overlay (Three.js) -->
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="https://unpkg.com/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+<!-- three@0.160.0 no longer ships legacy `examples/js/*` loaders; use the module `examples/jsm/*` loaders instead. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three-0.160.0/three.module.js",
+    "three/addons/": "./vendor/three-0.160.0/addons/"
+  }
+}
+</script>
+
+<script type="module">
+// Load Three.js + GLTFLoader as ES modules, but never let failures break the app.
+// If this fails, the 3D overlay will be disabled, but the rest of the UI should still work.
+(async () => {
+  try {
+    const THREE = await import("three");
+    // Expose Three immediately; loader is added next.
+    window.THREE = Object.assign({}, THREE);
+    const mod = await import("three/addons/loaders/GLTFLoader.js");
+    const GLTFLoader = mod && (mod.GLTFLoader || mod.default);
+    window.THREE = Object.assign({}, THREE, { GLTFLoader });
+    window.dispatchEvent(new Event('three-ready'));
+  } catch (e) {
+    console.warn("Three.js modules failed to load; 3D disabled", e);
+  }
+})();
+</script>
 
 <script>
+// Ensure toast container exists before any toasts fire.
+(function(){
+  if(document.getElementById('toast-container')) return;
+  const el = document.createElement('div');
+  el.id = 'toast-container';
+  el.style.position = 'fixed';
+  el.style.bottom = '20px';
+  el.style.right = '20px';
+  el.style.zIndex = '99999';
+  el.style.display = 'flex';
+  el.style.flexDirection = 'column';
+  el.style.gap = '10px';
+  document.addEventListener('DOMContentLoaded', () => document.body.appendChild(el));
+})();
+
+// Match scoreboard overlay (top-of-map)
+(function(){
+  function ensure(){
+    if(document.getElementById('match-scoreboard')) return;
+    const wrap = document.createElement('div');
+    wrap.id = 'match-scoreboard';
+    wrap.className = 'match-scoreboard';
+    wrap.style.display = 'none';
+    wrap.innerHTML = `
+      <div class="match-scoreboard-inner">
+        <div class="match-scoreboard-top">
+          <div class="match-scoreboard-meta" id="ms-meta">—</div>
+          <button class="match-scoreboard-close" id="ms-close">Close</button>
+        </div>
+        <div class="match-scoreboard-main">
+          <div class="ms-team left">
+            <img class="ms-crest" id="ms-home-crest" alt="">
+            <div class="ms-name" id="ms-home-name">Home</div>
+          </div>
+          <div>
+            <div class="ms-score">
+              <div class="ms-score-num" id="ms-home-score">—</div>
+              <div class="ms-score-sep"></div>
+              <div class="ms-score-num" id="ms-away-score">—</div>
+            </div>
+            <div class="ms-status" id="ms-status">Status: —</div>
+            <div class="ms-sub" id="ms-sub">—</div>
+          </div>
+          <div class="ms-team right">
+            <div class="ms-name" id="ms-away-name">Away</div>
+            <img class="ms-crest" id="ms-away-crest" alt="">
+          </div>
+        </div>
+      </div>
+    `;
+    document.addEventListener('DOMContentLoaded', () => {
+      const mapEl = document.getElementById('map');
+      if(mapEl){
+        mapEl.style.position = mapEl.style.position || 'relative';
+        mapEl.appendChild(wrap);
+      } else {
+        document.body.appendChild(wrap);
+      }
+
+      const btn = document.getElementById('ms-close');
+      if(btn){
+        btn.addEventListener('click', () => {
+          try{ window.__activeFixtureKey = null; } catch {}
+          try{
+            showMatchScoreboard = false;
+            localStorage.setItem("showMatchScoreboard", "off");
+            const cb = document.getElementById('cbMatchScoreboard');
+            if(cb) cb.checked = false;
+          } catch {}
+          wrap.style.display = 'none';
+        });
+      }
+
+      try{ applyOverlayUiMode(); } catch {}
+    });
+  }
+  ensure();
+})();
+
+// Basic on-screen crash reporter (helps when DevTools isn't available).
+(function(){
+  const box = document.createElement('div');
+  box.id = 'errorBox';
+  box.style.cssText = 'position:fixed;left:10px;right:10px;bottom:10px;max-height:40vh;overflow:auto;z-index:999999;background:rgba(0,0,0,0.92);border:1px solid #f00;color:#ff0;font-family:Teletext, monospace;font-size:12px;padding:8px;display:none;white-space:pre-wrap;';
+  document.addEventListener('DOMContentLoaded', () => document.body.appendChild(box));
+  function show(msg){
+    try{
+      box.style.display = 'block';
+      box.textContent += (box.textContent ? '\n\n' : '') + msg;
+    } catch {}
+  }
+  window.addEventListener('error', (ev) => {
+    const m = ev && ev.message ? ev.message : 'Script error';
+    const where = (ev && ev.filename) ? `\n${ev.filename}:${ev.lineno || 0}:${ev.colno || 0}` : '';
+    show(`ERROR: ${m}${where}`);
+  });
+  window.addEventListener('unhandledrejection', (ev) => {
+    const r = ev && ev.reason ? (ev.reason.stack || String(ev.reason)) : 'unknown';
+    show(`PROMISE: ${r}`);
+  });
+})();
+
 /* ===================== CONFIG ===================== */
 const COUNTRY_NAMES = {
   ENG: "England",
@@ -548,10 +975,9 @@ const COUNTRY_NAMES = {
 const LEAGUE_ORDER = {
   "England": [
     "FA Premier League",
-    "Football League First Division",
-    "Football League Second Division",
-    "Football League Third Division",
-    "Football Conference"
+    "Division One",
+    "Division Two",
+    "Division Three",
   ],
   "Scotland": [
     "Scottish Premier Division",
@@ -631,6 +1057,28 @@ const STADIUM_ICON_SIZE = 140;
 const STADIUM3D_MIN_ZOOM = 12;
 const STADIUM3D_DEFAULT_SCALE = 18;
 
+const FIXTURES_URL = "fixtures.json"; // optional; provide a real fixtures feed by generating this file daily
+const SCORES_URL = "scores.json";     // optional; live scoreboard feed (you can generate this)
+const FIXTURE_TRAVEL_MIN_ZOOM = 6;
+const FIXTURE_TRAVEL_HOURS_BEFORE_KO = 5;
+const FIXTURE_MATCH_DURATION_HOURS = 2.1;          // ~126 mins (HT + stoppage buffer)
+const FIXTURE_RETURN_DURATION_HOURS = 2.5;         // return journey duration
+const FIXTURE_TRAVEL_TICK_MS = 250; // marker update cadence while travelling
+const FIXTURE_TRAIL_SAMPLE_MS = 450; // add a trail point at most this often
+// Keep home+away badges visually separated at the opponent ground.
+// Pixel-based so it stays readable at any zoom.
+const FIXTURE_PARK_RADIUS_PX_MIN = 72;
+const FIXTURE_PARK_RADIUS_PX_MAX = 126;
+const FIXTURE_LABEL_OFFSET_Y_PX = 64;
+const SCORE_POLL_EVERY_MS = 20000;
+
+const FIXTURE_INFO_BOX_W_PX = 260;
+const FIXTURE_INFO_BOX_H_PX = 92; // rough; used only for placement heuristics
+const FIXTURE_INFO_EDGE_PAD_PX = 18;
+
+// Below this zoom, fixture mini-scoreboards fade out (hover/click brings them back).
+const FIXTURE_INFO_FADE_BELOW_ZOOM = 8;
+
 const CLUB_ICON_SIZE = 84;
 
 /* ===================== STATE ===================== */
@@ -652,6 +1100,43 @@ const stadiumLayer = L.layerGroup();
 let stadiums3dByClubId = {};
 let showStadiums3d = (localStorage.getItem("showStadiums3d") || "off") === "on";
 let stadium3dLayer = null;
+
+let fixturesToday = [];
+let showFixtureTravel = (localStorage.getItem("showFixtureTravel") || "off") === "on";
+let fixtureTravelLayer = L.layerGroup();
+let fixtureTravelStatus = { total: 0, resolved: 0, active: 0, lastLoad: null, lastError: null };
+const fixtureTravelActiveByAwayId = new Map();
+let _fixtureTravelTimer = null;
+
+// Overlay boxes are optional; default off now that we have a top scoreboard.
+let showFixtureInfo = (localStorage.getItem("showFixtureInfo") || "off") === "on";
+let fixtureInfoLayer = L.layerGroup();
+const fixtureInfoMarkers = new Map();
+let liveScoresByKey = new Map();
+let _scorePollTimer = null;
+
+let showMatchScoreboard = (localStorage.getItem("showMatchScoreboard") || "on") === "on";
+window.__activeFixtureKey = null;
+
+let compactOverlays = (localStorage.getItem("compactOverlays") || "on") === "on";
+
+// If the top scoreboard is on, keep the map clean by default.
+if(showMatchScoreboard && showFixtureInfo){
+  showFixtureInfo = false;
+  try{ localStorage.setItem("showFixtureInfo", "off"); } catch {}
+}
+
+function applyOverlayUiMode(){
+  try{
+    const mapEl = document.getElementById('map');
+    if(!mapEl) return;
+    mapEl.classList.toggle('compact-overlays', !!compactOverlays);
+  } catch {}
+}
+applyOverlayUiMode();
+
+let _clubAliasToId = new Map();
+let _clubById = new Map();
 
 let selectedClubId = null;
 const markerAlertTimeouts = new Map();
@@ -694,6 +1179,13 @@ if (savedCenter && savedZoom) {
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "© OpenStreetMap"
 }).addTo(map);
+
+// Pane for fixture info overlays (scoreboxes). Keeps them readable above the map.
+try{
+  if(!map.getPane('fixtureInfoPane')){
+    map.createPane('fixtureInfoPane');
+  }
+} catch {}
 // Save zoom and position when the map is moved or zoomed
 map.on("moveend", () => {
   const center = map.getCenter();
@@ -744,8 +1236,44 @@ function saveCustomStadium(clubId, dataUrl){
 
 /* ===================== 3D STADIUM OVERLAY (Option C) ===================== */
 function ensureThreeAvailable(){
-  return typeof THREE !== "undefined" && THREE && typeof THREE.Scene === "function";
+  const T = (typeof window !== 'undefined') ? window.THREE : (typeof THREE !== 'undefined' ? THREE : undefined);
+  return (
+    typeof T !== "undefined" &&
+    T &&
+    typeof T.Scene === "function" &&
+    typeof T.WebGLRenderer === "function" &&
+    typeof T.GLTFLoader === "function"
+  );
 }
+
+function updateOverlayStatus(){
+  try{
+    const el = document.getElementById('overlayStatus');
+    if(!el) return;
+
+    const mapped2d = stadiumsByClubId ? Object.keys(stadiumsByClubId).length : 0;
+    const mapped3d = stadiums3dByClubId ? Object.keys(stadiums3dByClubId).length : 0;
+    const threeOk = ensureThreeAvailable();
+    const zoomNow = (typeof map !== "undefined" && map && typeof map.getZoom === "function") ? map.getZoom() : null;
+
+    const fxTotal = fixtureTravelStatus && typeof fixtureTravelStatus.total === 'number' ? fixtureTravelStatus.total : 0;
+    const fxResolved = fixtureTravelStatus && typeof fixtureTravelStatus.resolved === 'number' ? fixtureTravelStatus.resolved : 0;
+    const fxActive = fixtureTravelStatus && typeof fixtureTravelStatus.active === 'number' ? fixtureTravelStatus.active : 0;
+
+    el.innerHTML = `
+      <div style="color:var(--cyan)">2D mapped: <span style="color:var(--white)">${mapped2d}</span> (needs stadiums.json or preview upload)</div>
+      <div style="color:var(--magenta)">3D mapped: <span style="color:var(--white)">${mapped3d}</span> (only mapped clubs will show)</div>
+      <div style="color:var(--yellow)">Fixtures today: <span style="color:var(--white)">${fxTotal}</span> (matched: ${fxResolved}, travelling: ${fxActive})</div>
+      <div style="color:${threeOk ? 'var(--green)' : 'var(--red)'}">3D engine: ${threeOk ? 'OK' : 'MISSING (Three.js/GLTFLoader not loaded)'}</div>
+      <div style="color:var(--cyan)">Map zoom: <span style="color:var(--white)">${zoomNow === null ? '—' : zoomNow}</span> (needs ${STADIUM3D_MIN_ZOOM}+ for 3D)</div>
+    `;
+  } catch {}
+}
+
+window.addEventListener('three-ready', () => {
+  updateOverlayStatus();
+  if(stadium3dLayer) stadium3dLayer._requestRender?.();
+});
 
 function parseVec3Degrees(arr){
   if(!Array.isArray(arr) || arr.length < 3) return null;
@@ -912,7 +1440,15 @@ class ThreeStadiumLayer extends L.Layer {
           resolve(root);
         },
         undefined,
-        () => {
+        (err) => {
+          try{
+            console.warn("3D stadium GLB load failed", { clubId, url, err });
+            const box = document.getElementById('errorBox');
+            if(box){
+              box.style.display = 'block';
+              box.textContent += (box.textContent ? '\n\n' : '') + `3D GLB FAILED: clubId=${clubId}\n${url}`;
+            }
+          } catch {}
           this._pendingLoads.delete(clubId);
           resolve(null);
         }
@@ -1031,6 +1567,65 @@ function setSelectedClubOnMap(clubId){
     const isAlert = markerAlertTimeouts.has(clubId);
     stadium3dLayer.setClubState(clubId, { selected: true, alert: isAlert });
   }
+
+  // If this club has a fixture today, auto-select it for the scoreboard and show only its fixture overlay.
+  try{
+    const fx = pickBestFixtureKeyForClub(selectedClubId);
+    setActiveFixtureKey(fx);
+  } catch {}
+  try{
+    renderFixtureInfoMarkers();
+    ensureFixtureInfoLayer();
+    applyFixtureInfoFadeMode();
+  } catch {}
+}
+
+function pickBestFixtureKeyForClub(clubId){
+  if(!clubId) return null;
+  const list = fixturesToday || [];
+  if(!list.length) return null;
+  const now = Date.now();
+
+  const liveLike = (s) => {
+    if(!s) return false;
+    if(typeof s.minute === 'number') return true;
+    const st = String(s.status || '').toLowerCase();
+    return /live|in play|1st|2nd|half|ht|ft|aet|pens/.test(st);
+  };
+
+  let bestLive = null;
+  let bestLiveMinute = -1;
+  let bestUpcoming = null;
+  let bestUpcomingT = Infinity;
+  let bestAny = null;
+  let bestAnyT = Infinity;
+
+  for(const fx of list){
+    const kickoffMs = parseFixtureKickoffMs(fx) || 0;
+    const homeId = resolveClubId(fx.homeId || fx.home || (fx.homeTeam && (fx.homeTeam.id || fx.homeTeam.name)) || fx.homeTeamName);
+    const awayId = resolveClubId(fx.awayId || fx.away || (fx.awayTeam && (fx.awayTeam.id || fx.awayTeam.name)) || fx.awayTeamName);
+    if(!homeId || !awayId) continue;
+    if(String(homeId) !== String(clubId) && String(awayId) !== String(clubId)) continue;
+
+    const key = fixtureKeyFromParts(homeId, awayId, kickoffMs);
+    const score = getScoreForFixtureKey(key) || getScoreForFixtureKey(fixtureKeyFromParts(homeId, awayId, 0));
+    const t = kickoffMs || 9e15;
+
+    if(liveLike(score)){
+      const m = (score && typeof score.minute === 'number') ? score.minute : 0;
+      if(m > bestLiveMinute){ bestLiveMinute = m; bestLive = key; }
+      continue;
+    }
+
+    if(kickoffMs && kickoffMs >= now && t < bestUpcomingT){
+      bestUpcomingT = t;
+      bestUpcoming = key;
+    }
+
+    if(t < bestAnyT){ bestAnyT = t; bestAny = key; }
+  }
+
+  return bestLive || bestUpcoming || bestAny;
 }
 
 function triggerClubNewsAlertOnMap(clubId, durationMs = 6500){
@@ -1101,7 +1696,8 @@ function drawMap() {
     clubMarkers.set(c.id, marker);
 
   marker.on("click", () => {
-    map.flyTo([c.lat, c.lon], 9, { duration: 0.6 });
+    const ll = (marker && typeof marker.getLatLng === 'function') ? marker.getLatLng() : { lat: c.lat, lng: c.lon };
+    map.flyTo([ll.lat, ll.lng], 9, { duration: 0.6 });
     showClub(c, true);
     setSelectedClubOnMap(c.id);
 
@@ -1266,6 +1862,374 @@ function addStadiumToggleControl(){
   ctrl.addTo(map);
 }
 
+function createStadiumSidebarPanel(){
+  const wrap = document.createElement("div");
+  wrap.style.border = "1px solid rgba(0,255,0,0.55)";
+  wrap.style.padding = "8px 10px";
+  wrap.style.marginBottom = "12px";
+  wrap.style.background = "rgba(0,0,0,0.55)";
+
+  const title = document.createElement("div");
+  title.style.color = "var(--yellow)";
+  title.style.fontSize = "14px";
+  title.style.marginBottom = "8px";
+  title.textContent = "Map overlays";
+  wrap.appendChild(title);
+
+  const row2d = document.createElement("label");
+  row2d.style.display = "flex";
+  row2d.style.alignItems = "center";
+  row2d.style.gap = "8px";
+  row2d.style.cursor = "pointer";
+  row2d.style.userSelect = "none";
+  row2d.style.color = "var(--cyan)";
+  row2d.style.fontSize = "14px";
+
+  const cb2d = document.createElement("input");
+  cb2d.type = "checkbox";
+  cb2d.checked = !!showStadiums;
+  row2d.appendChild(cb2d);
+  row2d.appendChild(document.createTextNode("STADIUMS (2D)"));
+  wrap.appendChild(row2d);
+
+  const hint2d = document.createElement("div");
+  hint2d.style.color = "var(--green)";
+  hint2d.style.opacity = "0.9";
+  hint2d.style.fontSize = "12px";
+  hint2d.style.margin = "6px 0 10px";
+  hint2d.textContent = `Zoom ${STADIUM_MIN_ZOOM}+ to show`;
+  wrap.appendChild(hint2d);
+
+  const row3d = document.createElement("label");
+  row3d.style.display = "flex";
+  row3d.style.alignItems = "center";
+  row3d.style.gap = "8px";
+  row3d.style.cursor = "pointer";
+  row3d.style.userSelect = "none";
+  row3d.style.color = "var(--magenta)";
+  row3d.style.fontSize = "14px";
+
+  const cb3d = document.createElement("input");
+  cb3d.type = "checkbox";
+  cb3d.checked = !!showStadiums3d;
+  row3d.appendChild(cb3d);
+  row3d.appendChild(document.createTextNode("STADIUMS (3D)"));
+  wrap.appendChild(row3d);
+
+  const hint3d = document.createElement("div");
+  hint3d.style.color = "var(--green)";
+  hint3d.style.opacity = "0.9";
+  hint3d.style.fontSize = "12px";
+  hint3d.style.marginTop = "6px";
+  hint3d.textContent = `Zoom ${STADIUM3D_MIN_ZOOM}+ to show`;
+  wrap.appendChild(hint3d);
+
+  const rowFx = document.createElement("label");
+  rowFx.style.display = "flex";
+  rowFx.style.alignItems = "center";
+  rowFx.style.gap = "8px";
+  rowFx.style.cursor = "pointer";
+  rowFx.style.userSelect = "none";
+  rowFx.style.color = "var(--yellow)";
+  rowFx.style.fontSize = "14px";
+  rowFx.style.marginTop = "10px";
+
+  const cbFx = document.createElement("input");
+  cbFx.type = "checkbox";
+  cbFx.checked = !!showFixtureTravel;
+  rowFx.appendChild(cbFx);
+  rowFx.appendChild(document.createTextNode("FIXTURES (Away travel)"));
+  wrap.appendChild(rowFx);
+
+  const hintFx = document.createElement("div");
+  hintFx.style.color = "var(--cyan)";
+  hintFx.style.opacity = "0.9";
+  hintFx.style.fontSize = "12px";
+  hintFx.style.marginTop = "6px";
+  hintFx.textContent = `Uses ${FIXTURES_URL} • Zoom ${FIXTURE_TRAVEL_MIN_ZOOM}+ • Away travels to match then returns`;
+  wrap.appendChild(hintFx);
+
+  const fxBtn = document.createElement("button");
+  fxBtn.textContent = "Reload fixtures";
+  fxBtn.style.marginTop = "8px";
+  fxBtn.style.width = "100%";
+  fxBtn.style.background = "#000";
+  fxBtn.style.color = "var(--cyan)";
+  fxBtn.style.border = "1px solid var(--green)";
+  fxBtn.style.padding = "6px 8px";
+  fxBtn.style.cursor = "pointer";
+  fxBtn.style.fontFamily = "Teletext, monospace";
+  fxBtn.style.fontSize = "12px";
+  wrap.appendChild(fxBtn);
+
+  const fxFetchBtn = document.createElement("button");
+  fxFetchBtn.textContent = "Fetch real fixtures (today)";
+  fxFetchBtn.style.marginTop = "8px";
+  fxFetchBtn.style.width = "100%";
+  fxFetchBtn.style.background = "#000";
+  fxFetchBtn.style.color = "var(--yellow)";
+  fxFetchBtn.style.border = "1px solid var(--green)";
+  fxFetchBtn.style.padding = "6px 8px";
+  fxFetchBtn.style.cursor = "pointer";
+  fxFetchBtn.style.fontFamily = "Teletext, monospace";
+  fxFetchBtn.style.fontSize = "12px";
+  wrap.appendChild(fxFetchBtn);
+
+  const rowFxInfo = document.createElement("label");
+  rowFxInfo.style.display = "flex";
+  rowFxInfo.style.alignItems = "center";
+  rowFxInfo.style.gap = "8px";
+  rowFxInfo.style.cursor = "pointer";
+  rowFxInfo.style.userSelect = "none";
+  rowFxInfo.style.color = "var(--green)";
+  rowFxInfo.style.fontSize = "14px";
+  rowFxInfo.style.marginTop = "10px";
+
+  const cbFxInfo = document.createElement("input");
+  cbFxInfo.type = "checkbox";
+  cbFxInfo.checked = !!showFixtureInfo;
+  rowFxInfo.appendChild(cbFxInfo);
+  rowFxInfo.appendChild(document.createTextNode("FIXTURE INFO (overlay)"));
+  wrap.appendChild(rowFxInfo);
+
+  const rowMs = document.createElement("label");
+  rowMs.style.display = "flex";
+  rowMs.style.alignItems = "center";
+  rowMs.style.gap = "8px";
+  rowMs.style.cursor = "pointer";
+  rowMs.style.userSelect = "none";
+  rowMs.style.color = "var(--cyan)";
+  rowMs.style.fontSize = "14px";
+  rowMs.style.marginTop = "10px";
+
+  const cbMs = document.createElement("input");
+  cbMs.type = "checkbox";
+  cbMs.id = 'cbMatchScoreboard';
+  cbMs.checked = !!showMatchScoreboard;
+  rowMs.appendChild(cbMs);
+  rowMs.appendChild(document.createTextNode("MATCH SCOREBOARD (top)"));
+  wrap.appendChild(rowMs);
+
+  const rowCompact = document.createElement("label");
+  rowCompact.style.display = "flex";
+  rowCompact.style.alignItems = "center";
+  rowCompact.style.gap = "8px";
+  rowCompact.style.cursor = "pointer";
+  rowCompact.style.userSelect = "none";
+  rowCompact.style.color = "var(--cyan)";
+  rowCompact.style.fontSize = "14px";
+  rowCompact.style.marginTop = "10px";
+
+  const cbCompact = document.createElement("input");
+  cbCompact.type = "checkbox";
+  cbCompact.id = 'cbCompactOverlays';
+  cbCompact.checked = !!compactOverlays;
+  rowCompact.appendChild(cbCompact);
+  rowCompact.appendChild(document.createTextNode("COMPACT OVERLAYS"));
+  wrap.appendChild(rowCompact);
+
+  const fxTestBtn = document.createElement("button");
+  fxTestBtn.textContent = "TEST: Derby @ Bristol City (fast)";
+  fxTestBtn.style.marginTop = "8px";
+  fxTestBtn.style.width = "100%";
+  fxTestBtn.style.background = "#000";
+  fxTestBtn.style.color = "var(--yellow)";
+  fxTestBtn.style.border = "1px solid var(--green)";
+  fxTestBtn.style.padding = "6px 8px";
+  fxTestBtn.style.cursor = "pointer";
+  fxTestBtn.style.fontFamily = "Teletext, monospace";
+  fxTestBtn.style.fontSize = "12px";
+  wrap.appendChild(fxTestBtn);
+
+  const status = document.createElement("div");
+  status.id = 'overlayStatus';
+  status.style.marginTop = "10px";
+  status.style.paddingTop = "8px";
+  status.style.borderTop = "1px solid rgba(0,255,0,0.25)";
+  status.style.fontSize = "12px";
+  status.style.color = "var(--yellow)";
+  wrap.appendChild(status);
+
+  updateOverlayStatus();
+
+  const testBtn = document.createElement("button");
+  testBtn.textContent = "TEST: ZOOM TO 3D STADIUM";
+  testBtn.style.marginTop = "8px";
+  testBtn.style.width = "100%";
+  testBtn.style.background = "#000";
+  testBtn.style.color = "var(--yellow)";
+  testBtn.style.border = "1px solid var(--green)";
+  testBtn.style.padding = "6px 8px";
+  testBtn.style.cursor = "pointer";
+  testBtn.style.fontFamily = "Teletext, monospace";
+  testBtn.style.fontSize = "12px";
+  wrap.appendChild(testBtn);
+
+  cb2d.addEventListener("change", () => {
+    showStadiums = cb2d.checked;
+    localStorage.setItem("showStadiums", showStadiums ? "on" : "off");
+    updateStadiumVisibility();
+  });
+
+  cb3d.addEventListener("change", () => {
+    showStadiums3d = cb3d.checked;
+    localStorage.setItem("showStadiums3d", showStadiums3d ? "on" : "off");
+    if(stadium3dLayer) stadium3dLayer._requestRender?.();
+  });
+
+  cbFx.addEventListener("change", () => {
+    showFixtureTravel = cbFx.checked;
+    localStorage.setItem("showFixtureTravel", showFixtureTravel ? "on" : "off");
+    if(!showFixtureTravel){
+      stopAllFixtureTravel({ restore: true });
+    } else {
+      ensureFixtureTravelLayer();
+      planFixtureTravelForToday();
+    }
+    // Info overlay is useful with travel, so keep it in sync.
+    renderFixtureInfoMarkers();
+    ensureFixtureInfoLayer();
+    updateOverlayStatus();
+  });
+
+  cbFxInfo.addEventListener("change", () => {
+    showFixtureInfo = cbFxInfo.checked;
+    localStorage.setItem("showFixtureInfo", showFixtureInfo ? "on" : "off");
+    renderFixtureInfoMarkers();
+    ensureFixtureInfoLayer();
+    renderMatchScoreboard();
+    updateOverlayStatus();
+  });
+
+  cbMs.addEventListener("change", () => {
+    showMatchScoreboard = cbMs.checked;
+    localStorage.setItem("showMatchScoreboard", showMatchScoreboard ? "on" : "off");
+
+    // When the top scoreboard is on, the old floating fixture info boxes usually look cluttered.
+    // Keep the toggle available, but default to hiding them.
+    if(showMatchScoreboard && showFixtureInfo){
+      showFixtureInfo = false;
+      localStorage.setItem("showFixtureInfo", "off");
+      try{ cbFxInfo.checked = false; } catch {}
+      renderFixtureInfoMarkers();
+      ensureFixtureInfoLayer();
+    }
+
+    renderMatchScoreboard();
+  });
+
+  cbCompact.addEventListener("change", () => {
+    compactOverlays = cbCompact.checked;
+    localStorage.setItem("compactOverlays", compactOverlays ? "on" : "off");
+    applyOverlayUiMode();
+    renderFixtureInfoMarkers();
+    renderMatchScoreboard();
+  });
+
+  fxBtn.addEventListener("click", async () => {
+    await refreshFixturesAndTravel();
+    await refreshScoresAndOverlay();
+    renderMatchScoreboard();
+  });
+
+  fxFetchBtn.addEventListener("click", async () => {
+    fxFetchBtn.disabled = true;
+    const oldText = fxFetchBtn.textContent;
+    fxFetchBtn.textContent = "Fetching…";
+    try{
+      // Requires running `python server.py` (not plain http.server) so /api/fetch-fixtures exists.
+      const resp = await fetch('/api/fetch-fixtures', { method: 'POST' });
+      const payload = await resp.json().catch(() => null);
+      if(!resp.ok || !payload || payload.ok !== true){
+        const msg = payload && (payload.message || payload.error || payload.stderr) ? String(payload.message || payload.error || payload.stderr) : `HTTP ${resp.status}`;
+        throw new Error(msg);
+      }
+
+      toast(`Fixtures updated. ${payload.stdout || ''}`.trim() || 'Fixtures updated.');
+      await refreshFixturesAndTravel();
+      await refreshScoresAndOverlay();
+    } catch (e){
+      const msg = (e && e.message) ? e.message : String(e);
+      toast(`Fetch fixtures failed: ${msg}`);
+    } finally {
+      fxFetchBtn.disabled = false;
+      fxFetchBtn.textContent = oldText;
+    }
+  });
+
+  fxTestBtn.addEventListener("click", () => {
+    // Force-enable the feature
+    showFixtureTravel = true;
+    cbFx.checked = true;
+    localStorage.setItem("showFixtureTravel", "on");
+
+    // Build a synthetic fixture whose timeline is compressed to ~45 seconds.
+    const now = Date.now();
+    const kickoff = new Date(now + 15_000).toISOString();
+
+    fixturesToday = [
+      {
+        matchDate: ukDateYYYYMMDD(new Date()),
+        kickoff,
+        homeId: "bristol_city",
+        awayId: "derby_county",
+        home: "Bristol City",
+        away: "Derby County",
+        competition: "TEST"
+      }
+    ];
+
+    // Temporarily speed up the experience by overriding the planned windows in-place.
+    planFixtureTravelForToday();
+    renderFixtureInfoMarkers();
+    ensureFixtureInfoLayer();
+    const t = fixtureTravelActiveByAwayId.get("derby_county");
+    if(t){
+      t.travelOutStartMs = now - 15_000;   // started 15s ago
+      t.kickoffMs = now + 15_000;          // reaches stadium in 15s
+      t.matchEndMs = now + 25_000;         // short "match"
+      t.travelBackEndMs = now + 45_000;    // returns home
+    }
+
+    // Zoom/fly to Bristol City so you can see Derby arriving.
+    const home = _clubById.get("bristol_city");
+    if(home){
+      map.flyTo([home.lat, home.lon], Math.max(8, map.getZoom()), { duration: 0.8 });
+    }
+
+    ensureFixtureTravelLayer();
+    ensureFixtureInfoLayer();
+    updateOverlayStatus();
+  });
+
+  testBtn.addEventListener("click", () => {
+    // Ensure toggles are on
+    showStadiums3d = true;
+    cb3d.checked = true;
+    localStorage.setItem("showStadiums3d", "on");
+
+    // Fly to the first mapped 3D club (most reliable sanity check)
+    const mappedIds = stadiums3dByClubId ? Object.keys(stadiums3dByClubId) : [];
+    if(!mappedIds.length){
+      alert("No 3D mappings found in stadiums3d.json yet.");
+      return;
+    }
+
+    const clubId = mappedIds[0];
+    const club = clubs && clubs.find(c => String(c.id) === String(clubId));
+    if(!club){
+      alert(`Mapped club not found in clubs.json: ${clubId}`);
+      return;
+    }
+
+    const targetZoom = Math.max(STADIUM3D_MIN_ZOOM + 2, map.getZoom());
+    map.flyTo([club.lat, club.lon], targetZoom, { duration: 0.8 });
+    if(stadium3dLayer) stadium3dLayer._requestRender?.();
+  });
+
+  return wrap;
+}
+
 
 
 /* ===================== UTIL ===================== */
@@ -1277,6 +2241,29 @@ function safePlay(audioEl) {
     audioEl.play().catch(() => {});
   } catch {}
 }
+
+function toast(message){
+  const container = document.getElementById("toast-container");
+  if(!container) return;
+  const el = document.createElement("div");
+  el.style.padding = "10px 14px";
+  el.style.background = "#111";
+  el.style.color = "var(--yellow)";
+  el.style.border = "1px solid var(--green)";
+  el.style.fontSize = "15px";
+  el.style.maxWidth = "420px";
+  el.style.boxShadow = "0 0 6px rgba(0,255,0,0.4)";
+  el.style.whiteSpace = "pre-wrap";
+  el.textContent = String(message || "");
+  container.appendChild(el);
+
+  setTimeout(() => {
+    el.style.transition = "opacity 0.5s";
+    el.style.opacity = "0";
+    setTimeout(() => el.remove(), 500);
+  }, 4500);
+}
+
 function showToast(club, title, link) {
   const toast = document.createElement("div");
   toast.style.padding = "10px 14px";
@@ -1316,6 +2303,677 @@ function decodeHTMLEntities(text){
     out = next;
   }
   return out;
+}
+
+/* ===================== FIXTURES (Away travel) ===================== */
+function ukDateYYYYMMDD(d = new Date()){
+  // Stable YYYY-MM-DD in Europe/London (so “today” matches UK matchdays).
+  try{
+    return new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/London',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).format(d);
+  } catch {
+    // fallback: local
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return `${y}-${m}-${day}`;
+  }
+}
+
+function normalizeTeamName(s){
+  return String(s || "")
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function fixtureKeyFromParts(homeId, awayId, kickoffMs){
+  const k = kickoffMs ? String(kickoffMs) : "0";
+  return `${String(homeId)}__${String(awayId)}__${k}`;
+}
+
+function simpleHash01(str){
+  // Deterministic 0..1 (not crypto; just for spreading icons around a point).
+  let h = 2166136261;
+  const s = String(str || "");
+  for(let i = 0; i < s.length; i++){
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  // Convert to 0..1
+  return ((h >>> 0) % 1000000) / 1000000;
+}
+
+function getOpponentParkingLatLng(homeLatLng, awayId){
+  if(!map || !homeLatLng) return homeLatLng;
+  const z = map.getZoom ? map.getZoom() : 10;
+  const t = Math.max(0, Math.min(1, (z - 6) / 10));
+  const radius = FIXTURE_PARK_RADIUS_PX_MIN + (FIXTURE_PARK_RADIUS_PX_MAX - FIXTURE_PARK_RADIUS_PX_MIN) * t;
+  const a = simpleHash01(awayId) * Math.PI * 2;
+  const basePt = map.latLngToContainerPoint(homeLatLng);
+  const pt = L.point(basePt.x + Math.cos(a) * radius, basePt.y + Math.sin(a) * radius);
+  return map.containerPointToLatLng(pt);
+}
+
+function getSmartFixtureLabelLatLng(anchorLatLng, fixtureKey){
+  if(!map || !anchorLatLng) return anchorLatLng;
+
+  const size = map.getSize();
+  const base = map.latLngToContainerPoint(anchorLatLng);
+  const pad = FIXTURE_INFO_EDGE_PAD_PX;
+  const halfW = FIXTURE_INFO_BOX_W_PX / 2;
+  const h = FIXTURE_INFO_BOX_H_PX;
+
+  // Candidate offsets in px (x, y). y negative = above.
+  const candidates = [
+    [0, -FIXTURE_LABEL_OFFSET_Y_PX],
+    [0, FIXTURE_LABEL_OFFSET_Y_PX + 18],
+    [halfW + 28, -36],
+    [-(halfW + 28), -36],
+    [halfW + 36, 22],
+    [-(halfW + 36), 22],
+  ];
+
+  // Deterministic rotation so multiple fixtures don't all pick the same direction.
+  const rot = Math.floor(simpleHash01(fixtureKey) * candidates.length);
+  const rotated = candidates.slice(rot).concat(candidates.slice(0, rot));
+
+  function scorePoint(pt){
+    // With iconAnchor [halfW,0], box extends left/right by halfW and down by h.
+    const left = pt.x - halfW;
+    const right = pt.x + halfW;
+    const top = pt.y;
+    const bottom = pt.y + h;
+
+    const inside = (left >= pad) && (right <= size.x - pad) && (top >= pad) && (bottom <= size.y - pad);
+    if(!inside) return -1;
+
+    // Prefer more margin from edges.
+    const m = Math.min(left - pad, (size.x - pad) - right, top - pad, (size.y - pad) - bottom);
+    return m;
+  }
+
+  let bestPt = null;
+  let bestScore = -1;
+
+  for(const [dx, dy] of rotated){
+    const pt = L.point(base.x + dx, base.y + dy);
+    const sc = scorePoint(pt);
+    if(sc > bestScore){
+      bestScore = sc;
+      bestPt = pt;
+    }
+  }
+
+  // If nothing fits, clamp an "above" placement into the viewport.
+  if(!bestPt){
+    const pt = L.point(base.x, base.y - FIXTURE_LABEL_OFFSET_Y_PX);
+    const clampedX = Math.max(pad + halfW, Math.min(size.x - pad - halfW, pt.x));
+    const clampedY = Math.max(pad, Math.min(size.y - pad - h, pt.y));
+    bestPt = L.point(clampedX, clampedY);
+  }
+
+  return map.containerPointToLatLng(bestPt);
+}
+
+function formatKickoff(kickoffMs){
+  if(!kickoffMs) return "KO: —";
+  try{
+    return new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/London',
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit'
+    }).format(new Date(kickoffMs));
+  } catch {
+    return new Date(kickoffMs).toLocaleString();
+  }
+}
+
+function setActiveFixtureKey(key){
+  window.__activeFixtureKey = key || null;
+  renderMatchScoreboard();
+  applyFixtureInfoFadeMode();
+}
+
+function applyFixtureInfoFadeMode(){
+  if(!map) return;
+  const z = map.getZoom ? map.getZoom() : 10;
+  const shouldFade = z < FIXTURE_INFO_FADE_BELOW_ZOOM;
+  for(const [key, marker] of fixtureInfoMarkers.entries()){
+    const el = marker && marker.getElement ? marker.getElement() : null;
+    if(!el) continue;
+    const isActive = (window.__activeFixtureKey && String(window.__activeFixtureKey) === String(key));
+    el.classList.toggle('fixture-active', !!isActive);
+    el.classList.toggle('fixture-faded', !!shouldFade && !isActive);
+  }
+}
+
+function pickDefaultFixtureKey(){
+  const list = fixturesToday || [];
+  if(!list.length) return null;
+  const now = Date.now();
+  const liveLike = (s) => {
+    if(!s) return false;
+    if(typeof s.minute === 'number') return true;
+    const st = String(s.status || '').toLowerCase();
+    return /live|in play|1st|2nd|half|ht|ft|aet|pens/.test(st);
+  };
+
+  let bestLive = null;
+  let bestLiveMinute = -1;
+  let bestUpcoming = null;
+  let bestUpcomingT = Infinity;
+  let bestAny = null;
+  let bestAnyT = Infinity;
+
+  for(const fx of list){
+    const kickoffMs = parseFixtureKickoffMs(fx) || 0;
+    const homeId = resolveClubId(fx.homeId || fx.home || (fx.homeTeam && (fx.homeTeam.id || fx.homeTeam.name)) || fx.homeTeamName);
+    const awayId = resolveClubId(fx.awayId || fx.away || (fx.awayTeam && (fx.awayTeam.id || fx.awayTeam.name)) || fx.awayTeamName);
+    if(!homeId || !awayId) continue;
+
+    const key = fixtureKeyFromParts(homeId, awayId, kickoffMs);
+    const score = getScoreForFixtureKey(key) || getScoreForFixtureKey(fixtureKeyFromParts(homeId, awayId, 0));
+    const t = kickoffMs || 9e15;
+
+    if(liveLike(score)){
+      const m = (score && typeof score.minute === 'number') ? score.minute : 0;
+      if(m > bestLiveMinute){ bestLiveMinute = m; bestLive = key; }
+      continue;
+    }
+
+    if(kickoffMs && kickoffMs >= now && t < bestUpcomingT){
+      bestUpcomingT = t;
+      bestUpcoming = key;
+    }
+
+    if(t < bestAnyT){ bestAnyT = t; bestAny = key; }
+  }
+
+  return bestLive || bestUpcoming || bestAny;
+}
+
+function renderMatchScoreboard(){
+  const wrap = document.getElementById('match-scoreboard');
+  if(!wrap) return;
+  if(!showMatchScoreboard){ wrap.style.display = 'none'; return; }
+
+  const key = window.__activeFixtureKey || pickDefaultFixtureKey();
+  if(!key){ wrap.style.display = 'none'; return; }
+
+  const parts = String(key).split('__');
+  const homeId = parts[0];
+  const awayId = parts[1];
+  const kickoffMs = Number(parts[2] || 0);
+  const home = _clubById.get(homeId);
+  const away = _clubById.get(awayId);
+  if(!home || !away){ wrap.style.display = 'none'; return; }
+
+  // Find matching fixture object for meta.
+  let fxObj = null;
+  for(const fx of (fixturesToday || [])){
+    const km = parseFixtureKickoffMs(fx) || 0;
+    const hid = resolveClubId(fx.homeId || fx.home || (fx.homeTeam && (fx.homeTeam.id || fx.homeTeam.name)) || fx.homeTeamName);
+    const aid = resolveClubId(fx.awayId || fx.away || (fx.awayTeam && (fx.awayTeam.id || fx.awayTeam.name)) || fx.awayTeamName);
+    const k2 = hid && aid ? fixtureKeyFromParts(hid, aid, km) : null;
+    if(k2 === key){ fxObj = fx; break; }
+  }
+
+  const score = getScoreForFixtureKey(key) || getScoreForFixtureKey(fixtureKeyFromParts(homeId, awayId, 0));
+  const hs = (score && score.homeScore != null) ? score.homeScore : '—';
+  const as = (score && score.awayScore != null) ? score.awayScore : '—';
+  const st = score ? (score.minute != null ? `${score.minute}' ${score.status || ''}`.trim() : (score.status || '')) : '';
+
+  const metaEl = document.getElementById('ms-meta');
+  const subEl = document.getElementById('ms-sub');
+  const statusEl = document.getElementById('ms-status');
+
+  const comp = fxObj && fxObj.competition ? String(fxObj.competition) : '';
+  const koText = kickoffMs ? formatKickoff(kickoffMs) : '—';
+  const venue = home.ground ? String(home.ground) : '';
+
+  if(metaEl){
+    metaEl.textContent = [comp, koText].filter(Boolean).join(' • ') || '—';
+  }
+  if(subEl){
+    subEl.textContent = venue ? `Venue: ${venue}` : '—';
+  }
+  if(statusEl){
+    statusEl.textContent = st ? `Status: ${st}` : 'Status: —';
+  }
+
+  const hName = document.getElementById('ms-home-name');
+  const aName = document.getElementById('ms-away-name');
+  const hCrest = document.getElementById('ms-home-crest');
+  const aCrest = document.getElementById('ms-away-crest');
+  const hScore = document.getElementById('ms-home-score');
+  const aScore = document.getElementById('ms-away-score');
+
+  if(hName) hName.textContent = home.name;
+  if(aName) aName.textContent = away.name;
+  if(hScore) hScore.textContent = String(hs);
+  if(aScore) aScore.textContent = String(as);
+  if(hCrest){
+    hCrest.src = home.logo || '';
+    hCrest.style.display = home.logo ? '' : 'none';
+  }
+  if(aCrest){
+    aCrest.src = away.logo || '';
+    aCrest.style.display = away.logo ? '' : 'none';
+  }
+
+  wrap.style.display = '';
+}
+
+function ensureFixtureInfoLayer(){
+  if(!map) return;
+  const shouldShow = showFixtureInfo && map.getZoom() >= FIXTURE_TRAVEL_MIN_ZOOM;
+  if(shouldShow){
+    if(!map.hasLayer(fixtureInfoLayer)) fixtureInfoLayer.addTo(map);
+  } else {
+    if(map.hasLayer(fixtureInfoLayer)) map.removeLayer(fixtureInfoLayer);
+  }
+}
+
+function scoreKeyForFixture(fx, kickoffMs){
+  const homeId = resolveClubId(fx.homeId || fx.home || (fx.homeTeam && (fx.homeTeam.id || fx.homeTeam.name)) || fx.homeTeamName);
+  const awayId = resolveClubId(fx.awayId || fx.away || (fx.awayTeam && (fx.awayTeam.id || fx.awayTeam.name)) || fx.awayTeamName);
+  return homeId && awayId ? fixtureKeyFromParts(homeId, awayId, kickoffMs) : null;
+}
+
+function getScoreForFixtureKey(key){
+  return key ? liveScoresByKey.get(key) : null;
+}
+
+async function loadScores(){
+  try{
+    const url = `${SCORES_URL}?v=${Date.now()}`;
+    const data = await fetch(url).then(r => r.ok ? r.json() : null);
+    if(!Array.isArray(data)) return [];
+    return data;
+  } catch {
+    return [];
+  }
+}
+
+function ingestScores(scores){
+  const m = new Map();
+  for(const s of (scores || [])){
+    const homeId = resolveClubId(s.homeId || s.home || s.homeTeam);
+    const awayId = resolveClubId(s.awayId || s.away || s.awayTeam);
+    const kickoffMs = s.kickoff ? Date.parse(String(s.kickoff)) : (s.kickoffMs || null);
+    if(!homeId || !awayId) continue;
+    const key = fixtureKeyFromParts(homeId, awayId, kickoffMs || 0);
+    m.set(key, {
+      homeId,
+      awayId,
+      kickoffMs: kickoffMs || 0,
+      homeScore: (typeof s.homeScore === 'number') ? s.homeScore : null,
+      awayScore: (typeof s.awayScore === 'number') ? s.awayScore : null,
+      status: s.status || '',
+      minute: (typeof s.minute === 'number') ? s.minute : null
+    });
+  }
+  liveScoresByKey = m;
+}
+
+function renderFixtureInfoMarkers(){
+  // Clear and rebuild from fixturesToday for simplicity.
+  fixtureInfoMarkers.clear();
+  fixtureInfoLayer.clearLayers();
+  if(!map) return;
+  if(!showFixtureInfo) return;
+
+  // Only show fixture overlays for the currently selected club.
+  if(!selectedClubId) return;
+
+  for(const fx of (fixturesToday || [])){
+    const kickoffMs = parseFixtureKickoffMs(fx) || 0;
+    const homeId = resolveClubId(fx.homeId || fx.home || (fx.homeTeam && (fx.homeTeam.id || fx.homeTeam.name)) || fx.homeTeamName);
+    const awayId = resolveClubId(fx.awayId || fx.away || (fx.awayTeam && (fx.awayTeam.id || fx.awayTeam.name)) || fx.awayTeamName);
+    if(!homeId || !awayId) continue;
+
+    if(String(homeId) !== String(selectedClubId) && String(awayId) !== String(selectedClubId)){
+      continue;
+    }
+    const home = _clubById.get(homeId);
+    const away = _clubById.get(awayId);
+    if(!home || !away) continue;
+
+    const key = fixtureKeyFromParts(homeId, awayId, kickoffMs);
+    const score = getScoreForFixtureKey(key) || getScoreForFixtureKey(fixtureKeyFromParts(homeId, awayId, 0));
+    const scoreText = (score && score.homeScore != null && score.awayScore != null)
+      ? `${score.homeScore}-${score.awayScore}`
+      : "—";
+    const statusText = score
+      ? (score.minute != null ? `${score.minute}' ${score.status || ''}`.trim() : (score.status || ''))
+      : '';
+
+    const homeLL = L.latLng(home.lat, home.lon);
+    const labelLL = getSmartFixtureLabelLatLng(homeLL, key);
+
+    const ko = formatKickoff(kickoffMs);
+    const hLogo = home.logo || '';
+    const aLogo = away.logo || '';
+    const hNameShort = home.shortName || home.name;
+    const aNameShort = away.shortName || away.name;
+    const metaLeft = ko ? ko : '—';
+    const metaRight = statusText ? statusText : '—';
+
+    const html = `
+      <div class="fixture-info-box">
+        <div class="fx-mini-main">
+          <div class="fx-mini-team left">
+            <img class="fx-mini-crest" alt="" src="${hLogo}" style="display:${hLogo ? 'block' : 'none'}">
+            <div class="fx-mini-name">${hNameShort}</div>
+          </div>
+          <div class="fx-mini-score" aria-label="score">
+            <div class="fx-mini-score-num">${(score && score.homeScore != null) ? score.homeScore : '—'}</div>
+            <div class="fx-mini-score-sep"></div>
+            <div class="fx-mini-score-num">${(score && score.awayScore != null) ? score.awayScore : '—'}</div>
+          </div>
+          <div class="fx-mini-team right">
+            <div class="fx-mini-name">${aNameShort}</div>
+            <img class="fx-mini-crest" alt="" src="${aLogo}" style="display:${aLogo ? 'block' : 'none'}">
+          </div>
+        </div>
+        <div class="fx-mini-meta">
+          <div>${metaLeft}</div>
+          <div class="fx-mini-status">${metaRight}</div>
+        </div>
+      </div>
+    `;
+
+    const marker = L.marker(labelLL, {
+      icon: L.divIcon({
+        className: 'leaflet-div-icon fixture-info-icon',
+        html,
+        iconSize: [260, 0],
+        iconAnchor: [130, 0]
+      }),
+      pane: 'fixtureInfoPane',
+      zIndexOffset: 15000,
+      interactive: true,
+      keyboard: false
+    });
+
+    marker.on('add', () => {
+      applyFixtureInfoFadeMode();
+    });
+
+    marker.on('click', () => {
+      map.flyTo([home.lat, home.lon], Math.max(9, map.getZoom()), { duration: 0.6 });
+      showClub(home, true);
+      setSelectedClubOnMap(homeId);
+      try{
+        showMatchScoreboard = true;
+        localStorage.setItem("showMatchScoreboard", "on");
+        const cb = document.getElementById('cbMatchScoreboard');
+        if(cb) cb.checked = true;
+      } catch {}
+      setActiveFixtureKey(key);
+    });
+
+    fixtureInfoLayer.addLayer(marker);
+    fixtureInfoMarkers.set(key, marker);
+  }
+
+  ensureFixtureInfoLayer();
+  applyFixtureInfoFadeMode();
+}
+
+async function refreshScoresAndOverlay(){
+  const scores = await loadScores();
+  ingestScores(scores);
+  renderFixtureInfoMarkers();
+  renderMatchScoreboard();
+  updateOverlayStatus();
+}
+
+function rebuildClubLookups(){
+  _clubAliasToId = new Map();
+  _clubById = new Map();
+  for(const c of (clubs || [])){
+    const id = String(c.id);
+    _clubById.set(id, c);
+    _clubAliasToId.set(normalizeTeamName(c.name), id);
+    _clubAliasToId.set(normalizeTeamName(id), id);
+    if(Array.isArray(c.aliases)){
+      for(const a of c.aliases){
+        const k = normalizeTeamName(a);
+        if(k) _clubAliasToId.set(k, id);
+      }
+    }
+  }
+}
+
+function resolveClubId(ref){
+  if(ref == null) return null;
+  const s = String(ref);
+  if(_clubById.has(s)) return s;
+  const key = normalizeTeamName(s);
+  if(_clubAliasToId.has(key)) return _clubAliasToId.get(key);
+  return null;
+}
+
+function parseFixtureKickoffMs(fx){
+  const raw = fx && (fx.kickoff || fx.kickoffUtc || fx.kickoffISO || fx.dateTime);
+  if(!raw) return null;
+  const t = Date.parse(String(raw));
+  return Number.isFinite(t) ? t : null;
+}
+
+async function loadFixtures(){
+  fixtureTravelStatus.lastError = null;
+  fixtureTravelStatus.lastLoad = null;
+  try{
+    const url = `${FIXTURES_URL}?v=${Date.now()}`;
+    const data = await fetch(url).then(r => r.ok ? r.json() : null);
+    fixtureTravelStatus.lastLoad = Date.now();
+    if(!Array.isArray(data)) return [];
+    return data;
+  } catch (e){
+    fixtureTravelStatus.lastError = String(e && e.message ? e.message : e);
+    return [];
+  }
+}
+
+function filterFixturesForToday(fixtures){
+  const today = ukDateYYYYMMDD(new Date());
+  return (fixtures || []).filter(fx => {
+    // Accept either explicit matchDate or kickoff ISO.
+    if(fx && fx.matchDate){
+      return String(fx.matchDate) === today;
+    }
+    const t = parseFixtureKickoffMs(fx);
+    if(!t) return false;
+    return ukDateYYYYMMDD(new Date(t)) === today;
+  });
+}
+
+function ensureFixtureTravelLayer(){
+  if(!map) return;
+  const shouldShow = showFixtureTravel && map.getZoom() >= FIXTURE_TRAVEL_MIN_ZOOM;
+  if(shouldShow){
+    if(!map.hasLayer(fixtureTravelLayer)) fixtureTravelLayer.addTo(map);
+  } else {
+    if(map.hasLayer(fixtureTravelLayer)) map.removeLayer(fixtureTravelLayer);
+  }
+}
+
+function stopAllFixtureTravel({ restore = true } = {}){
+  if(_fixtureTravelTimer){
+    clearInterval(_fixtureTravelTimer);
+    _fixtureTravelTimer = null;
+  }
+
+  for(const [awayId, t] of fixtureTravelActiveByAwayId.entries()){
+    try{ if(t.trailOut) fixtureTravelLayer.removeLayer(t.trailOut); } catch {}
+    try{ if(t.trailBack) fixtureTravelLayer.removeLayer(t.trailBack); } catch {}
+    if(restore){
+      const marker = clubMarkers.get(awayId);
+      if(marker && t.fromLatLng) marker.setLatLng(t.fromLatLng);
+
+      const stadiumMarker = stadiumMarkers.get(awayId);
+      if(stadiumMarker && t.fromLatLng) stadiumMarker.setLatLng(t.fromLatLng);
+    }
+  }
+  fixtureTravelActiveByAwayId.clear();
+  fixtureTravelLayer.clearLayers();
+  fixtureTravelStatus.active = 0;
+}
+
+function planFixtureTravelForToday(){
+  stopAllFixtureTravel({ restore: true });
+  ensureFixtureTravelLayer();
+  if(!showFixtureTravel) return;
+
+  const now = Date.now();
+  const todays = fixturesToday || [];
+  fixtureTravelStatus.total = todays.length;
+  fixtureTravelStatus.resolved = 0;
+  fixtureTravelStatus.active = 0;
+
+  for(const fx of todays){
+    const homeId = resolveClubId(fx.homeId || fx.home || (fx.homeTeam && fx.homeTeam.id) || (fx.homeTeam && fx.homeTeam.name) || fx.homeTeamName);
+    const awayId = resolveClubId(fx.awayId || fx.away || (fx.awayTeam && fx.awayTeam.id) || (fx.awayTeam && fx.awayTeam.name) || fx.awayTeamName);
+    if(!homeId || !awayId) continue;
+    if(homeId === awayId) continue;
+
+    const home = _clubById.get(homeId);
+    const away = _clubById.get(awayId);
+    if(!home || !away) continue;
+
+    const kickoffMs = parseFixtureKickoffMs(fx) || now;
+    const travelOutStartMs = kickoffMs - FIXTURE_TRAVEL_HOURS_BEFORE_KO * 3600_000;
+    const matchEndMs = kickoffMs + FIXTURE_MATCH_DURATION_HOURS * 3600_000;
+    const travelBackEndMs = matchEndMs + FIXTURE_RETURN_DURATION_HOURS * 3600_000;
+
+    const fromLatLng = L.latLng(away.lat, away.lon);
+    const toLatLng = L.latLng(home.lat, home.lon);
+
+    fixtureTravelStatus.resolved++;
+
+    const trailOut = L.polyline([fromLatLng], {
+      color: '#ff00ff',
+      weight: 3,
+      opacity: 0.9,
+      className: 'fixture-trail',
+      dashArray: '6 10'
+    });
+    fixtureTravelLayer.addLayer(trailOut);
+
+    const trailBack = L.polyline([toLatLng], {
+      color: '#00ffff',
+      weight: 3,
+      opacity: 0.85,
+      className: 'fixture-trail-return',
+      dashArray: '3 8'
+    });
+    fixtureTravelLayer.addLayer(trailBack);
+
+    fixtureTravelActiveByAwayId.set(awayId, {
+      awayId,
+      homeId,
+      fromLatLng,
+      toLatLng,
+      kickoffMs,
+      travelOutStartMs,
+      matchEndMs,
+      travelBackEndMs,
+      trailOut,
+      trailBack,
+      lastTrailOutAt: 0,
+      lastTrailBackAt: 0,
+      lastPos: fromLatLng
+    });
+  }
+
+  fixtureTravelStatus.active = fixtureTravelActiveByAwayId.size;
+
+  // Run a lightweight interval for predictable CPU usage.
+  _fixtureTravelTimer = setInterval(() => {
+    if(!showFixtureTravel) return;
+    if(!map || map.getZoom() < FIXTURE_TRAVEL_MIN_ZOOM) return;
+    const now2 = Date.now();
+
+    for(const t of fixtureTravelActiveByAwayId.values()){
+      const marker = clubMarkers.get(t.awayId);
+      if(!marker) continue;
+
+      const parkedAtOpponent = getOpponentParkingLatLng(t.toLatLng, t.awayId);
+
+      let pos = t.fromLatLng;
+      let mode = 'home';
+
+      if(now2 < t.travelOutStartMs){
+        pos = t.fromLatLng;
+        mode = 'home';
+      } else if(now2 < t.kickoffMs){
+        // outbound travel 0..1
+        const denom = Math.max(1, (t.kickoffMs - t.travelOutStartMs));
+        let p = (now2 - t.travelOutStartMs) / denom;
+        p = Math.max(0, Math.min(1, p));
+        const eased = p < 0.5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2)/2;
+        pos = L.latLng(
+          t.fromLatLng.lat + (parkedAtOpponent.lat - t.fromLatLng.lat) * eased,
+          t.fromLatLng.lng + (parkedAtOpponent.lng - t.fromLatLng.lng) * eased
+        );
+        mode = 'out';
+      } else if(now2 < t.matchEndMs){
+        pos = parkedAtOpponent;
+        mode = 'at_match';
+      } else if(now2 < t.travelBackEndMs){
+        // return travel 0..1
+        const denom = Math.max(1, (t.travelBackEndMs - t.matchEndMs));
+        let p = (now2 - t.matchEndMs) / denom;
+        p = Math.max(0, Math.min(1, p));
+        const eased = p < 0.5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2)/2;
+        pos = L.latLng(
+          parkedAtOpponent.lat + (t.fromLatLng.lat - parkedAtOpponent.lat) * eased,
+          parkedAtOpponent.lng + (t.fromLatLng.lng - parkedAtOpponent.lng) * eased
+        );
+        mode = 'back';
+      } else {
+        pos = t.fromLatLng;
+        mode = 'home';
+      }
+
+      marker.setLatLng(pos);
+      const stadiumMarker = stadiumMarkers.get(t.awayId);
+      if(stadiumMarker) stadiumMarker.setLatLng(pos);
+
+      if(mode === 'out'){
+        const shouldSample = (now2 - (t.lastTrailOutAt || 0)) >= FIXTURE_TRAIL_SAMPLE_MS;
+        if(shouldSample){
+          t.trailOut.addLatLng(pos);
+          t.lastTrailOutAt = now2;
+        }
+      } else if(mode === 'back'){
+        const shouldSample = (now2 - (t.lastTrailBackAt || 0)) >= FIXTURE_TRAIL_SAMPLE_MS;
+        if(shouldSample){
+          t.trailBack.addLatLng(pos);
+          t.lastTrailBackAt = now2;
+        }
+      }
+      t.lastPos = pos;
+    }
+  }, FIXTURE_TRAVEL_TICK_MS);
+}
+
+async function refreshFixturesAndTravel(){
+  const all = await loadFixtures();
+  fixturesToday = filterFixturesForToday(all);
+  planFixtureTravelForToday();
+  renderFixtureInfoMarkers();
+  ensureFixtureInfoLayer();
+  updateOverlayStatus();
 }
 
 function escapeRegex(s){
@@ -1529,6 +3187,9 @@ soundCheckbox.addEventListener("change", () => {
   localStorage.setItem("soundEnabled", soundCheckbox.checked ? "on" : "off");
 });
 
+  // Stadium toggles (2D/3D) in sidebar for discoverability
+  sidebar.appendChild(createStadiumSidebarPanel());
+
   sidebar.scrollTop = 0;
 
   const preferredCountries = ["England","Scotland","Wales","Northern Ireland","Republic of Ireland"];
@@ -1703,6 +3364,9 @@ function showClub(club, playSound) {
   sidebar.appendChild(back);
   sidebar.appendChild(titleWrap);
 
+  // Stadium toggles (2D/3D) in club view too
+  sidebar.appendChild(createStadiumSidebarPanel());
+
   const items = (rumoursByClub.get(club.id) || []).slice(0, 20).sort(
     (a, b) => new Date(b.time) - new Date(a.time)
   );
@@ -1845,6 +3509,7 @@ if (autoRefresh && autoRefresh !== "on") return;
 /* ===================== INIT ===================== */
 async function init(){
   clubs = await fetch("clubs.json").then(r => r.json());
+  rebuildClubLookups();
 
   // Optional: stadium renders overlay (clubId -> relative image path)
   stadiumsByClubId = await fetch("stadiums.json")
@@ -1857,6 +3522,16 @@ async function init(){
   stadiums3dByClubId = await fetch("stadiums3d.json")
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}));
+
+  // Optional: fixtures feed (drives away-team travel)
+  try{
+    await refreshFixturesAndTravel();
+  } catch {}
+
+  // Optional: live scores feed (updates the fixture info overlay)
+  try{
+    await refreshScoresAndOverlay();
+  } catch {}
 
   // Restore saved open/closed state
   const savedCountries = localStorage.getItem("openCountries");
@@ -1879,6 +3554,8 @@ async function init(){
   drawMap();
   drawStadiums();
 
+  updateOverlayStatus();
+
   if(ensureThreeAvailable()){
     stadium3dLayer = new ThreeStadiumLayer();
     stadium3dLayer.addTo(map);
@@ -1888,12 +3565,39 @@ async function init(){
 
   addStadiumToggleControl();
   map.on("zoomend", updateStadiumVisibility);
+  map.on("zoomend", updateOverlayStatus);
+  map.on("zoomend", ensureFixtureTravelLayer);
+  map.on("zoomend", () => {
+    ensureFixtureInfoLayer();
+    renderFixtureInfoMarkers();
+    applyFixtureInfoFadeMode();
+  });
+  map.on("moveend", () => {
+    renderFixtureInfoMarkers();
+    applyFixtureInfoFadeMode();
+  });
+  ensureFixtureTravelLayer();
+  ensureFixtureInfoLayer();
   await pollTick();
   setInterval(pollTick, POLL_EVERY_MS);
+
+  if(_scorePollTimer) clearInterval(_scorePollTimer);
+  _scorePollTimer = setInterval(() => {
+    refreshScoresAndOverlay();
+  }, SCORE_POLL_EVERY_MS);
 }
 
 
-init();
+// Run after DOMContentLoaded so deferred module scripts (Three.js) have executed.
+if (document.readyState === "loading") {
+  window.addEventListener("DOMContentLoaded", () => {
+    init();
+    scheduleBigBenHourly();
+  });
+} else {
+  init();
+  scheduleBigBenHourly();
+}
 
 // === HOURLY BELLS ===
 function scheduleBigBenHourly() {
@@ -1910,25 +3614,8 @@ function scheduleBigBenHourly() {
   }, millisecondsUntilNextHour);
 }
 
-scheduleBigBenHourly();
 
 
 </script>
-</script>
-
-<!-- Toast container should go outside script -->
-<div id="toast-container" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-"></div>
-
-</body>
-</html>
-
 </body>
 </html>
