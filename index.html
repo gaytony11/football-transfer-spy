@@ -402,10 +402,15 @@ const tickerTextEl = document.getElementById("tickerText");
 const tickerLinkEl = document.getElementById("tickerLink");
 const tickerIconEl = document.getElementById("tickerIcon");
 
-const sndClick = document.getElementById("sndClick");
-const sndBack  = document.getElementById("sndBack");
+/* ===================== STATE ===================== */
+// ...
 const sndNews  = document.getElementById("sndNews");
+
+const clubMarkers = new Map(); // ✅ KEEP this one
+
 let clubs = [];
+// ...
+
 let rumoursByClub = new Map();
 let seenKeys = new Set();
 let unreadCounts = {};
@@ -437,7 +442,6 @@ function clubIcon(club){
     className: "club-logo"
   });
 }
-const clubMarkers = new Map();
 function drawMap(){
   cluster.clearLayers();
   clubs.forEach(c => {
