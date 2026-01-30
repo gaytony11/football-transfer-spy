@@ -558,6 +558,27 @@ function renderDirectory(){
   searchBox.style.outline = "none";
 
 sidebar.appendChild(searchBox);
+// Auto-refresh toggle
+const refreshToggle = document.createElement("label");
+refreshToggle.style.display = "block";
+refreshToggle.style.marginBottom = "12px";
+refreshToggle.style.fontSize = "14px";
+refreshToggle.style.color = "var(--cyan)";
+refreshToggle.style.userSelect = "none";
+
+const checkbox = document.createElement("input");
+checkbox.type = "checkbox";
+checkbox.checked = localStorage.getItem("autoRefresh") !== "off";
+checkbox.style.marginRight = "6px";
+
+refreshToggle.appendChild(checkbox);
+refreshToggle.appendChild(document.createTextNode("Auto-refresh news"));
+
+checkbox.addEventListener("change", () => {
+  localStorage.setItem("autoRefresh", checkbox.checked ? "on" : "off");
+});
+
+sidebar.appendChild(refreshToggle);
 
   sidebar.scrollTop = 0;
 
