@@ -800,6 +800,7 @@ async function fetchFeed(label, url){
 
 async function pollTick(){
   if(FEEDS.length === 0) return;
+if (localStorage.getItem("autoRefresh") === "off") return;
 
   const batch = [];
   for(let i=0; i<FEEDS_PER_TICK; i++){
