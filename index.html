@@ -664,6 +664,9 @@ function renderDirectory(){
   });
 
   sidebar.insertAdjacentHTML("beforeend", `<div class="hint">TIP: Click a club to view latest items. Unread clubs blink red.</div>`);
+  localStorage.setItem("openCountries", JSON.stringify([...openCountries]));
+  localStorage.setItem("openLeagues", JSON.stringify([...openLeagues]));
+
 }
 
 function showClub(club, playSound){
