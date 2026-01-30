@@ -968,11 +968,11 @@ searchBox.addEventListener("input", () => {
 
 }
 
-function showClub(club, playSound){
+function showClub(club, playSound) {
   viewClubId = club.id;
   clearTimeout(viewTimeout);
 
-  if(playSound) safePlay(sndClick);
+  if (playSound) safePlay(sndClick);
   unreadCounts[club.id] = 0;
 
   sidebar.innerHTML = "";
@@ -997,11 +997,14 @@ function showClub(club, playSound){
   sidebar.appendChild(back);
   sidebar.appendChild(titleWrap);
 
-  const items = (rumoursByClub.get(club.id) || []).slice(0, 20).sort((a, b) => new Date(b.time) - new Date(a.time));
-  if(items.length === 0){
+  const items = (rumoursByClub.get(club.id) || []).slice(0, 20).sort(
+    (a, b) => new Date(b.time) - new Date(a.time)
+  );
+
+  if (items.length === 0) {
     sidebar.insertAdjacentText("beforeend", "NO ACTIVE STORIES");
   } else {
-    for(const r of items){
+    for (const r of items) {
       const card = document.createElement("div");
       card.className = "rumour";
 
@@ -1021,8 +1024,19 @@ function showClub(club, playSound){
     }
   }
 
+  // Scroll to top of sidebar
+  sidebar.scrollTop = 0;
+
+  // Highlight selected club in sidebar
+  document.querySelectorAll(".club").forEach(el => el.classList.remove("selected-club"));
+  const selectedRow = document.getElementById(`club-${club.id}`);
+  if (selectedRow) {
+    selectedRow.classList.add("selected-club");
+  }
+
+  // Auto-back after timeout
   viewTimeout = setTimeout(() => {
-    if(viewClubId === club.id) renderDirectory();
+    if (viewClubId === club.id) renderDirectory();
   }, AUTO_BACK_TIMEOUT_MS);
 }
 
