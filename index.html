@@ -576,31 +576,34 @@ function updateTicker(label, title, link){
     tickerIconEl.style.display = "none";
   }
 
-  // 🧠 Fly to marker and animate if club found
-  const club = matchClubByTitle(title);
-  if (club) {
-    const marker = clubMarkers.get(club.id);
-    if (marker) {
-      map.flyTo(marker.getLatLng(), 13, { duration: 0.6 });
-      sndHeli.volume = 0.4; // 40% volume
-  sndHeli.play().catch(() => {});
+// 🧠 Fly to marker and animate if club found
+const club = matchClubByTitle(title);
+if (club) {
+  const marker = clubMarkers.get(club.id);
+  if (marker) {
+    map.flyTo(marker.getLatLng(), 13, { duration: 0.6 });
 
-
-
-      const iconEl = marker._icon;
-if (iconEl) {
-  iconEl.classList.add("bounce-highlight");
-  setTimeout(() => iconEl.classList.remove("bounce-highlight"), 2000);
-}
-
+    // Play helicopter sound at 40% volume
+    if (sndHeli) {
+      sndHeli.volume = 0.4;
+      sndHeli.currentTime = 0;
+      sndHeli.play().catch(() => {});
     }
 
-    // Highlight club row in sidebar
-    const row = document.getElementById(`club-${club.id}`);
-    if (row) {
-      row.classList.add("pulse");
-      setTimeout(() => row.classList.remove("pulse"), 1600);
+    // Animate the marker icon
+    const iconEl = marker._icon;
+    if (iconEl) {
+      iconEl.classList.add("bounce-highlight");
+      setTimeout(() => iconEl.classList.remove("bounce-highlight"), 2000);
     }
+  }
+
+  // Highlight club row in sidebar
+  const row = document.getElementById(`club-${club.id}`);
+  if (row) {
+    row.classList.add("pulse");
+    setTimeout(() => row.classList.remove("pulse"), 1600);
+  }
 
     // Show temporary overlay
     const overlay = document.createElement("div");
