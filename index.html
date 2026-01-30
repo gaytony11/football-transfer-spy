@@ -545,6 +545,7 @@ function renderDirectory(){
 
   const tree = buildTree();
   sidebar.innerHTML = "";
+  sidebar.scrollTop = 0;
 
   const preferredCountries = ["England","Scotland","Wales","Northern Ireland","Republic of Ireland"];
   const countries = [
