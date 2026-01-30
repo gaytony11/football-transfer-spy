@@ -354,6 +354,99 @@
   z-index: 9999;
 }
 
+/* ===== MAP BADGE STATES (Selected + News) ===== */
+.leaflet-marker-icon.club-badge{
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+}
+
+.leaflet-marker-icon.club-badge .club-badge-inner{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: 50% 50%;
+}
+
+.leaflet-marker-icon.club-badge .club-badge-img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  image-rendering: crisp-edges;
+}
+
+@keyframes badgeSelectedPulse {
+  0%, 100% { transform: translateY(0) scale(1.25); }
+  50%      { transform: translateY(-2px) scale(1.34); }
+}
+
+@keyframes badgeSelectedPulseAlert {
+  0%, 100% { transform: translateY(0) scale(1.35); }
+  50%      { transform: translateY(-3px) scale(1.52); }
+}
+
+@keyframes badgeAlertScale {
+  0%, 100% { transform: scale(1.35); }
+  50%      { transform: scale(1.55); }
+}
+
+@keyframes badgeAlertPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255,0,0,0);
+    filter: drop-shadow(0 0 6px rgba(255,0,0,0.35));
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(255,0,0,0.32), 0 0 22px 10px rgba(255,0,0,0.60);
+    filter: drop-shadow(0 0 18px rgba(255,0,0,0.9));
+  }
+}
+
+.leaflet-marker-icon.badge-selected{
+  z-index: 2500;
+}
+
+.leaflet-marker-icon.badge-alert{
+  z-index: 9999;
+}
+
+.leaflet-marker-icon.badge-selected .club-badge-inner{
+  filter:
+    drop-shadow(0 0 10px rgba(255,0,0,0.95))
+    drop-shadow(0 0 22px rgba(255,0,0,0.70));
+  animation: badgeSelectedPulse 1.35s ease-in-out infinite;
+}
+
+.leaflet-marker-icon.badge-alert .club-badge-inner{
+  animation:
+    badgeAlertScale 0.90s ease-in-out infinite,
+    badgeAlertPulse 0.90s ease-in-out infinite;
+}
+
+.leaflet-marker-icon.badge-selected.badge-alert .club-badge-inner{
+  animation:
+    badgeSelectedPulseAlert 1.10s ease-in-out infinite,
+    badgeAlertPulse 0.90s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaflet-marker-icon.badge-selected,
+  .leaflet-marker-icon.badge-alert,
+  .leaflet-marker-icon.map-highlight,
+  .leaflet-marker-icon.bounce-highlight,
+  .leaflet-marker-icon.pulse {
+    animation: none !important;
+  }
+
+  .leaflet-marker-icon.badge-selected .club-badge-inner,
+  .leaflet-marker-icon.badge-alert .club-badge-inner {
+    animation: none !important;
+  }
+}
+
 
 </style>
 
@@ -493,6 +586,9 @@ const sndBells = document.getElementById("sndBells");
 
 const clubMarkers = new Map(); // ✅ KEEP this one
 
+let selectedClubId = null;
+const markerAlertTimeouts = new Map();
+
 let clubs = [];
 // ...
 
@@ -537,12 +633,88 @@ map.on("moveend", () => {
 
 function clubIcon(club){
   if(!club.logo) return null;
-  return L.icon({
-    iconUrl: `${club.logo}?v=${Date.now()}`,
+  const url = `${club.logo}?v=${Date.now()}`;
+  return L.divIcon({
+    html: `<div class="club-badge-inner"><img class="club-badge-img" src="${url}" alt=""></div>`,
+    className: "leaflet-div-icon club-badge",
     iconSize: [CLUB_ICON_SIZE, CLUB_ICON_SIZE],
-    iconAnchor: [CLUB_ICON_SIZE/2, CLUB_ICON_SIZE/2],
-    className: "club-logo"
+    iconAnchor: [CLUB_ICON_SIZE/2, CLUB_ICON_SIZE/2]
   });
+}
+
+function getMarkerIconEl(marker){
+  if(!marker) return null;
+  if(typeof marker.getElement === "function") return marker.getElement();
+  return marker._icon || marker._path || null;
+}
+
+function syncClubMarkerFrontState(clubId){
+  const marker = clubMarkers.get(clubId);
+  if(!marker) return;
+
+  const el = getMarkerIconEl(marker);
+  const isSelected = !!el && el.classList.contains("badge-selected");
+  const isAlert = !!el && el.classList.contains("badge-alert");
+
+  // Markers: use zIndexOffset. CircleMarkers/Paths: use bringToFront when active.
+  if(typeof marker.setZIndexOffset === "function"){
+    let offset = 0;
+    if(isSelected && isAlert) offset = 12000;
+    else if(isAlert) offset = 10000;
+    else if(isSelected) offset = 8000;
+    marker.setZIndexOffset(offset);
+  }
+
+  if((isSelected || isAlert) && typeof marker.bringToFront === "function"){
+    marker.bringToFront();
+  }
+}
+
+function setSelectedClubOnMap(clubId){
+  if(selectedClubId === clubId) return;
+
+  if(selectedClubId){
+    const prevMarker = clubMarkers.get(selectedClubId);
+    const prevEl = getMarkerIconEl(prevMarker);
+    if(prevEl){
+      prevEl.classList.remove("badge-selected");
+    }
+    syncClubMarkerFrontState(selectedClubId);
+  }
+
+  selectedClubId = clubId;
+
+  const marker = clubMarkers.get(clubId);
+  const el = getMarkerIconEl(marker);
+  if(el){
+    el.classList.add("badge-selected");
+  }
+
+  syncClubMarkerFrontState(clubId);
+}
+
+function triggerClubNewsAlertOnMap(clubId, durationMs = 6500){
+  const marker = clubMarkers.get(clubId);
+  const el = getMarkerIconEl(marker);
+  if(!el) return;
+
+  el.classList.add("badge-alert");
+  syncClubMarkerFrontState(clubId);
+
+  const existing = markerAlertTimeouts.get(clubId);
+  if(existing) clearTimeout(existing);
+
+  const timeoutId = setTimeout(() => {
+    const m = clubMarkers.get(clubId);
+    const iconEl = getMarkerIconEl(m);
+    if(iconEl){
+      iconEl.classList.remove("badge-alert");
+    }
+    syncClubMarkerFrontState(clubId);
+    markerAlertTimeouts.delete(clubId);
+  }, durationMs);
+
+  markerAlertTimeouts.set(clubId, timeoutId);
 }
 function drawMap() {
   // Clear any existing markers
@@ -567,6 +739,7 @@ function drawMap() {
   marker.on("click", () => {
     map.flyTo([c.lat, c.lon], 9, { duration: 0.6 });
     showClub(c, true);
+    setSelectedClubOnMap(c.id);
 
     const row = document.getElementById(`club-${c.id}`);
     if (row) {
@@ -694,12 +867,8 @@ if (marker) {
       sndHeli.play().catch(() => {});
     }
 
-    // Animate the marker icon
-const iconEl = marker._icon;
-if (iconEl) {
-  iconEl.classList.add("map-highlight");
-  setTimeout(() => iconEl.classList.remove("map-highlight"), 2000);
-}
+    // Animate the marker badge (pulse + glow)
+    triggerClubNewsAlertOnMap(club.id);
 
   }
 
@@ -985,6 +1154,8 @@ searchBox.addEventListener("input", () => {
 function showClub(club, playSound) {
   viewClubId = club.id;
   clearTimeout(viewTimeout);
+
+  setSelectedClubOnMap(club.id);
 
   if (playSound) safePlay(sndClick);
   unreadCounts[club.id] = 0;
