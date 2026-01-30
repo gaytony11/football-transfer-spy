@@ -312,6 +312,17 @@
   60%  { transform: scale(1.3) rotate(2deg); }
   100% { transform: scale(1); }
 }
+.selected-club {
+  background-color: rgba(255, 255, 0, 0.1);
+  border-left: 3px solid var(--yellow);
+  animation: selectedPulse 1s ease-in-out;
+}
+
+@keyframes selectedPulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
 
 .leaflet-marker-icon.pulse {
   animation: bouncePulse 0.8s ease-out;
@@ -680,10 +691,11 @@ if (marker) {
 
   // Highlight club row in sidebar
   const row = document.getElementById(`club-${club.id}`);
-  if (row) {
-    row.classList.add("pulse");
-    setTimeout(() => row.classList.remove("pulse"), 1600);
-  }
+if (row) {
+  row.classList.add("selected-club");
+  setTimeout(() => row.classList.remove("selected-club"), 1600);
+}
+
 
     // Show temporary overlay
     const overlay = document.createElement("div");
