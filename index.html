@@ -340,6 +340,19 @@
 #sidebar::-webkit-scrollbar-track {
   background: var(--bg);
 }
+@keyframes mapBadgePulse {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(1.9) rotate(-8deg); }
+  40%  { transform: scale(1.5) rotate(6deg); }
+  60%  { transform: scale(1.8) rotate(-3deg); }
+  100% { transform: scale(1); }
+}
+
+.leaflet-marker-icon.map-highlight {
+  animation: mapBadgePulse 1.4s ease-out;
+  filter: drop-shadow(0 0 10px red);
+  z-index: 9999;
+}
 
 
 </style>
@@ -682,11 +695,12 @@ if (marker) {
     }
 
     // Animate the marker icon
-    const iconEl = marker._icon;
-    if (iconEl) {
-      iconEl.classList.add("bounce-highlight");
-      setTimeout(() => iconEl.classList.remove("bounce-highlight"), 2000);
-    }
+const iconEl = marker._icon;
+if (iconEl) {
+  iconEl.classList.add("map-highlight");
+  setTimeout(() => iconEl.classList.remove("map-highlight"), 2000);
+}
+
   }
 
   // Highlight club row in sidebar
