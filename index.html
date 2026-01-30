@@ -1003,7 +1003,28 @@ const FEED_ICONS = {
   "Guardian": "ticker_icons/Guardian.png",
   "Football365": "ticker_icons/Football365.png",
   "Goal": "ticker_icons/Goal.png",
-  "Romano": "ticker_icons/Romano.jpg"
+  "Romano": "ticker_icons/Romano.jpg",
+
+  // Noise pack
+  "CaughtOffside": "ticker_icons/caughtoffside.png",
+  "TEAMtalk": "ticker_icons/TEAMtalk.png",
+  "SportsLens": "ticker_icons/sportslens.jpg",
+  "101GreatGoals": "ticker_icons/101GreatGoals.jpg",
+  "90min": "ticker_icons/90min.jpg",
+  "SoccerNews": "ticker_icons/SoccerNews.jpg",
+  "FootballFanCast": "ticker_icons/FootballFanCast.jpg",
+  "FourFourTwo": "ticker_icons/FourFourTwo.png",
+  "The72": "ticker_icons/The72.png",
+  "HITC": "ticker_icons/HITC.png",
+  "FootballTalk": "ticker_icons/FootballTalk.jpg",
+  "MetroFootball": "ticker_icons/MetroFootball.jpg",
+  "EveningStandardFootball": "ticker_icons/EveningStandardFootball.png",
+  "IndependentFootball": "ticker_icons/IndependentFootball.png",
+  "iNewsFootball": "ticker_icons/iNewsFootball.png",
+  "DailyMailFootball": "ticker_icons/DailyMailFootball.png",
+  "MirrorFootball": "ticker_icons/MirrorFootball.png",
+  "ThisIsAnfield": "ticker_icons/ThisIsAnfield.jpg",
+  "RedditSoccer": "ticker_icons/RedditSoccer.png"
 };
 
 /**
@@ -1120,6 +1141,8 @@ window.__activeFixtureKey = null;
 
 let compactOverlays = (localStorage.getItem("compactOverlays") || "on") === "on";
 
+let _apiHealthTimer = null;
+
 // If the top scoreboard is on, keep the map clean by default.
 if(showMatchScoreboard && showFixtureInfo){
   showFixtureInfo = false;
@@ -1134,6 +1157,34 @@ function applyOverlayUiMode(){
   } catch {}
 }
 applyOverlayUiMode();
+
+async function checkLocalApiHealth({ silent = true } = {}){
+  const el = document.getElementById('apiStatus');
+  if(!el) return;
+
+  const set = (color, text) => {
+    el.style.color = color;
+    el.textContent = text;
+  };
+
+  try{
+    set('var(--cyan)', 'API: checking…');
+    const resp = await fetch('/api/health', { method: 'GET', cache: 'no-store' });
+    const data = await resp.json().catch(() => null);
+    if(!resp.ok || !data || data.ok !== true){
+      set('var(--red)', 'API: unavailable (run python server.py)');
+      return;
+    }
+    if(data.tokenPresent){
+      set('var(--green)', 'API: OK (token present)');
+    } else {
+      set('var(--yellow)', 'API: OK (set FOOTBALL_DATA_TOKEN)');
+      if(!silent) toast('Token missing. Set env var FOOTBALL_DATA_TOKEN then restart the server.');
+    }
+  } catch {
+    set('var(--red)', 'API: unavailable (run python server.py)');
+  }
+}
 
 let _clubAliasToId = new Map();
 let _clubById = new Map();
@@ -1975,6 +2026,15 @@ function createStadiumSidebarPanel(){
   fxFetchBtn.style.fontSize = "12px";
   wrap.appendChild(fxFetchBtn);
 
+  const apiStatus = document.createElement('div');
+  apiStatus.id = 'apiStatus';
+  apiStatus.style.marginTop = '6px';
+  apiStatus.style.fontSize = '12px';
+  apiStatus.style.opacity = '0.95';
+  apiStatus.style.color = 'var(--cyan)';
+  apiStatus.textContent = 'API: unknown';
+  wrap.appendChild(apiStatus);
+
   const rowFxInfo = document.createElement("label");
   rowFxInfo.style.display = "flex";
   rowFxInfo.style.alignItems = "center";
@@ -2137,6 +2197,7 @@ function createStadiumSidebarPanel(){
     const oldText = fxFetchBtn.textContent;
     fxFetchBtn.textContent = "Fetching…";
     try{
+      await checkLocalApiHealth({ silent: false });
       // Requires running `python server.py` (not plain http.server) so /api/fetch-fixtures exists.
       const resp = await fetch('/api/fetch-fixtures', { method: 'POST' });
       const payload = await resp.json().catch(() => null);
@@ -2154,6 +2215,7 @@ function createStadiumSidebarPanel(){
     } finally {
       fxFetchBtn.disabled = false;
       fxFetchBtn.textContent = oldText;
+      await checkLocalApiHealth({ silent: true });
     }
   });
 
@@ -3578,6 +3640,9 @@ async function init(){
   });
   ensureFixtureTravelLayer();
   ensureFixtureInfoLayer();
+  checkLocalApiHealth({ silent: true });
+  if(_apiHealthTimer) clearInterval(_apiHealthTimer);
+  _apiHealthTimer = setInterval(() => checkLocalApiHealth({ silent: true }), 30000);
   await pollTick();
   setInterval(pollTick, POLL_EVERY_MS);
 
