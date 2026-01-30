@@ -964,6 +964,9 @@
 })();
 
 /* ===================== CONFIG ===================== */
+// Temporary kill-switch while stadium overlays are being fixed.
+const DISABLE_STADIUM_OVERLAYS = true;
+
 const COUNTRY_NAMES = {
   ENG: "England",
   SCO: "Scotland",
@@ -1024,6 +1027,7 @@ const FEED_ICONS = {
   "DailyMailFootball": "ticker_icons/DailyMailFootball.png",
   "MirrorFootball": "ticker_icons/MirrorFootball.png",
   "ThisIsAnfield": "ticker_icons/ThisIsAnfield.jpg",
+  "@bristolcity": "ticker_icons/bristolcity.jpg",
   "RedditSoccer": "ticker_icons/RedditSoccer.png"
 };
 
@@ -1043,6 +1047,7 @@ const FEEDS = [
   ["Football365", "https://www.football365.com/rss"],
   ["Goal", "https://www.goal.com/en/feeds/news?fmt=rss"],
   ["Romano", "https://rss.app/feeds/Rbu1YfkhckMTuUZW.xml"],
+  ["@bristolcity", "https://rss.app/feeds/CoJAjLdj6kFSAaBE.xml"],
 
   // Noise pack
   ["CaughtOffside", "https://caughtoffside.com/feed/"],
@@ -1135,6 +1140,7 @@ let fixtureInfoLayer = L.layerGroup();
 const fixtureInfoMarkers = new Map();
 let liveScoresByKey = new Map();
 let _scorePollTimer = null;
+let _scoresInitialized = false;
 
 let showMatchScoreboard = (localStorage.getItem("showMatchScoreboard") || "on") === "on";
 window.__activeFixtureKey = null;
@@ -1195,6 +1201,13 @@ const markerAlertTimeouts = new Map();
 let stadiumsByClubId = {};
 let showStadiums = (localStorage.getItem("showStadiums") || "off") === "on";
 let customStadiumsByClubId = {};
+
+if(DISABLE_STADIUM_OVERLAYS){
+  showStadiums = false;
+  showStadiums3d = false;
+  try{ localStorage.setItem("showStadiums", "off"); } catch {}
+  try{ localStorage.setItem("showStadiums3d", "off"); } catch {}
+}
 
 let clubs = [];
 // ...
@@ -1311,13 +1324,20 @@ function updateOverlayStatus(){
     const fxResolved = fixtureTravelStatus && typeof fixtureTravelStatus.resolved === 'number' ? fixtureTravelStatus.resolved : 0;
     const fxActive = fixtureTravelStatus && typeof fixtureTravelStatus.active === 'number' ? fixtureTravelStatus.active : 0;
 
-    el.innerHTML = `
-      <div style="color:var(--cyan)">2D mapped: <span style="color:var(--white)">${mapped2d}</span> (needs stadiums.json or preview upload)</div>
-      <div style="color:var(--magenta)">3D mapped: <span style="color:var(--white)">${mapped3d}</span> (only mapped clubs will show)</div>
-      <div style="color:var(--yellow)">Fixtures today: <span style="color:var(--white)">${fxTotal}</span> (matched: ${fxResolved}, travelling: ${fxActive})</div>
-      <div style="color:${threeOk ? 'var(--green)' : 'var(--red)'}">3D engine: ${threeOk ? 'OK' : 'MISSING (Three.js/GLTFLoader not loaded)'}</div>
-      <div style="color:var(--cyan)">Map zoom: <span style="color:var(--white)">${zoomNow === null ? '—' : zoomNow}</span> (needs ${STADIUM3D_MIN_ZOOM}+ for 3D)</div>
-    `;
+    if(DISABLE_STADIUM_OVERLAYS){
+      el.innerHTML = `
+        <div style="color:var(--yellow)">Fixtures today: <span style="color:var(--white)">${fxTotal}</span> (matched: ${fxResolved}, travelling: ${fxActive})</div>
+        <div style="color:var(--cyan)">Map zoom: <span style="color:var(--white)">${zoomNow === null ? '—' : zoomNow}</span></div>
+      `;
+    } else {
+      el.innerHTML = `
+        <div style="color:var(--cyan)">2D mapped: <span style="color:var(--white)">${mapped2d}</span> (needs stadiums.json or preview upload)</div>
+        <div style="color:var(--magenta)">3D mapped: <span style="color:var(--white)">${mapped3d}</span> (only mapped clubs will show)</div>
+        <div style="color:var(--yellow)">Fixtures today: <span style="color:var(--white)">${fxTotal}</span> (matched: ${fxResolved}, travelling: ${fxActive})</div>
+        <div style="color:${threeOk ? 'var(--green)' : 'var(--red)'}">3D engine: ${threeOk ? 'OK' : 'MISSING (Three.js/GLTFLoader not loaded)'}</div>
+        <div style="color:var(--cyan)">Map zoom: <span style="color:var(--white)">${zoomNow === null ? '—' : zoomNow}</span> (needs ${STADIUM3D_MIN_ZOOM}+ for 3D)</div>
+      `;
+    }
   } catch {}
 }
 
@@ -1765,6 +1785,13 @@ function drawMap() {
 }
 
 function drawStadiums(){
+  if(DISABLE_STADIUM_OVERLAYS){
+    try{ if(map && map.hasLayer(stadiumLayer)) map.removeLayer(stadiumLayer); } catch {}
+    stadiumMarkers.clear();
+    stadiumLayer.clearLayers();
+    return;
+  }
+
   stadiumMarkers.clear();
   stadiumLayer.clearLayers();
 
@@ -1787,6 +1814,10 @@ function drawStadiums(){
 }
 
 function updateStadiumVisibility(){
+  if(DISABLE_STADIUM_OVERLAYS){
+    try{ if(map && map.hasLayer(stadiumLayer)) map.removeLayer(stadiumLayer); } catch {}
+    return;
+  }
   const shouldShow = showStadiums && map.getZoom() >= STADIUM_MIN_ZOOM;
   if(shouldShow){
     if(!map.hasLayer(stadiumLayer)) stadiumLayer.addTo(map);
@@ -1796,6 +1827,7 @@ function updateStadiumVisibility(){
 }
 
 function addStadiumToggleControl(){
+  if(DISABLE_STADIUM_OVERLAYS) return;
   const ctrl = L.control({ position: "topright" });
   ctrl.onAdd = () => {
     const div = L.DomUtil.create("div", "leaflet-bar");
@@ -1927,53 +1959,57 @@ function createStadiumSidebarPanel(){
   title.textContent = "Map overlays";
   wrap.appendChild(title);
 
-  const row2d = document.createElement("label");
-  row2d.style.display = "flex";
-  row2d.style.alignItems = "center";
-  row2d.style.gap = "8px";
-  row2d.style.cursor = "pointer";
-  row2d.style.userSelect = "none";
-  row2d.style.color = "var(--cyan)";
-  row2d.style.fontSize = "14px";
+  let cb2d = null;
+  let cb3d = null;
+  if(!DISABLE_STADIUM_OVERLAYS){
+    const row2d = document.createElement("label");
+    row2d.style.display = "flex";
+    row2d.style.alignItems = "center";
+    row2d.style.gap = "8px";
+    row2d.style.cursor = "pointer";
+    row2d.style.userSelect = "none";
+    row2d.style.color = "var(--cyan)";
+    row2d.style.fontSize = "14px";
 
-  const cb2d = document.createElement("input");
-  cb2d.type = "checkbox";
-  cb2d.checked = !!showStadiums;
-  row2d.appendChild(cb2d);
-  row2d.appendChild(document.createTextNode("STADIUMS (2D)"));
-  wrap.appendChild(row2d);
+    cb2d = document.createElement("input");
+    cb2d.type = "checkbox";
+    cb2d.checked = !!showStadiums;
+    row2d.appendChild(cb2d);
+    row2d.appendChild(document.createTextNode("STADIUMS (2D)"));
+    wrap.appendChild(row2d);
 
-  const hint2d = document.createElement("div");
-  hint2d.style.color = "var(--green)";
-  hint2d.style.opacity = "0.9";
-  hint2d.style.fontSize = "12px";
-  hint2d.style.margin = "6px 0 10px";
-  hint2d.textContent = `Zoom ${STADIUM_MIN_ZOOM}+ to show`;
-  wrap.appendChild(hint2d);
+    const hint2d = document.createElement("div");
+    hint2d.style.color = "var(--green)";
+    hint2d.style.opacity = "0.9";
+    hint2d.style.fontSize = "12px";
+    hint2d.style.margin = "6px 0 10px";
+    hint2d.textContent = `Zoom ${STADIUM_MIN_ZOOM}+ to show`;
+    wrap.appendChild(hint2d);
 
-  const row3d = document.createElement("label");
-  row3d.style.display = "flex";
-  row3d.style.alignItems = "center";
-  row3d.style.gap = "8px";
-  row3d.style.cursor = "pointer";
-  row3d.style.userSelect = "none";
-  row3d.style.color = "var(--magenta)";
-  row3d.style.fontSize = "14px";
+    const row3d = document.createElement("label");
+    row3d.style.display = "flex";
+    row3d.style.alignItems = "center";
+    row3d.style.gap = "8px";
+    row3d.style.cursor = "pointer";
+    row3d.style.userSelect = "none";
+    row3d.style.color = "var(--magenta)";
+    row3d.style.fontSize = "14px";
 
-  const cb3d = document.createElement("input");
-  cb3d.type = "checkbox";
-  cb3d.checked = !!showStadiums3d;
-  row3d.appendChild(cb3d);
-  row3d.appendChild(document.createTextNode("STADIUMS (3D)"));
-  wrap.appendChild(row3d);
+    cb3d = document.createElement("input");
+    cb3d.type = "checkbox";
+    cb3d.checked = !!showStadiums3d;
+    row3d.appendChild(cb3d);
+    row3d.appendChild(document.createTextNode("STADIUMS (3D)"));
+    wrap.appendChild(row3d);
 
-  const hint3d = document.createElement("div");
-  hint3d.style.color = "var(--green)";
-  hint3d.style.opacity = "0.9";
-  hint3d.style.fontSize = "12px";
-  hint3d.style.marginTop = "6px";
-  hint3d.textContent = `Zoom ${STADIUM3D_MIN_ZOOM}+ to show`;
-  wrap.appendChild(hint3d);
+    const hint3d = document.createElement("div");
+    hint3d.style.color = "var(--green)";
+    hint3d.style.opacity = "0.9";
+    hint3d.style.fontSize = "12px";
+    hint3d.style.marginTop = "6px";
+    hint3d.textContent = `Zoom ${STADIUM3D_MIN_ZOOM}+ to show`;
+    wrap.appendChild(hint3d);
+  }
 
   const rowFx = document.createElement("label");
   rowFx.style.display = "flex";
@@ -2112,30 +2148,37 @@ function createStadiumSidebarPanel(){
 
   updateOverlayStatus();
 
-  const testBtn = document.createElement("button");
-  testBtn.textContent = "TEST: ZOOM TO 3D STADIUM";
-  testBtn.style.marginTop = "8px";
-  testBtn.style.width = "100%";
-  testBtn.style.background = "#000";
-  testBtn.style.color = "var(--yellow)";
-  testBtn.style.border = "1px solid var(--green)";
-  testBtn.style.padding = "6px 8px";
-  testBtn.style.cursor = "pointer";
-  testBtn.style.fontFamily = "Teletext, monospace";
-  testBtn.style.fontSize = "12px";
-  wrap.appendChild(testBtn);
+  let testBtn = null;
+  if(!DISABLE_STADIUM_OVERLAYS){
+    testBtn = document.createElement("button");
+    testBtn.textContent = "TEST: ZOOM TO 3D STADIUM";
+    testBtn.style.marginTop = "8px";
+    testBtn.style.width = "100%";
+    testBtn.style.background = "#000";
+    testBtn.style.color = "var(--yellow)";
+    testBtn.style.border = "1px solid var(--green)";
+    testBtn.style.padding = "6px 8px";
+    testBtn.style.cursor = "pointer";
+    testBtn.style.fontFamily = "Teletext, monospace";
+    testBtn.style.fontSize = "12px";
+    wrap.appendChild(testBtn);
+  }
 
-  cb2d.addEventListener("change", () => {
-    showStadiums = cb2d.checked;
-    localStorage.setItem("showStadiums", showStadiums ? "on" : "off");
-    updateStadiumVisibility();
-  });
+  if(cb2d){
+    cb2d.addEventListener("change", () => {
+      showStadiums = cb2d.checked;
+      localStorage.setItem("showStadiums", showStadiums ? "on" : "off");
+      updateStadiumVisibility();
+    });
+  }
 
-  cb3d.addEventListener("change", () => {
-    showStadiums3d = cb3d.checked;
-    localStorage.setItem("showStadiums3d", showStadiums3d ? "on" : "off");
-    if(stadium3dLayer) stadium3dLayer._requestRender?.();
-  });
+  if(cb3d){
+    cb3d.addEventListener("change", () => {
+      showStadiums3d = cb3d.checked;
+      localStorage.setItem("showStadiums3d", showStadiums3d ? "on" : "off");
+      if(stadium3dLayer) stadium3dLayer._requestRender?.();
+    });
+  }
 
   cbFx.addEventListener("change", () => {
     showFixtureTravel = cbFx.checked;
@@ -2264,30 +2307,32 @@ function createStadiumSidebarPanel(){
     updateOverlayStatus();
   });
 
-  testBtn.addEventListener("click", () => {
-    // Ensure toggles are on
-    showStadiums3d = true;
-    cb3d.checked = true;
-    localStorage.setItem("showStadiums3d", "on");
+  if(testBtn){
+    testBtn.addEventListener("click", () => {
+      // Ensure toggles are on
+      showStadiums3d = true;
+      if(cb3d) cb3d.checked = true;
+      localStorage.setItem("showStadiums3d", "on");
 
-    // Fly to the first mapped 3D club (most reliable sanity check)
-    const mappedIds = stadiums3dByClubId ? Object.keys(stadiums3dByClubId) : [];
-    if(!mappedIds.length){
-      alert("No 3D mappings found in stadiums3d.json yet.");
-      return;
-    }
+      // Fly to the first mapped 3D club (most reliable sanity check)
+      const mappedIds = stadiums3dByClubId ? Object.keys(stadiums3dByClubId) : [];
+      if(!mappedIds.length){
+        alert("No 3D mappings found in stadiums3d.json yet.");
+        return;
+      }
 
-    const clubId = mappedIds[0];
-    const club = clubs && clubs.find(c => String(c.id) === String(clubId));
-    if(!club){
-      alert(`Mapped club not found in clubs.json: ${clubId}`);
-      return;
-    }
+      const clubId = mappedIds[0];
+      const club = clubs && clubs.find(c => String(c.id) === String(clubId));
+      if(!club){
+        alert(`Mapped club not found in clubs.json: ${clubId}`);
+        return;
+      }
 
-    const targetZoom = Math.max(STADIUM3D_MIN_ZOOM + 2, map.getZoom());
-    map.flyTo([club.lat, club.lon], targetZoom, { duration: 0.8 });
-    if(stadium3dLayer) stadium3dLayer._requestRender?.();
-  });
+      const targetZoom = Math.max(STADIUM3D_MIN_ZOOM + 2, map.getZoom());
+      map.flyTo([club.lat, club.lon], targetZoom, { duration: 0.8 });
+      if(stadium3dLayer) stadium3dLayer._requestRender?.();
+    });
+  }
 
   return wrap;
 }
@@ -2791,8 +2836,70 @@ function renderFixtureInfoMarkers(){
 }
 
 async function refreshScoresAndOverlay(){
+  const prev = (liveScoresByKey instanceof Map) ? liveScoresByKey : new Map();
   const scores = await loadScores();
   ingestScores(scores);
+
+  // Establish baseline without alert spam.
+  if(!_scoresInitialized){
+    _scoresInitialized = true;
+    renderFixtureInfoMarkers();
+    renderMatchScoreboard();
+    updateOverlayStatus();
+    return;
+  }
+
+  let anyGoal = false;
+
+  for(const [key, now] of liveScoresByKey.entries()){
+    const before = prev.get(key);
+    if(!before) continue;
+
+    const bh = (typeof before.homeScore === 'number') ? before.homeScore : null;
+    const ba = (typeof before.awayScore === 'number') ? before.awayScore : null;
+    const nh = (typeof now.homeScore === 'number') ? now.homeScore : null;
+    const na = (typeof now.awayScore === 'number') ? now.awayScore : null;
+    if(bh == null || ba == null || nh == null || na == null) continue;
+
+    const dHome = nh - bh;
+    const dAway = na - ba;
+    if(dHome <= 0 && dAway <= 0) continue;
+
+    const home = _clubById.get(String(now.homeId));
+    const away = _clubById.get(String(now.awayId));
+    if(!home || !away) continue;
+
+    const minuteBit = (now.minute != null) ? ` (${now.minute}')` : (now.status ? ` (${now.status})` : "");
+    const scoreText = `${nh}-${na}`;
+
+    const emitGoal = (scoringClub) => {
+      anyGoal = true;
+      const title = `GOAL: ${scoringClub.name}! ${home.name} ${scoreText} ${away.name}${minuteBit}`;
+      const link = "#";
+
+      addRumour(scoringClub.id, {
+        title,
+        link,
+        time: new Date().toISOString(),
+        source: "Goal"
+      });
+      unreadCounts[scoringClub.id] = (unreadCounts[scoringClub.id] || 0) + 1;
+      autoOpenPathForClub(scoringClub);
+
+      // Treat like incoming news.
+      updateTicker("Goal", title, link);
+      showToast(scoringClub, title, link);
+    };
+
+    if(dHome > 0) emitGoal(home);
+    if(dAway > 0) emitGoal(away);
+  }
+
+  if(anyGoal){
+    if(!viewClubId) renderDirectory();
+    safePlay(sndNews);
+  }
+
   renderFixtureInfoMarkers();
   renderMatchScoreboard();
   updateOverlayStatus();
@@ -3573,17 +3680,22 @@ async function init(){
   clubs = await fetch("clubs.json").then(r => r.json());
   rebuildClubLookups();
 
-  // Optional: stadium renders overlay (clubId -> relative image path)
-  stadiumsByClubId = await fetch("stadiums.json")
-    .then(r => r.ok ? r.json() : {})
-    .catch(() => ({}));
+  if(!DISABLE_STADIUM_OVERLAYS){
+    // Optional: stadium renders overlay (clubId -> relative image path)
+    stadiumsByClubId = await fetch("stadiums.json")
+      .then(r => r.ok ? r.json() : {})
+      .catch(() => ({}));
 
-  loadCustomStadiums();
+    loadCustomStadiums();
 
-  // Optional: 3D stadium overlay mapping (clubId -> { url, scale, rotationDeg, yOffsetPx })
-  stadiums3dByClubId = await fetch("stadiums3d.json")
-    .then(r => r.ok ? r.json() : {})
-    .catch(() => ({}));
+    // Optional: 3D stadium overlay mapping (clubId -> { url, scale, rotationDeg, yOffsetPx })
+    stadiums3dByClubId = await fetch("stadiums3d.json")
+      .then(r => r.ok ? r.json() : {})
+      .catch(() => ({}));
+  } else {
+    stadiumsByClubId = {};
+    stadiums3dByClubId = {};
+  }
 
   // Optional: fixtures feed (drives away-team travel)
   try{
@@ -3614,19 +3726,21 @@ async function init(){
 
   renderDirectory();
   drawMap();
-  drawStadiums();
+  if(!DISABLE_STADIUM_OVERLAYS) drawStadiums();
 
   updateOverlayStatus();
 
-  if(ensureThreeAvailable()){
+  if(!DISABLE_STADIUM_OVERLAYS && ensureThreeAvailable()){
     stadium3dLayer = new ThreeStadiumLayer();
     stadium3dLayer.addTo(map);
     stadium3dLayer.setData(clubs, stadiums3dByClubId);
     map.on("zoomend", () => stadium3dLayer && stadium3dLayer._requestRender && stadium3dLayer._requestRender());
   }
 
-  addStadiumToggleControl();
-  map.on("zoomend", updateStadiumVisibility);
+  if(!DISABLE_STADIUM_OVERLAYS){
+    addStadiumToggleControl();
+    map.on("zoomend", updateStadiumVisibility);
+  }
   map.on("zoomend", updateOverlayStatus);
   map.on("zoomend", ensureFixtureTravelLayer);
   map.on("zoomend", () => {
