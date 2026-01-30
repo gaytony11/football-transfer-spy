@@ -454,7 +454,7 @@ function drawMap(){
     clubMarkers.set(c.id, marker);
 
     marker.on("click", () => {
-      map.flyTo([c.lat, c.lon], 9, { duration: 0.6 });
+      map.flyTo([c.lat, c.lon], map.getZoom(), { duration: 0.6 });
       showClub(c, true);
     });
 
@@ -682,10 +682,19 @@ sidebar.appendChild(refreshToggle);
           row.appendChild(count);
         }
 
-        row.addEventListener("click", (e) => {
-          e.stopPropagation();
-          showClub(club, true);
-        });
+row.addEventListener("click", (e) => {
+  e.stopPropagation();
+  showClub(club, true);
+
+  const marker = clubMarkers.get(club.id);
+  if (marker) {
+    const latlng = marker.getLatLng();
+    map.flyTo(latlng, map.getZoom(), { duration: 0.6 });
+
+
+  }
+});
+
 
         clubsDiv.appendChild(row);
       });
