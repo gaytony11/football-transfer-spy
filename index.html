@@ -819,13 +819,18 @@ async function pollTick(){
 async function init(){
   clubs = await fetch("clubs.json").then(r => r.json());
 
-  // initial open: keep tidy (closed). You can open by clicking.
-  openCountries = new Set();
-  openLeagues = new Set();
+  // Restore saved open/closed state
+  const savedCountries = localStorage.getItem("openCountries");
+  const savedLeagues = localStorage.getItem("openLeagues");
+  if (savedCountries) openCountries = new Set(JSON.parse(savedCountries));
+  else openCountries = new Set();
+
+  if (savedLeagues) openLeagues = new Set(JSON.parse(savedLeagues));
+  else openLeagues = new Set();
+
   userClosedCountries = new Set();
   userClosedLeagues = new Set();
 
-  // seed structures
   for(const c of clubs){
     rumoursByClub.set(c.id, []);
     unreadCounts[c.id] = 0;
@@ -833,11 +838,10 @@ async function init(){
 
   renderDirectory();
   drawMap();
-
-  // start
   await pollTick();
   setInterval(pollTick, POLL_EVERY_MS);
 }
+
 
 init();
 </script>
