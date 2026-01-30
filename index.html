@@ -51,6 +51,13 @@
   }
 
   /* ===== DIRECTORY ===== */
+  .country-header:hover,
+.league-header:hover {
+  color: var(--white);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
   .country-header,
   .league-header {
     cursor: pointer;
@@ -311,6 +318,17 @@
   filter: drop-shadow(0 0 4px red);
   z-index: 1000;
 }
+/* Custom scrollbar for sidebar */
+#sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+#sidebar::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 4px;
+}
+#sidebar::-webkit-scrollbar-track {
+  background: var(--bg);
+}
 
 
 </style>
@@ -548,6 +566,31 @@ function safePlay(audioEl) {
     audioEl.currentTime = 0;
     audioEl.play().catch(() => {});
   } catch {}
+}
+function showToast(club, title, link) {
+  const toast = document.createElement("div");
+  toast.style.padding = "10px 14px";
+  toast.style.background = "#111";
+  toast.style.color = "var(--yellow)";
+  toast.style.border = "1px solid var(--green)";
+  toast.style.fontSize = "15px";
+  toast.style.cursor = "pointer";
+  toast.style.maxWidth = "300px";
+  toast.style.boxShadow = "0 0 6px rgba(0,255,0,0.4)";
+  toast.textContent = `${club.name}: ${title}`;
+  toast.onclick = () => {
+    showClub(club, true);
+    map.flyTo([club.lat, club.lon], 13, { duration: 0.6 });
+  };
+
+  const container = document.getElementById("toast-container");
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.transition = "opacity 0.5s";
+    toast.style.opacity = "0";
+    setTimeout(() => toast.remove(), 500);
+  }, 4000);
 }
 
 
@@ -1039,6 +1082,7 @@ if (autoRefresh && autoRefresh !== "on") return;
 
         // update ticker (clickable)
         updateTicker(label, cleanTitle, link);
+        showToast(club, cleanTitle, link);
 
         anyNew = true;
 
