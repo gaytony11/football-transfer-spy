@@ -545,6 +545,20 @@ function renderDirectory(){
 
   const tree = buildTree();
   sidebar.innerHTML = "";
+  const searchBox = document.createElement("input");
+  searchBox.type = "text";
+  searchBox.placeholder = "Search clubs…";
+  searchBox.style.width = "100%";
+  searchBox.style.marginBottom = "8px";
+  searchBox.style.padding = "6px";
+  searchBox.style.fontFamily = "inherit";
+  searchBox.style.background = "black";
+  searchBox.style.color = "var(--green)";
+  searchBox.style.border = "1px solid var(--green)";
+  searchBox.style.outline = "none";
+
+sidebar.appendChild(searchBox);
+
   sidebar.scrollTop = 0;
 
   const preferredCountries = ["England","Scotland","Wales","Northern Ireland","Republic of Ireland"];
@@ -664,6 +678,16 @@ function renderDirectory(){
   });
 
   sidebar.insertAdjacentHTML("beforeend", `<div class="hint">TIP: Click a club to view latest items. Unread clubs blink red.</div>`);
+  // Filter clubs on input
+searchBox.addEventListener("input", () => {
+  const filter = searchBox.value.trim().toLowerCase();
+  document.querySelectorAll(".club").forEach(clubEl => {
+    const label = clubEl.querySelector("span:nth-child(2)");
+    const name = label?.textContent.toLowerCase() || "";
+    clubEl.style.display = name.includes(filter) ? "" : "none";
+  });
+});
+
   localStorage.setItem("openCountries", JSON.stringify([...openCountries]));
   localStorage.setItem("openLeagues", JSON.stringify([...openLeagues]));
 
